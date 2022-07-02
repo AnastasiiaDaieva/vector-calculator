@@ -169,7 +169,7 @@
                     </svg>
                     <a
                       href="tel:+1234567890"
-                      class="btn btn-tertiary font-weight-semibold text-3 px-4 custom-height-1 rounded-0 align-items-center d-none d-md-flex"
+                      class="btn btn-tertiary font-weight-semibold text-3 px-4 custom-height-1 rounded-0 align-items-center d-md-flex"
                     >
                       Войти
                     </a>
@@ -1298,7 +1298,6 @@
                     <!-- </div>-->
                   </div>
                   <div class="calculator-form_row mb-2">
-                    <!-- <div class="form-group col-md-6 pe-md-2"> -->
                     <input
                       type="number"
                       class="form-control mr-2"
@@ -1308,28 +1307,29 @@
                        data-msg-required="Укажите вес."
                       required
                     />
-                    <!-- </div>
-                    <div class="form-group col-md-6 pe-md-2"> -->
-                    <input
+                    <div class="radio-container"> 
+                      <label class="calculator-label" for="lb-radio">LB</label>
+                      <input
                       type="radio"
-                      class="form-control mr-2"
+                      id="lb-radio"
+                      class="form-control mr-2 calculator-radio"
                       name="weightUnit"
                       value="lb"
-                      placeholder="LB"
-                    />
-                    <!-- </div> -->
-                    <!-- <div class="form-group col-md-6 pe-md-2"> -->
-                    <input
+                      checked/>
+                  
+                    </div>
+                    <div class="radio-container"> 
+                      <label class="calculator-label" for="kg-radio">KG</label>
+                      <input
                       type="radio"
-                      class="form-control"
+                      id="kg-radio"
+                      class="form-control calculator-radio"
                       name="weightUnit"
-                      value="kg"
-                      placeholder="KG"
-                    />
-                    <!-- </div>-->
+                      value="kg"/>
+                    
+                    </div>
                   </div>
                   <div class="calculator-form_row mb-4">
-                    <!--<div class="form-group col-md-6 pe-md-2"> -->
                     <input
                       type="number"
                       class="form-control mr-2"
@@ -1339,8 +1339,7 @@
                       data-msg-required="Укажите длину."
                       required
                     />
-                    <!-- </div>
-                    <div class="form-group col-md-6 pe-md-2"> -->
+                 
                     <input
                       type="number"
                       class="form-control mr-2"
@@ -1350,8 +1349,7 @@
                       data-msg-required="Укажите ширину."
                       required
                     />
-                    <!-- </div>
-                    <div class="form-group col-md-6 pe-md-2"> -->
+     
                     <input
                       type="number"
                       class="form-control mr-2"
@@ -1361,26 +1359,27 @@
                       data-msg-required="Укажите высоту."
                       required
                     />
-                    <!-- </div>
-                    <div class="form-group col-md-6 pe-md-2"> -->
+                    <div class="radio-container"> 
+                      <label class="calculator-label" for="in-radio">IN</label>
+                      <input
+                      type="radio"
+                      id="in-radio"
+                      checked
+                      class="form-control mr-2 calculator-radio"
+                      name="measurementUnit"
+                      value="in"/>
+                    
+                  </div>
+                    <div class="radio-container"> 
+                    <label class="calculator-label" for="cm-radio">CM</label>
                     <input
                       type="radio"
-                      class="form-control mr-2"
+                      id="cm-radio"
+                      class="form-control calculator-radio"
                       name="measurementUnit"
-                      value="in"
-                      
-                    />
-                    <!-- </div>
-                    <div class="form-group col-md-6 pe-md-2"> -->
-                    <input
-                      type="radio"
-                      class="form-control"
-                      name="measurementUnit"
-                      value="cm"
-                      
-                      
-                    />
-                    <!-- </div> -->
+                      value="cm"/>
+                    
+                    </div>
                   </div>
                   <div class="calculator-form_controllers">
                     <button

@@ -2236,13 +2236,13 @@ html .btn-with-arrow-solid.btn-light span {
 }
 
 .btn-gradient:not(.btn-outline) {
-	background: linear-gradient(135deg, #e23c8e 0%, #a33188 80%) !important;
+	background: linear-gradient(135deg, #e23c8e 0%, #a33188 80%) ;
 	color: #FFF;
 }
 
 .btn-gradient:not(.btn-outline):hover,
 .btn-gradient:not(.btn-outline).hover {
-	background: linear-gradient(135deg, #e75da1 0%, #c03aa1 80%) !important;
+	background: linear-gradient(135deg, #e75da1 0%, #c03aa1 80%);
 	color: #FFF;
 }
 
@@ -2253,13 +2253,13 @@ html .btn-with-arrow-solid.btn-light span {
 
 .btn-gradient:not(.btn-outline).disabled,
 .btn-gradient:not(.btn-outline):disabled {
-	background: linear-gradient(135deg, #e23c8e 0%, #a33188 80%) !important;
+	background: linear-gradient(135deg, #e23c8e 0%, #a33188 80%) ;
 }
 
 .btn-gradient:not(.btn-outline):active,
 .btn-gradient:not(.btn-outline).active {
-	background: linear-gradient(135deg, #d8207b 0%, #86286f 80%) !important;
-	color: #FFF !important;
+	background: linear-gradient(135deg, #d8207b 0%, #86286f 80%) ;
+	color: #FFF ;
 }
 
 .btn-gradient.btn-outline {
