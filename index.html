@@ -1273,15 +1273,15 @@
                 >
                   <div class="calculator-form_row mb-2">
                     <!-- <div class="form-group col-md-6 pe-md-2"> -->
-                    <input
-                      type="select"
-                      class="form-control"
+                    <select
+                      class="form-select form-control calculator-select"
                       name="country"
+                      id="countries-select"
+                      placeholder="Страна"
                       value=""
-                      placeholder="Shipping Country"
-                      data-msg-required="Please enter your website URL."
+                      data-msg-required="Выберите страну."
                       required
-                    />
+                    > <option value="">Выберите страну</option> </select>
                     <!-- </div>-->
                   </div>
                   <div class="calculator-form_row mb-3">
@@ -1305,6 +1305,7 @@
                       name="weight"
                       value=""
                       placeholder="Вес посылки"
+                       data-msg-required="Укажите вес."
                       required
                     />
                     <!-- </div>
@@ -1312,8 +1313,8 @@
                     <input
                       type="radio"
                       class="form-control mr-2"
-                      name="lb"
-                      value=""
+                      name="weightUnit"
+                      value="lb"
                       placeholder="LB"
                     />
                     <!-- </div> -->
@@ -1321,8 +1322,8 @@
                     <input
                       type="radio"
                       class="form-control"
-                      name="kg"
-                      value=""
+                      name="weightUnit"
+                      value="kg"
                       placeholder="KG"
                     />
                     <!-- </div>-->
@@ -1357,7 +1358,7 @@
                       name="height"
                       value=""
                       placeholder="Высота"
-                      data-msg-required="Please enter your website URL."
+                      data-msg-required="Укажите высоту."
                       required
                     />
                     <!-- </div>
@@ -1365,22 +1366,19 @@
                     <input
                       type="radio"
                       class="form-control mr-2"
-                      name="in"
-                      value="IN"
-                      placeholder="IN"
+                      name="measurementUnit"
+                      value="in"
                       
-                      required
                     />
                     <!-- </div>
                     <div class="form-group col-md-6 pe-md-2"> -->
                     <input
                       type="radio"
                       class="form-control"
-                      name="cm"
-                      value=""
-                      placeholder="CM"
+                      name="measurementUnit"
+                      value="cm"
                       
-                      required
+                      
                     />
                     <!-- </div> -->
                   </div>
@@ -2354,7 +2352,7 @@
     <script src="js/demos/demo-seo-2.js"></script>
 
     <!-- Theme Custom -->
-    <script src="js/custom.js"></script>
+    <script src="js/custom.js" type="module"></script>
 
     <!-- Theme Initialization Files -->
     <script src="js/theme.init.js"></script>

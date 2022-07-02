@@ -1,4 +1,7 @@
-const form = document.querySelector("#js-form");
+import refs from "./refs.js";
+
+const { form, select } = refs;
+
 console.log(form);
 form.addEventListener("submit", handleSubmit);
 
@@ -23,6 +26,20 @@ function fetchCountries() {
     .catch((err) => console.error(err));
 }
 
-fetchCountries().then((data) => {
-  console.log(data);
+async function createList() {
+  const countries = await fetchCountries();
+  console.log(countries);
+
+  for (const country of countries) {
+    const option = document.createElement("option");
+    option.value = country.cca2;
+    option.innerText = country.translations.rus.common;
+    select.appendChild(option);
+  }
+}
+
+createList();
+select.addEventListener("change", function () {
+  select.value = this.value;
+  console.log("You selected: ", select.value);
 });

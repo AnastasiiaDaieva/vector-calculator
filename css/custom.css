@@ -22,7 +22,7 @@ all: unset;
      display: flex;
      justify-content: center;
      color: #ffffff;
-     padding: 0 60px;
+     padding: 0 50px;
  }
  .calculator > *{
     flex-basis: 100%;
@@ -63,6 +63,16 @@ all: unset;
 } 
 
 .calculator-reset{background-color: aqua;}
+
+.calculator-select::after{
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+
+        border-top: 20px solid #f00;
+    }
+
 
 .footer-contacts{color:#ffffff}
  
