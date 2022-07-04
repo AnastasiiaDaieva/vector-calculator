@@ -462,80 +462,80 @@ html .bg-color-hover-before-primary:before:hover {
 
 html .bg-color-secondary,
 html .bg-secondary {
-	background-color: #a33188 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-secondary:hover,
 html .bg-hover-secondary:hover {
-	background-color: #a33188 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-after-secondary:after {
-	background-color: #a33188 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-after-secondary:after:hover {
-	background-color: #a33188 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-before-secondary:before {
-	background-color: #a33188 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-before-secondary:before:hover {
-	background-color: #a33188 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-tertiary,
 html .bg-tertiary {
-	background-color: #4046b3 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-tertiary:hover,
 html .bg-hover-tertiary:hover {
-	background-color: #4046b3 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-after-tertiary:after {
-	background-color: #4046b3 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-after-tertiary:after:hover {
-	background-color: #4046b3 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-before-tertiary:before {
-	background-color: #4046b3 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-before-tertiary:before:hover {
-	background-color: #4046b3 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-quaternary,
 html .bg-quaternary {
-	background-color: #171940 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-quaternary:hover,
 html .bg-hover-quaternary:hover {
-	background-color: #171940 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-after-quaternary:after {
-	background-color: #171940 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-after-quaternary:after:hover {
-	background-color: #171940 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-before-quaternary:before {
-	background-color: #171940 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-hover-before-quaternary:before:hover {
-	background-color: #171940 !important;
+	background-color: var(--brand-color) !important;
 }
 
 html .bg-color-dark,
@@ -2236,13 +2236,13 @@ html .btn-with-arrow-solid.btn-light span {
 }
 
 .btn-gradient:not(.btn-outline) {
-	background: linear-gradient(135deg, #e23c8e 0%, #a33188 80%) ;
+background-color: var(--brand-color);
 	color: #FFF;
 }
 
 .btn-gradient:not(.btn-outline):hover,
 .btn-gradient:not(.btn-outline).hover {
-	background: linear-gradient(135deg, #e75da1 0%, #c03aa1 80%);
+	background-color: var(--brand-color);
 	color: #FFF;
 }
 

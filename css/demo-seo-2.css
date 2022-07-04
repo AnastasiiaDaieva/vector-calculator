@@ -149,6 +149,7 @@ body {
 
 .custom-section-curved-top-5 {
   position: absolute;
+  z-index: -1;
   top: -236px;
   left: -60px;
   width: 115%;
@@ -156,6 +157,7 @@ body {
 
 .custom-section-curved-top-6 {
   position: absolute;
+  z-index: -1;
   top: -560px;
   left: 0;
   -webkit-transform: rotateY(180deg);

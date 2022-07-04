@@ -1300,7 +1300,7 @@ pre {
 }
 
 #header.header-effect-shrink .header-container {
-  min-height: 100px;
+  height: 100px;
 }
 
 #header.header-effect-shrink .header-logo {

@@ -3,7 +3,7 @@
 */
 body {
 		font-family: "Poppins", sans-serif;
-		color: #250625;
+		color: var(--brand-color);
 }
 
 
