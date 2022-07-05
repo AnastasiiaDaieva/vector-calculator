@@ -15,9 +15,12 @@ function handleSubmit(e) {
   console.log({ request });
 }
 
-const BASE_URL = "https://restcountries.com/v3.1";
+const BASE_URL = "https://logistic.ndv.net.ua/api";
 function fetchCountries() {
-  return fetch(`${BASE_URL}/all`)
+  const options = {
+    headers: new Headers({ "content-type": "application/json", owner: "5" }),
+  };
+  return fetch(`${BASE_URL}/public/directions`, options)
     .then((response) => {
       if (response.ok) {
         console.log(response);
@@ -33,8 +36,8 @@ async function createList() {
 
   for (const country of countries) {
     const option = document.createElement("option");
-    option.value = country.cca2;
-    option.innerText = country.translations.rus.common;
+    option.value = country.countryTo;
+    option.innerText = country.countryTo;
     select.appendChild(option);
   }
 }
