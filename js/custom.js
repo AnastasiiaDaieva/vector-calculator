@@ -20,6 +20,7 @@ function fetchCountries() {
   return fetch(`${BASE_URL}/all`)
     .then((response) => {
       if (response.ok) {
+        console.log(response);
         return response.json();
       }
     })
@@ -43,3 +44,16 @@ select.addEventListener("change", function () {
   select.value = this.value;
   console.log("You selected: ", select.value);
 });
+
+const dropdownList = document.querySelector(".languages-dropdown");
+const currentLanguage = document.querySelector(".current-language");
+
+currentLanguage.addEventListener("mouseover", showDropdown);
+currentLanguage.addEventListener("blur", hideDropdown);
+
+function showDropdown() {
+  dropdownList.classList.add("show");
+}
+function hideDropdown() {
+  dropdownList.classList.remove("show");
+}

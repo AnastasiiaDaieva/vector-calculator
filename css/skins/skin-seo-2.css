@@ -1011,49 +1011,49 @@ html .nav-pills-light > li.active > a:focus {
 }
 
 .nav-link {
-	color: #e23c8e;
+	color: var(--brand-color);
 }
 
 .nav-link:hover {
-	color: #e5529b;
+	color: rgb(119, 119, 119);
 }
 
 .nav-link:focus {
-	color: #e5529b;
+	color: rgb(119, 119, 119);
 }
 
 .nav-link:active {
-	color: #df2681;
+	color: rgb(119, 119, 119);
 }
 
 .section-scroll-dots-navigation-colored > ul > li.active > a:before {
-	background: #e23c8e;
+	background: rgb(119, 119, 119);
 }
 
 .sort-source-wrapper .nav > li.active > a {
-	color: #e23c8e;
+	color: rgb(119, 119, 119);
 }
 
 .sort-source-wrapper .nav > li.active > a:hover,
 .sort-source-wrapper .nav > li.active > a:focus {
-	color: #e23c8e;
+	color: rgb(119, 119, 119);
 }
 
 .sort-source.sort-source-style-2 > li.active > a:after {
-	border-top-color: #e23c8e;
+	border-top-color: rgb(119, 119, 119);
 }
 
 .sort-source.sort-source-style-3 > li.active > a {
-	border-bottom-color: #e23c8e !important;
-	color: #e23c8e !important;
+	border-bottom-color: rgb(119, 119, 119) !important;
+	color: rgb(119, 119, 119) !important;
 }
 
 html .badge-primary {
-	background-color: #e23c8e;
+	background-color: rgb(119, 119, 119);
 }
 
 html .badge-secondary {
-	background-color: #a33188;
+	background-color: rgb(119, 119, 119);
 }
 
 html .badge-tertiary {
@@ -1073,7 +1073,7 @@ html .badge-light {
 }
 
 html .overlay-color-primary:not(.no-skin):before {
-	background-color: #e23c8e !important;
+	background-color: rgb(119, 119, 119) !important;
 }
 
 html .overlay-color-secondary:not(.no-skin):before {
@@ -1369,7 +1369,7 @@ html .btn-tertiary.hover {
 
 html .btn-tertiary:hover:not(.bg-transparent),
 html .btn-tertiary.hover:not(.bg-transparent) {
-	background-color: #565cc3;
+	background-color: #fff;
 }
 
 html .btn-tertiary:focus,
@@ -2242,8 +2242,8 @@ background-color: var(--brand-color);
 
 .btn-gradient:not(.btn-outline):hover,
 .btn-gradient:not(.btn-outline).hover {
-	background-color: var(--brand-color);
-	color: #FFF;
+	background-color: #FFF;
+	color: var(--brand-color);
 }
 
 .btn-gradient:not(.btn-outline):focus,
@@ -3129,15 +3129,15 @@ html .page-header-color.page-header-light .breadcrumb > .active {
 
 html .toggle-primary .toggle label,
 html .toggle-primary .toggle .toggle-title {
-	color: #e23c8e;
-	border-left-color: #e23c8e;
-	border-right-color: #e23c8e;
+	color: var(--brand-color);
+	border-left-color: var(--brand-color);
+	border-right-color: var(--brand-color);
 }
 
 html .toggle-primary .toggle.active > label,
 html .toggle-primary .toggle.active > .toggle-title {
-	background-color: #e23c8e;
-	border-color: #e23c8e;
+	background-color: var(--brand-color);
+	border-color: var(--brand-color);
 	color: #FFF;
 }
 
