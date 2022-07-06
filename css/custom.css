@@ -175,6 +175,20 @@ box-shadow: rgba(217, 217, 217, 0.782) 0px 0px 2px 1px;
 .footer-heading {
   margin-bottom: 30px;
 }
+.table-container {
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+
+}
+.calculator-table{
+  display: none;color: #fff;width: 100%;
+}
+
+.show-table{
+  display: block;
+  
+}
 
 .footer-phone {
   font-size: 24px;
