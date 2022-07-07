@@ -19,13 +19,13 @@ website:	 	http://www.themepunch.com
 
 .tp-caption.Twitter-Content a,.tp-caption.Twitter-Content a:visited
 {
-	color:#0084B4!important;
+	color:#0084B4;
 }
 
 .tp-caption.Twitter-Content a:hover
 {
-	color:#0084B4!important;
-	text-decoration:underline!important;
+	color:#0084B4;
+	text-decoration:underline;
 }
 
 .tp-caption.medium_grey,.medium_grey
@@ -354,7 +354,7 @@ website:	 	http://www.themepunch.com
 	padding:1px 4px 0;
 	text-decoration:none;
 	text-shadow:none;
-	white-space:normal!important;
+	white-space:normal;
 	width:150px;
 }
 
@@ -3084,7 +3084,7 @@ website:	 	http://www.themepunch.com
 	.revtp-searchform input[type="text"],
 	.revtp-searchform input[type="email"],
 	.revtp-form input[type="text"],
-	.revtp-form input[type="email"] { width: 200px !important; }
+	.revtp-form input[type="email"] { width: 200px ; }
 }
 
 .revtp-searchform input[type="submit"],
@@ -3106,11 +3106,11 @@ website:	 	http://www.themepunch.com
 
 .tp-caption.Twitter-Content a,
 		.tp-caption.Twitter-Content a:visited {
-				color: #0084B4 !important
+				color: #0084B4 
 		}
 		.tp-caption.Twitter-Content a:hover {
-				color: #0084B4 !important;
-				text-decoration: underline !important
+				color: #0084B4 ;
+				text-decoration: underline 
 		}
 		.tp-caption.Concept-Title,
 		.Concept-Title {
@@ -3323,30 +3323,30 @@ website:	 	http://www.themepunch.com
 		}
 		.tp-caption.Concept-Content a,
 		.tp-caption.Concept-Content a:visited {
-				color: #fff !important;
-				border-bottom: 1px solid #fff !important;
-				font-weight: 700 !important;
+				color: #fff ;
+				border-bottom: 1px solid #fff ;
+				font-weight: 700 ;
 		}
 		.tp-caption.Concept-Content a:hover {
-				border-bottom: 1px solid transparent !important;
+				border-bottom: 1px solid transparent ;
 		}
 		.tp-caption.Concept-Content-Dark a,
 		.tp-caption.Concept-Content-Dark a:visited {
-				color: #000 !important;
-				border-bottom: 1px solid #000 !important;
-				font-weight: 700 !important;
+				color: #000 ;
+				border-bottom: 1px solid #000 ;
+				font-weight: 700 ;
 		}
 		.tp-caption.Concept-Content-Dark a:hover {
-				border-bottom: 1px solid transparent !important;
+				border-bottom: 1px solid transparent ;
 		}
 
 		.tp-caption.Twitter-Content a,
 		.tp-caption.Twitter-Content a:visited {
-				color: #0084B4 !important
+				color: #0084B4 
 		}
 		.tp-caption.Twitter-Content a:hover {
-				color: #0084B4 !important;
-				text-decoration: underline !important
+				color: #0084B4 ;
+				text-decoration: underline 
 		}
 		.tp-caption.Creative-Title,
 		.Creative-Title {
@@ -4247,7 +4247,7 @@ tp-caption.Team-Thumb,
  }
 
 .soundcloudwrapper iframe {
-		width: 100% !important
+		width: 100% 
 }
 .tp-caption.SleekLanding-Title,
 .SleekLanding-Title {
@@ -4352,10 +4352,10 @@ tp-caption.Team-Thumb,
 		cursor: pointer
 }
 #rev_slider_429_1_wrapper .tp-loader.spinner2 {
-		background-color: #555555 !important;
+		background-color: #555555 ;
 }
 .tp-fat {
-		font-weight: 900 !important;
+		font-weight: 900 ;
 }
 
 .tp-caption.PostSlider-Category,
@@ -4510,12 +4510,12 @@ tp-caption.Team-Thumb,
 }
 .tp-caption.App-Content a,
 .tp-caption.App-Content a:visited {
-		color: #89124e !important;
-		border-bottom: 1px solid transparent !important;
-		font-weight: bold !important;
+		color: #89124e ;
+		border-bottom: 1px solid transparent ;
+		font-weight: bold ;
 }
 .tp-caption.App-Content a:hover {
-		border-bottom: 1px solid #89124e !important;
+		border-bottom: 1px solid #89124e ;
 }
 .tp-caption.RockBand-LogoText,
 .RockBand-LogoText {
@@ -4537,15 +4537,15 @@ tp-caption.Team-Thumb,
 }
 .tp-caption.Twitter-Content a,
 .tp-caption.Twitter-Content a:visited {
-		color: #fff !important;
-		text-decoration: underline !important;
+		color: #fff ;
+		text-decoration: underline ;
 }
 .tp-caption.Twitter-Content a:hover {
-		color: #fff !important;
-		text-decoration: none !important;
+		color: #fff ;
+		text-decoration: none ;
 }
 .soundcloudwrapper iframe {
-		width: 100% !important
+		width: 100% 
 }
 
 .tp-caption.Agency-LogoText,
@@ -4744,7 +4744,7 @@ tp-caption.Team-Thumb,
 		border-radius: 0 0 0 0px;
 		text-align: center;
 		letter-spacing: 2px;
-		border-bottom: 1px solid #f87c09 !important
+		border-bottom: 1px solid #f87c09 
 }
 .tp-caption.Agency-SmallLink:hover,
 .Agency-SmallLink:hover {
@@ -4804,7 +4804,7 @@ tp-caption.Team-Thumb,
 		border-radius: 0 0 0 0px;
 		text-align: center;
 		letter-spacing: 2px;
-		border-bottom: 1px solid #6db19b !important
+		border-bottom: 1px solid #6db19b 
 }
 .tp-caption.Agency-SmallLinkGreen:hover,
 .Agency-SmallLinkGreen:hover {
@@ -4835,7 +4835,7 @@ tp-caption.Team-Thumb,
 		border-radius: 0 0 0 0px;
 		text-align: center;
 		letter-spacing: 2px;
-		border-bottom: 1px solid #999 !important
+		border-bottom: 1px solid #999 
 }
 .tp-caption.Agency-SmallLinkBlue:hover,
 .Agency-SmallLinkBlue:hover {
@@ -4916,11 +4916,11 @@ tp-caption.Team-Thumb,
 }
 .tp-caption.Twitter-Content a,
 .tp-caption.Twitter-Content a:visited {
-		color: #0084B4 !important
+		color: #0084B4 
 }
 .tp-caption.Twitter-Content a:hover {
-		color: #0084B4 !important;
-		text-decoration: underline !important
+		color: #0084B4 ;
+		text-decoration: underline 
 }
 .tp-caption.CreativeFrontPage-Btn,
 .CreativeFrontPage-Btn {
@@ -4970,15 +4970,15 @@ tp-caption.Team-Thumb,
 		letter-spacing: 2px
 }
 .tp-flip-index {
-		z-index: 1000 !important;
+		z-index: 1000 ;
 }
 .tp-caption.Twitter-Content a,
 .tp-caption.Twitter-Content a:visited {
-		color: #0084B4 !important
+		color: #0084B4 
 }
 .tp-caption.Twitter-Content a:hover {
-		color: #0084B4 !important;
-		text-decoration: underline !important
+		color: #0084B4 ;
+		text-decoration: underline 
 }
 .tp-caption.FullScreenMenu-Category,
 .FullScreenMenu-Category {
@@ -5017,11 +5017,11 @@ tp-caption.Team-Thumb,
 }
 .tp-caption.Twitter-Content a,
 .tp-caption.Twitter-Content a:visited {
-		color: #0084B4 !important
+		color: #0084B4 
 }
 .tp-caption.Twitter-Content a:hover {
-		color: #0084B4 !important;
-		text-decoration: underline !important
+		color: #0084B4 ;
+		text-decoration: underline 
 }
 .tp-caption.TechJournal-Button,
 .TechJournal-Button {
@@ -5083,15 +5083,15 @@ tp-caption.Team-Thumb,
 
 .tp-caption.Twitter-Content a,
 		.tp-caption.Twitter-Content a:visited {
-				color: #0084B4 !important
+				color: #0084B4 
 		}
 		.tp-caption.Twitter-Content a:hover {
-				color: #0084B4 !important;
-				text-decoration: underline !important
+				color: #0084B4 ;
+				text-decoration: underline 
 		}
 		#menu_forcefullwidth {
 				z-index: 5000;
-				position: fixed !important;
+				position: fixed ;
 				top: 0px;
 				left: 0px;
 				width: 100%
@@ -5617,7 +5617,7 @@ tp-caption.Team-Thumb,
 				cursor: pointer
 		}
 		.fb-share-button.fb_iframe_widget iframe {
-				width: 115px!important;
+				width: 115px;
 		}
 		#tp-socialwrapper {
 				opacity: 0;
@@ -5625,15 +5625,15 @@ tp-caption.Team-Thumb,
 
 				.tp-caption.Twitter-Content a,
 		.tp-caption.Twitter-Content a:visited {
-				color: #0084B4 !important
+				color: #0084B4 
 		}
 		.tp-caption.Twitter-Content a:hover {
-				color: #0084B4 !important;
-				text-decoration: underline !important
+				color: #0084B4 ;
+				text-decoration: underline 
 		}
 		#menu_forcefullwidth {
 				z-index: 5000;
-				position: fixed !important;
+				position: fixed ;
 				top: 0px;
 				left: 0px;
 				width: 100%
@@ -5656,7 +5656,7 @@ tp-caption.Team-Thumb,
 				font-size: 16px;
 				font-weight: 400;
 				background-color: #fff;
-				color: #888 !important;
+				color: #888 ;
 				line-height: 46px;
 				padding: 0 20px;
 				cursor: text;
@@ -5673,13 +5673,13 @@ tp-caption.Team-Thumb,
 				border-radius: 3px;
 		}
 		#mc_embed_signup input[type="email"]::-webkit-input-placeholder {
-				color: #888 !important;
+				color: #888 ;
 		}
 		#mc_embed_signup input[type="email"]::-moz-placeholder {
-				color: #888 !important;
+				color: #888 ;
 		}
 		#mc_embed_signup input[type="email"]:-ms-input-placeholder {
-				color: #888 !important;
+				color: #888 ;
 		}
 		#mc_embed_signup input[type="email"]:focus {
 				background-color: #f5f5f5;
@@ -5776,7 +5776,7 @@ tp-caption.Team-Thumb,
 				cursor: pointer
 		}
 		.fb-share-button.fb_iframe_widget iframe {
-				width: 115px!important;
+				width: 115px;
 		}
 		iframe.twitter-share-button {
 				display: none;

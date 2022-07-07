@@ -8,7 +8,7 @@
 .tp-revslider-slidesli[data-liquideffect] .tp-bgimg,
 .tp-revslider-slidesli[data-liquideffect] .slot {
 	
-	display: none !important;
+	display: none ;
 	
 }
 
@@ -22,13 +22,13 @@
 .tp-revslider-slidesli.liquid-force-visible,
 .tp-revslider-slidesli.liquid-force-visible .slotholder {
 	
-	visibility: visible !important;
-	opacity: 1 !important;
+	visibility: visible ;
+	opacity: 1 ;
 	
 }
 
 .tp-revslider-slidesli.liquid-force-visible {
 	
-	z-index: 99 !important;
+	z-index: 99 ;
 	
 }

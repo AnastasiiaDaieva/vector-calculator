@@ -47,13 +47,13 @@ website:	 	http://www.themepunch.com
 }
 
 .rs-go-fullscreen {
-	position:fixed !important;
-	width:100% !important;
-	height:100% !important;
-	top:0px !important;
-	left:0px !important;
-	z-index:9999999 !important;
-	background:#ffffff !important;
+	position:fixed ;
+	width:100% ;
+	height:100% ;
+	top:0px ;
+	left:0px ;
+	z-index:9999999 ;
+	background:#ffffff ;
 }
 
 
@@ -182,12 +182,12 @@ website:	 	http://www.themepunch.com
 .entry-content .rev_slider a,
 .rev_slider a { box-shadow: none; }
 
-.tp-overflow-hidden { 	overflow:hidden !important;}
+.tp-overflow-hidden { 	overflow:hidden ;}
 .group_ov_hidden 	{	overflow:hidden}
 
 .tp-simpleresponsive img,
 .rev_slider img{
-	max-width:none !important;	
+	max-width:none ;	
 	transition: none;
 	margin:0px;
 	padding:0px;
@@ -211,13 +211,13 @@ website:	 	http://www.themepunch.com
 .tp-simpleresponsive >ul >li:before,
 .tp-revslider-mainul >li,
 .tp-simpleresponsive >ul >li{
-	list-style:none !important;
+	list-style:none ;
 	position:absolute;	
-	margin:0px !important;
-	padding:0px !important;
+	margin:0px ;
+	padding:0px ;
 	overflow-x: visible;
 	overflow-y: visible;
-	list-style-type: none !important;
+	list-style-type: none ;
 	background-image:none;
 	background-position:0px 0px;
 	text-indent: 0em;
@@ -238,13 +238,13 @@ website:	 	http://www.themepunch.com
 
 .tp-revslider-slidesli,
 .tp-revslider-mainul	{	
-	padding:0 !important; 
-	margin:0 !important; 
-	list-style:none !important;
+	padding:0 ; 
+	margin:0 ; 
+	list-style:none ;
 }
 
 .rev_slider li.tp-revslider-slidesli {
-		position: absolute !important;
+		position: absolute ;
 }
 
 
@@ -260,7 +260,7 @@ website:	 	http://www.themepunch.com
 	visibility:hidden; 
 	white-space: nowrap;
 	display: block;	
-	-webkit-font-smoothing: antialiased !important;
+	-webkit-font-smoothing: antialiased ;
 	z-index:1;
 }
 
@@ -295,7 +295,7 @@ website:	 	http://www.themepunch.com
 /* ADDED FOR SLIDELINK MANAGEMENT */
 .tp_inner_padding {	
 	box-sizing:border-box;	
-	max-height:none !important;	
+	max-height:none ;	
 }
 
 
@@ -310,8 +310,8 @@ website:	 	http://www.themepunch.com
 .tp-hide-revslider,
 .tp-caption.tp-hidden-caption,
 .tp-parallax-wrap.tp-hidden-caption {	
-	visibility:hidden !important; 
-	display:none !important
+	visibility:hidden ; 
+	display:none 
 }
 
 .rev_slider embed,
@@ -319,7 +319,7 @@ website:	 	http://www.themepunch.com
 .rev_slider object,
 .rev_slider audio,
 .rev_slider video {
-	max-width: none !important
+	max-width: none 
 }
 
 .tp-element-background 	{	position:absolute; top:0px;left:0px; width:100%;height:100%;z-index:0;}
@@ -344,11 +344,11 @@ website:	 	http://www.themepunch.com
 .rev_slider .tp-caption.rev_row 	{
 	display:table;
 	position:relative;
-	width:100% !important;
+	width:100% ;
 	table-layout: fixed;
 	box-sizing: border-box;
 	vertical-align: top;
-	height:auto !important;
+	height:auto ;
 	font-size:0px;
 }
 
@@ -365,9 +365,9 @@ website:	 	http://www.themepunch.com
 	box-sizing: border-box;
 	display: block;
 	position: relative;
-	width:100% !important;
-	height:auto !important;
-	white-space: normal !important;
+	width:100% ;
+	height:auto ;
+	white-space: normal ;
 }
 
 .rev_column_bg {
@@ -392,15 +392,15 @@ website:	 	http://www.themepunch.com
 
 .rev_column_inner .tp-parallax-wrap .tp-loop-wrap,
 .rev_column_inner .tp-parallax-wrap .tp-mask-wrap,
-.rev_column_inner .tp-parallax-wrap { position: relative !important; left:auto !important; top:auto !important; line-height: 0px;}
+.rev_column_inner .tp-parallax-wrap { position: relative ; left:auto ; top:auto ; line-height: 0px;}
 
 .rev_column_inner .tp-parallax-wrap .tp-loop-wrap,
 .rev_column_inner .tp-parallax-wrap .tp-mask-wrap,
 .rev_column_inner .tp-parallax-wrap,
 .rev_column_inner .rev_layer_in_column { vertical-align: top; }
 
-.rev_break_columns { display: block !important }
-.rev_break_columns .tp-parallax-wrap.rev_column	{ display:block !important; width:100% !important; }
+.rev_break_columns { display: block  }
+.rev_break_columns .tp-parallax-wrap.rev_column	{ display:block ; width:100% ; }
 
 
 /**********************************************
@@ -475,7 +475,7 @@ website:	 	http://www.themepunch.com
 }
 									
 .tp-layer-inner-rotation {	
-	position: relative !important;
+	position: relative ;
 }		
 
 
@@ -492,7 +492,7 @@ img.tp-slider-alternative-image	{
 	-	IE8 HACKS	-
 *******************************/
 .noFilterClass {
-	filter:none !important;
+	filter:none ;
 }
 
 
@@ -511,7 +511,7 @@ img.tp-slider-alternative-image	{
 .caption.fullscreenvideo video,
 .tp-caption.fullscreenvideo iframe,
 .tp-caption.fullscreenvideo iframe audio,
-.tp-caption.fullscreenvideo iframe video	{ width:100% !important; height:100% !important; display: none}
+.tp-caption.fullscreenvideo iframe video	{ width:100% ; height:100% ; display: none}
 
 .fullcoveredvideo audio,
 .fullscreenvideo audio
@@ -534,7 +534,7 @@ img.tp-slider-alternative-image	{
 	z-index: 3;
 	margin-top: -25px;
 	margin-left: -25px;
-	line-height: 50px !important;
+	line-height: 50px ;
 	text-align: center;
 	cursor: pointer;
 	width: 50px;
@@ -545,29 +545,29 @@ img.tp-slider-alternative-image	{
 	vertical-align: top;
 	z-index: 4;
 	opacity: 0;	
-	transition:opacity 300ms ease-out !important;				
+	transition:opacity 300ms ease-out ;				
 }
 
 .tp-hiddenaudio,
-.tp-audio-html5 .tp-video-play-button { display:none !important;}
-.tp-caption .html5vid					{	width:100% !important; height:100% !important;}									
-.tp-video-play-button i 				{	width:50px;height:50px; display:inline-block; text-align: center; vertical-align: top; line-height: 50px !important; font-size: 40px !important;}									
+.tp-audio-html5 .tp-video-play-button { display:none ;}
+.tp-caption .html5vid					{	width:100% ; height:100% ;}									
+.tp-video-play-button i 				{	width:50px;height:50px; display:inline-block; text-align: center; vertical-align: top; line-height: 50px ; font-size: 40px ;}									
 .tp-caption:hover .tp-video-play-button	{	opacity: 1; display:block;}
-.tp-caption .tp-revstop					{	display:none; border-left:5px solid #fff !important; border-right:5px solid #fff !important;margin-top:15px !important;line-height: 20px !important;vertical-align: top; font-size:25px !important;}
+.tp-caption .tp-revstop					{	display:none; border-left:5px solid #fff ; border-right:5px solid #fff ;margin-top:15px ;line-height: 20px ;vertical-align: top; font-size:25px ;}
 .videoisplaying .revicon-right-dir		{	display:none}
 .videoisplaying .tp-revstop				{	display:inline-block}
 
 .videoisplaying	.tp-video-play-button			{	display:none}
 
 
-.fullcoveredvideo .tp-video-play-button			{	display:none !important}
+.fullcoveredvideo .tp-video-play-button			{	display:none }
 
 
-.fullscreenvideo .fullscreenvideo audio 		{	object-fit:contain !important;}
-.fullscreenvideo .fullscreenvideo video 		{	object-fit:contain !important;}
+.fullscreenvideo .fullscreenvideo audio 		{	object-fit:contain ;}
+.fullscreenvideo .fullscreenvideo video 		{	object-fit:contain ;}
 
-.fullscreenvideo .fullcoveredvideo audio 		{	object-fit:cover !important;}
-.fullscreenvideo .fullcoveredvideo video 		{	object-fit:cover !important;}
+.fullscreenvideo .fullcoveredvideo audio 		{	object-fit:cover ;}
+.fullscreenvideo .fullcoveredvideo video 		{	object-fit:cover ;}
 
 .tp-video-controls {
 	position: absolute;
@@ -616,10 +616,10 @@ img.tp-slider-alternative-image	{
 .disabled_lc .tp-video-play-button,
 .rs-background-video-layer video::-webkit-media-controls-start-playback-button,
 .rs-background-video-layer video::-webkit-media-controls,
-.rs-background-video-layer audio::-webkit-media-controls { display:none !important;}
+.rs-background-video-layer audio::-webkit-media-controls { display:none ;}
  
 
-.tp-audio-html5 .tp-video-controls {	opacity: 1 !important; visibility: visible !important}
+.tp-audio-html5 .tp-video-controls {	opacity: 1 ; visibility: visible }
 
  
 
@@ -693,12 +693,12 @@ img.tp-slider-alternative-image	{
 	border-radius: 3px;	
 	height:30px;
 	cursor:pointer;
-	color:#fff !important; text-shadow:0px 1px 1px rgba(0, 0, 0, 0.6) !important; font-size:15px; line-height:45px !important;
+	color:#fff ; text-shadow:0px 1px 1px rgba(0, 0, 0, 0.6) ; font-size:15px; line-height:45px ;
 	font-family: arial, sans-serif; font-weight: bold; letter-spacing: -1px;
 	text-decoration:none;
 }
 
-.tp-button.big	{	color:#fff; text-shadow:0px 1px 1px rgba(0, 0, 0, 0.6); font-weight:bold; padding:9px 20px; font-size:19px;	line-height:57px !important; }
+.tp-button.big	{	color:#fff; text-shadow:0px 1px 1px rgba(0, 0, 0, 0.6); font-weight:bold; padding:9px 20px; font-size:19px;	line-height:57px ; }
 
 
 .purchase:hover,
@@ -732,15 +732,15 @@ img.tp-slider-alternative-image	{
 /* TP BUTTONS DESKTOP SIZE */
 
 .rev-btn,
-.rev-btn:visited						{ 	outline:none !important; box-shadow:none !important; text-decoration: none !important; line-height: 44px; font-size: 17px; font-weight: 500; padding: 12px 35px; box-sizing:border-box;	font-family: "Roboto", sans-serif;	cursor: pointer;}
+.rev-btn:visited						{ 	outline:none ; box-shadow:none ; text-decoration: none ; line-height: 44px; font-size: 17px; font-weight: 500; padding: 12px 35px; box-sizing:border-box;	font-family: "Roboto", sans-serif;	cursor: pointer;}
 
 .rev-btn.rev-uppercase,
 .rev-btn.rev-uppercase:visited			{ 	text-transform: uppercase; letter-spacing: 1px; font-size: 15px; font-weight: 900; }
 
-.rev-btn.rev-withicon i					{ 	font-size: 15px; font-weight: normal; position: relative; top: 0px; transition: all 0.2s ease-out !important; margin-left:10px !important;}
+.rev-btn.rev-withicon i					{ 	font-size: 15px; font-weight: normal; position: relative; top: 0px; transition: all 0.2s ease-out ; margin-left:10px ;}
 
-.rev-btn.rev-hiddenicon i				{ 	font-size: 15px; font-weight: normal; position: relative; top: 0px; transition: all 0.2s ease-out !important;	opacity: 0; margin-left:0px !important; width:0px !important;	}
-.rev-btn.rev-hiddenicon:hover i			{	 opacity: 1 !important; margin-left:10px !important; width:auto !important;}
+.rev-btn.rev-hiddenicon i				{ 	font-size: 15px; font-weight: normal; position: relative; top: 0px; transition: all 0.2s ease-out ;	opacity: 0; margin-left:0px ; width:0px ;	}
+.rev-btn.rev-hiddenicon:hover i			{	 opacity: 1 ; margin-left:10px ; width:auto ;}
 
 /* REV BUTTONS MEDIUM */
 .rev-btn.rev-medium,
@@ -785,7 +785,7 @@ img.tp-slider-alternative-image	{
 	background: #333;
 	transition: .7s;
 	pointer-events: none;
-	transform-style: flat !important;
+	transform-style: flat ;
 }
 .rev-burger span:nth-child(2) {
 	margin: 3px 0;
@@ -990,7 +990,7 @@ img.tp-slider-alternative-image	{
 -	TP BANNER TIMER		-
 *************************************/
 .tp-bannertimer								{	visibility: hidden; width:100%; height:5px; background:#000; background:rgba(0,0,0,0.15); position:absolute; z-index:200; top:0px}
-.tp-bannertimer.tp-bottom					{	top:auto; bottom:0px !important;height:5px}
+.tp-bannertimer.tp-bottom					{	top:auto; bottom:0px ;height:5px}
 
 
 
@@ -1029,7 +1029,7 @@ img.tp-slider-alternative-image	{
 	float: none;	
 	display: inline-block;
 		vertical-align: top;
-		color: #FFC321 !important;
+		color: #FFC321 ;
 }
 
 
@@ -1039,7 +1039,7 @@ img.tp-slider-alternative-image	{
 	height: 1em;	
 	width: 5.4em;
 	font-family: star;
-	font-size: 1em !important;
+	font-size: 1em ;
 }
 
 .tp-caption	.rs-starring .star-rating:before, 
@@ -1059,7 +1059,7 @@ img.tp-slider-alternative-image	{
 	left: 0;
 	position: absolute;
 	padding-top: 1.5em;
-	font-size: 1em !important;
+	font-size: 1em ;
 }
 
 .tp-caption .rs-starring .star-rating span:before,
@@ -1246,10 +1246,10 @@ img.tp-slider-alternative-image	{
 .tp-thumb.selected				{	opacity:1;}
 
 .tp-tab-mask,
-.tp-thumb-mask 					{	box-sizing:border-box !important; }
+.tp-thumb-mask 					{	box-sizing:border-box ; }
 
 .tp-tabs,
-.tp-thumbs						{	box-sizing:content-box !important; }
+.tp-thumbs						{	box-sizing:content-box ; }
 
 .tp-bullet 						{	width:15px;height:15px; position:absolute; background:#fff; background:rgba(255,255,255,0.3); cursor: pointer;}
 .tp-bullet.selected,
@@ -1270,7 +1270,7 @@ img.tp-slider-alternative-image	{
 	- KEN BURNS FIXES -
 ***************************/
 
-body.rtl .tp-kbimg {left: 0 !important}
+body.rtl .tp-kbimg {left: 0 }
 
 
 
@@ -1296,7 +1296,7 @@ body.rtl .tp-kbimg {left: 0 !important}
 	z-index: 2000;
 	white-space: normal;}
 .hginfo 						 { 	position:absolute;top:-2px;left:-2px;color:#e74c3c;font-size:12px;font-weight:600; background:#000;padding:2px 5px;}
-.indebugmode .tp-caption:hover { 	border:1px dashed #c0392b !important;}
+.indebugmode .tp-caption:hover { 	border:1px dashed #c0392b ;}
 .helpgrid 						 { 	border:2px dashed #c0392b;position:absolute;top:0px;left:0px;z-index:0 }
 #revsliderlogloglog				{	padding:15px;color:#fff;position:fixed; top:0px;left:0px;width:200px;height:150px;background:rgba(0,0,0,0.7); z-index:100000; font-size:10px; overflow:scroll;}
 

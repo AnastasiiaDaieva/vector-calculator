@@ -48,13 +48,13 @@
 
 .rev_slider:not(.pano-no-webgl) li[data-panorama] .slotholder *:not(.rsaddon-panorama) {
 	
-	visibility: hidden !important;
+	visibility: hidden ;
 	
 }
 
 .rsaddon-pano .tp-carousel-wrapper li[data-panorama] .slotholder *:not(.rsaddon-panorama) {
 	
-	visibility: visible !important;
+	visibility: visible ;
 	pointer-events: none;
 	
 }
@@ -62,7 +62,7 @@
 .rsaddon-pano .tp-carousel-wrapper .active-revslide[data-panorama] .slotholder *:not(.rsaddon-panorama) {
 	
 	/*transition: opacity 0.3s ease-out;*/
-	opacity: 0 !important;
+	opacity: 0 ;
 	
 }
 

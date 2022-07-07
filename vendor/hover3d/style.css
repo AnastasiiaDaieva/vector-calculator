@@ -41,8 +41,8 @@ a {
 	.share span, .share a, .share iframe {
 		vertical-align: middle; }
 		.share span span, .share a span, .share iframe span {
-			vertical-align: middle !important;
-			width: 130px !important; }
+			vertical-align: middle ;
+			width: 130px ; }
 
 .demo {
 	margin: 100px 0; }

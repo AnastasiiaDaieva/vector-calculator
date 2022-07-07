@@ -1664,7 +1664,6 @@ html body .btn:active, html body.body .btn.focus,
 html body.body .btn:focus,
 html body.body .btn.active,
 html body.body .btn:active {
-	box-shadow: none !important;
 }
 
 /* Dropdown Buttons */

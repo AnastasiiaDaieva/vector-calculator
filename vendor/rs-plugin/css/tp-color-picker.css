@@ -606,15 +606,15 @@
 
 #rev-cpicker input[type="text"]:focus {
 	
-	border: 1px solid #555 !important;
-	box-shadow: none !important;
+	border: 1px solid #555 ;
+	box-shadow: none ;
 	
 }
 
 .rev-cpicker-preset-save {
 	
 	width: 163px;
-	padding: 11px 15px 12px !important;
+	padding: 11px 15px 12px ;
 
 }
 
@@ -777,15 +777,15 @@
 
 #rev-cpicker .iris-picker {
 	
-	background: transparent !important;
-	border: none !important;
-	display: block !important;
+	background: transparent ;
+	border: none ;
+	display: block ;
 	
 }
 
 #rev-cpicker .wp-picker-input-wrap {
 	
-	display: none !important;
+	display: none ;
 	
 }
 
@@ -1055,7 +1055,7 @@
 
 .rev-cpicker-meta-row > div:first-child {
 	
-	margin-left: 0 !important;
+	margin-left: 0 ;
 	
 }
 
@@ -1122,8 +1122,8 @@
 .rev-cpciker-clear {
 	
 	display: block;
-	width: 65px !important;
-	padding: 3px 0 !important;
+	width: 65px ;
+	padding: 3px 0 ;
 	
 }
 
@@ -1251,7 +1251,7 @@
 
 #rev-cpicker-colors .iris-strip {
 	
-	width: 22px !important;
+	width: 22px ;
 	
 }
 
@@ -1284,10 +1284,10 @@
 
 #rev-cpicker-scroll-bg {
 	
-	width: 100% !important;
-	height: 100% !important;
-	border-radius: 3px !important;
-	background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0) 100%) !important;
+	width: 100% ;
+	height: 100% ;
+	border-radius: 3px ;
+	background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0) 100%) ;
 	
 }
 

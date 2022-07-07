@@ -36,8 +36,8 @@
 
 .rs_addon_reveal .tp-loader {
 	
-	visibility: visible !important;
-	display: inline-block !important;
+	visibility: visible ;
+	display: inline-block ;
 	pointer-events: none;
 	
 }
@@ -51,7 +51,7 @@
 
 .rs_addon_revealer_special .tp-revslider-mainul {
 	
-	opacity: 0 !important;
+	opacity: 0 ;
 	
 }
 

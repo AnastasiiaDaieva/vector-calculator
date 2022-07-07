@@ -2267,8 +2267,7 @@ html body .btn:active, html body.body .btn.focus,
 html body.body .btn:focus,
 html body.body .btn.active,
 html body.body .btn:active {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  
 }
 
 /* Dropdown Buttons */

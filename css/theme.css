@@ -9753,7 +9753,7 @@ a.text-light:focus, a.text-light:hover {
 }
 
 #footer .footer-copyright {
-  background: #1c2023;
+  background-color: var(--brand-color);
 }
 
 #footer .footer-copyright nav {

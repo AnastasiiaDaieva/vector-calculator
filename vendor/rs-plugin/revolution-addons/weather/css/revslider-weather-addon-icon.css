@@ -16,14 +16,14 @@
 
 .revslider-weather-icon {
 	font-family: 'weather';	
-	text-align: inherit!important;
-		line-height: inherit!important;
-		border-width: inherit!important;
-		margin: inherit!important;
-		padding: inherit!important;
-		letter-spacing: inherit!important;
-		font-weight: inherit!important;
-		font-size: inherit!important;
+	text-align: inherit;
+		line-height: inherit;
+		border-width: inherit;
+		margin: inherit;
+		padding: inherit;
+		letter-spacing: inherit;
+		font-weight: inherit;
+		font-size: inherit;
 		font-style: inherit;
 }
 

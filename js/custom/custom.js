@@ -4,15 +4,22 @@ import scrollToCalculator from "./scrollToCalculator.js";
 import buildTable from "./buildTable.js";
 import fetchCountries from "./fetchCountries.js";
 import { BASE_URL } from "./variables.js";
-import addPrices from "./addPrices.js";
 
-const { form, select, currentLanguage, table, calculatorAnchor } = refs;
+const {
+  form,
+  select,
+  currentLanguage,
+  calcResult,
+  calculatorAnchor,
+  resetForm,
+  overlay,
+} = refs;
 let deliveryOptions = [];
 export let tableOptions = [];
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  document.querySelector(".tableBody").innerHTML = "";
+  calcResult.innerHTML = "";
   tableOptions = [];
   const data = new FormData(e.target);
 
@@ -36,18 +43,20 @@ function handleSubmit(e) {
     return newData;
   });
   // console.log(dataSets);
-  let prices = [];
   const getPrices = dataSets.map((item) =>
-    sendData(item).then((response) => {
-      console.log("resp", response);
-      const result = response.price || response.message;
-      return result;
-    })
+    sendData(item)
+      .then((response) => {
+        const result = response.price || response.message;
+        return result;
+      })
+      .catch((error) => console.log("ERROR", error))
   );
-
-  console.log("prices", getPrices);
-  buildTable(deliveryOptions, getPrices, country);
-  table.classList.add("show-table");
+  const resolve = await Promise.all(getPrices);
+  buildTable(deliveryOptions, resolve, country);
+  calcResult.classList.add("show-flex");
+  calcResult.scrollIntoView({
+    behavior: "smooth",
+  });
 }
 
 async function sendData(data) {
@@ -72,7 +81,7 @@ async function sendData(data) {
     const json = await response.json();
     // console.log("weight", data.weight);
 
-    console.log(json);
+    // console.log(json);
 
     return json;
   } catch (error) {
@@ -97,10 +106,15 @@ createList();
 
 select.addEventListener("change", function () {
   select.value = this.value;
-
-  // console.log("You selected: ", select.value);
 });
 form.addEventListener("submit", handleSubmit);
 currentLanguage.addEventListener("mouseover", showDropdown);
 currentLanguage.addEventListener("blur", hideDropdown);
+overlay.addEventListener("mouseover", hideDropdown);
+overlay.addEventListener("click", hideDropdown);
+resetForm.addEventListener("click", function () {
+  calcResult.innerHTML = "";
+  tableOptions = [];
+  form.reset();
+});
 calculatorAnchor.addEventListener("click", scrollToCalculator);

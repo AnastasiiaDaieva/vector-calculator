@@ -46,7 +46,7 @@
 .rs-addon-strip-horizontal .rs-addon-strip-img {
 	
 	display: inline-block; 
-	width: auto !important; 
+	width: auto ; 
 	height: inherit; 
 	vertical-align: top;
 	
@@ -54,7 +54,7 @@
 
 .rs-addon-strip-vertical .rs-addon-strip-img {
 	
-	width: 100% !important; 
+	width: 100% ; 
 	height: auto;
 	
 }

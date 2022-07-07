@@ -5,7 +5,7 @@ export default function fetchCountries(base) {
   return fetch(`${base}/public/directions`, options)
     .then((response) => {
       if (response.ok) {
-        console.log(response);
+        // console.log(response);
 
         return response.json();
       }

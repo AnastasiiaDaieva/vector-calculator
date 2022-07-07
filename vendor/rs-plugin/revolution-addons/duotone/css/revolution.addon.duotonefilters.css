@@ -4,18 +4,18 @@
 
 /*
 .rs-duotone-kb .tp-bgimg {
-	display: none !important;
+	display: none ;
 }
 
 [class^="rs-duotone"] {
-	transform: none !important;
+	transform: none ;
 }
 */
 
-#divbgholder .slotholder {z-index: 0 !important}
-#divbgholder .oldslotholder {display: none !important}
-.rs-duotone-simplified .tp-revslider-slidesli {opacity: 1 !important}
-.rs-duotone-simplified	.rs-duotone-slide {z-index: 9999 !important; opacity: 0 !important}
+#divbgholder .slotholder {z-index: 0 }
+#divbgholder .oldslotholder {display: none }
+.rs-duotone-simplified .tp-revslider-slidesli {opacity: 1 }
+.rs-duotone-simplified	.rs-duotone-slide {z-index: 9999 ; opacity: 0 }
 
 [class^="rs-duotone"] {
 	position: absolute;
@@ -28,7 +28,7 @@
 [class^="rs-duotone"] .slotholder,
 [class^="rs-duotone"] .rs-duotone-thumb {
 	mix-blend-mode: luminosity;
-	backface-visibility: visible !important;
+	backface-visibility: visible ;
 }
 
 [class^="rs-duotone"]:after {
@@ -50,7 +50,7 @@
 }
 
 [class^="rs-duotone"][class*="-dark"]:after {
-	mix-blend-mode: lighten !important;
+	mix-blend-mode: lighten ;
 }
 
 [class^="rs-duotone"][class*="-light"] .slotholder,
@@ -59,11 +59,11 @@
 }
 
 [class^="rs-duotone"][class*="-light"]:after {
-	mix-blend-mode: darken !important;
+	mix-blend-mode: darken ;
 }
 
 [class^="rs-duotone"][class*="-red"] {
-	background: #E50914 !important;
+	background: #E50914 ;
 }
 
 [class^="rs-duotone"][class*="-red"]:after {
@@ -73,45 +73,45 @@
 }
 
 [class^="rs-duotone"][class*="-red"][class*="-dark"]:after {
-	mix-blend-mode: lighten !important;
-	-webkit-filter: contrast(1.1) !important;
-	filter: contrast(1.1) !important;
+	mix-blend-mode: lighten ;
+	-webkit-filter: contrast(1.1) ;
+	filter: contrast(1.1) ;
 }
 
 [class^="rs-duotone"][class*="-red"][class*="-light"]:after {
-	mix-blend-mode: color-dodge !important;
+	mix-blend-mode: color-dodge ;
 	-webkit-filter: saturate(400%) contrast(1.5);
 	filter: saturate(400%) contrast(1.5);
 }
 
 [class^="rs-duotone"][class*="-red"]:after {
-	background: #E50914 !important;
+	background: #E50914 ;
 }
 
 [class^="rs-duotone"][class*="-red"]:after {
-	background: #282581 !important;
+	background: #282581 ;
 }
 
 [class^="rs-duotone"][class*="-orange"] {
-	background: #FCA300 !important;
+	background: #FCA300 ;
 }
 
 [class^="rs-duotone"][class*="-orange"][class*="-dark"]:after {
-	mix-blend-mode: darken !important;
+	mix-blend-mode: darken ;
 }
 
 [class^="rs-duotone"][class*="-orange"][class*="-light"]:after {
-	mix-blend-mode: hue !important;
+	mix-blend-mode: hue ;
 	-webkit-filter: saturate(400%) contrast(1.5);
 	filter: saturate(400%) contrast(1.5);
 }
 
 [class^="rs-duotone"][class*="-orange"]:after {
-	background: #FCA300 !important;
+	background: #FCA300 ;
 }
 
 [class^="rs-duotone"][class*="-blue"] {
-	background: #0066BF !important;
+	background: #0066BF ;
 }
 
 [class^="rs-duotone"][class*="-blue"]:not([class*="-dark"]):not([class*="-light"]):after {
@@ -121,19 +121,19 @@
 }
 
 [class^="rs-duotone"][class*="-blue"][class*="-dark"]:after {
-	mix-blend-mode: darken !important;
+	mix-blend-mode: darken ;
 }
 
 [class^="rs-duotone"][class*="-blue"]:after {
-	background: #0066BF !important;
+	background: #0066BF ;
 }
 
 [class^="rs-duotone"][class*="-blue"]:after {
-	background: #93EF90 !important;
+	background: #93EF90 ;
 }
 
 [class^="rs-duotone"][class*="-yellow"] {
-	background: #FEDD31 !important;
+	background: #FEDD31 ;
 }
 
 [class^="rs-duotone"][class*="-yellow"]:not([class*="-dark"]):not([class*="-light"]):after {
@@ -143,67 +143,67 @@
 }
 
 [class^="rs-duotone"][class*="-yellow"][class*="-dark"]:after {
-	mix-blend-mode: color-dodge !important;
+	mix-blend-mode: color-dodge ;
 	-webkit-filter: hue-rotate(70deg);
 	filter: hue-rotate(70deg);
 }
 
 [class^="rs-duotone"][class*="-yellow"][class*="-light"] {
-	background: #000000 !important;
+	background: #000000 ;
 }
 
 [class^="rs-duotone"][class*="-yellow"][class*="-light"]:after {
-	mix-blend-mode: color !important;
+	mix-blend-mode: color ;
 	-webkit-filter: brightness(3) hue-rotate(93deg) contrast(2) saturate(150);
 	filter: brightness(3) hue-rotate(93deg) contrast(2) saturate(150);
 }
 
 [class^="rs-duotone"][class*="-yellow"]:after {
-	background: #FEDD31 !important;
+	background: #FEDD31 ;
 }
 
 [class^="rs-duotone"][class*="-yellow"]:after {
-	background: #EF3CB4 !important;
+	background: #EF3CB4 ;
 }
 
 [class^="rs-duotone"][class*="-purple"] {
-	background: #BC6D14 !important;
+	background: #BC6D14 ;
 }
 
 [class^="rs-duotone"][class*="-purple"]:not([class*="-dark"]):not([class*="-light"]) {
-	background: rebeccapurple !important;
+	background: rebeccapurple ;
 }
 
 [class^="rs-duotone"][class*="-purple"]:not([class*="-dark"]):not([class*="-light"]):after {
-	mix-blend-mode: darken !important;
+	mix-blend-mode: darken ;
 }
 
 [class^="rs-duotone"][class*="-purple"][class*="-dark"] {
-	background: #B10AFF !important;
+	background: #B10AFF ;
 }
 
 [class^="rs-duotone"][class*="-purple"][class*="-dark"]:after {
-	mix-blend-mode: soft-light !important;
+	mix-blend-mode: soft-light ;
 	-webkit-filter: saturate(100);
 	filter: saturate(100);
 }
 
 [class^="rs-duotone"][class*="-purple"][class*="-light"]:after {
-	background: #A37FC7 !important;
-	-webkit-filter: saturate(520%) brightness(10.5) contrast(350) !important;
-	filter: saturate(520%) brightness(10.5) contrast(350) !important;
+	background: #A37FC7 ;
+	-webkit-filter: saturate(520%) brightness(10.5) contrast(350) ;
+	filter: saturate(520%) brightness(10.5) contrast(350) ;
 }
 
 [class^="rs-duotone"][class*="-purple"]:after {
-	background: #BC6D14 !important;
+	background: #BC6D14 ;
 }
 
 [class^="rs-duotone"][class*="-purple"]:after {
-	background: #ACFCEE !important;
+	background: #ACFCEE ;
 }
 
 [class^="rs-duotone"][class*="-green"] {
-	background: #11C966 !important;
+	background: #11C966 ;
 }
 
 [class^="rs-duotone"][class*="-green"]:not([class*="-dark"]):not([class*="-light"]):after {
@@ -211,82 +211,82 @@
 }
 
 [class^="rs-duotone"][class*="-green"][class*="-light"]:after {
-	mix-blend-mode: color-dodge !important;
+	mix-blend-mode: color-dodge ;
 	-webkit-filter: saturate(100%) brightness(0.8) contrast(160%);
 	filter: saturate(100%) brightness(0.8) contrast(160%);
 }
 
 [class^="rs-duotone"][class*="-green"]:after {
-	background: #11C966 !important;
+	background: #11C966 ;
 }
 
 [class^="rs-duotone"][class*="-green"]:after {
-	background: #2D3181 !important;
+	background: #2D3181 ;
 }
 
 [class^="rs-duotone"][class*="-pink"] {
-	background: #EA4C89 !important;
+	background: #EA4C89 ;
 }
 
 [class^="rs-duotone"][class*="-pink"][class*="-dark"]:after {
-	background: #1D0E14 !important;
+	background: #1D0E14 ;
 }
 
 [class^="rs-duotone"][class*="-pink"][class*="-light"]:after {
-	background: #FF468D !important;
-	mix-blend-mode: lighten !important;
-	-webkit-filter: contrast(1) saturate(250%) !important;
-	filter: contrast(1) saturate(250%) !important;
+	background: #FF468D ;
+	mix-blend-mode: lighten ;
+	-webkit-filter: contrast(1) saturate(250%) ;
+	filter: contrast(1) saturate(250%) ;
 }
 
 [class^="rs-duotone"][class*="-pink"]:after {
-	background: #EA4C89 !important;
+	background: #EA4C89 ;
 }
 
 [class^="rs-duotone"][class*="-pink"]:after {
-	background: #EA4C89 !important;
+	background: #EA4C89 ;
 }
 
 [class^="rs-duotone"][class*="-blue-yellow"]:not([class*="-dark"]):not([class*="-light"]) {
-	background: linear-gradient(to top left, #55ACEE, #FEDD31) !important;
+	background: linear-gradient(to top left, #55ACEE, #FEDD31) ;
 }
 
 [class^="rs-duotone"][class*="-blue-yellow"][class*="-dark"]:after {
-	mix-blend-mode: hard-light !important;
+	mix-blend-mode: hard-light ;
 }
 
 [class^="rs-duotone"][class*="-blue-yellow"][class*="-light"]:after {
-	mix-blend-mode: hard-light !important;
+	mix-blend-mode: hard-light ;
 	-webkit-filter: none;
 	filter: none;
 }
 
 [class^="rs-duotone"][class*="-blue-yellow"]:after {
-	background: linear-gradient(to top left, #55ACEE, #FEDD31) !important;
+	background: linear-gradient(to top left, #55ACEE, #FEDD31) ;
 }
 
 [class^="rs-duotone"][class*="-pink-yellow"]:not([class*="-dark"]):not([class*="-light"]) {
-	background: linear-gradient(to bottom right, #FAA6FB, #FBBC05) !important;
+	background: linear-gradient(to bottom right, #FAA6FB, #FBBC05) ;
 }
 
 [class^="rs-duotone"][class*="-pink-yellow"][class*="-dark"]:after {
-	mix-blend-mode: hue !important;
-	-webkit-filter: none !important;
-	filter: none !important;
+	mix-blend-mode: hue ;
+	-webkit-filter: none ;
+	filter: none ;
 }
 
 [class^="rs-duotone"][class*="-pink-yellow"][class*="-light"]:after {
-	mix-blend-mode: hard-light !important;
-	-webkit-filter: none !important;
-	filter: none !important;
+	mix-blend-mode: hard-light ;
+	-webkit-filter: none ;
+	filter: none ;
 }
 
 [class^="rs-duotone"][class*="-pink-yellow"]:after {
-	background: linear-gradient(to top left, #FAA6FB, #FBBC05) !important;
+	background: linear-gradient(to top left, #FAA6FB, #FBBC05) ;
 }
 
 [class^="rs-duotone"][class*="-red-blue"]:not([class*="-dark"]):not([class*="-light"]) {
-	background: linear-gradient(to bottom right, #3993E2, #E2544B) !important;
+	background: linear-gradient(to bottom right, #3993E2, #E2544B) ;
 }
 
 [class^="rs-duotone"][class*="-red-blue"]:not([class*="-dark"]):not([class*="-light"]):after {
@@ -296,19 +296,19 @@
 }
 
 [class^="rs-duotone"][class*="-red-blue"][class*="-dark"]:after {
-	mix-blend-mode: hard-light !important;
-	-webkit-filter: none !important;
-	filter: none !important;
+	mix-blend-mode: hard-light ;
+	-webkit-filter: none ;
+	filter: none ;
 }
 
 [class^="rs-duotone"][class*="-red-blue"][class*="-light"]:after {
-	mix-blend-mode: screen !important;
-	-webkit-filter: saturate(300%) brightness(1.2) !important;
-	filter: saturate(300%) brightness(1.2) !important;
+	mix-blend-mode: screen ;
+	-webkit-filter: saturate(300%) brightness(1.2) ;
+	filter: saturate(300%) brightness(1.2) ;
 }
 
 [class^="rs-duotone"][class*="-red-blue"]:after {
-	background: linear-gradient(to bottom right, #3993E2, #E2544B) !important;
+	background: linear-gradient(to bottom right, #3993E2, #E2544B) ;
 }
 
 

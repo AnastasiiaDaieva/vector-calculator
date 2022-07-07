@@ -46,25 +46,25 @@ img {
 .map_canvas img,
 .map_canvas embed,
 .map_canvas object {
-	max-width: none !important; }
+	max-width: none ; }
 
 .left {
-	float: left !important; }
+	float: left ; }
 
 .right {
-	float: right !important; }
+	float: right ; }
 
 .text-left {
-	text-align: left !important; }
+	text-align: left ; }
 
 .text-right {
-	text-align: right !important; }
+	text-align: right ; }
 
 .text-center {
-	text-align: center !important; }
+	text-align: center ; }
 
 .text-justify {
-	text-align: justify !important; }
+	text-align: justify ; }
 
 .hide {
 	display: none; }
@@ -246,7 +246,7 @@ select {
 		position: relative;
 		margin-left: auto;
 		margin-right: auto;
-		float: none !important; } }
+		float: none ; } }
 /* Styles for screens that are atleast 768px; */
 @media only screen and (min-width: 768px) {
 	.large-1 {
@@ -460,14 +460,14 @@ select {
 		position: relative;
 		margin-left: auto;
 		margin-right: auto;
-		float: none !important; }
+		float: none ; }
 
 	.column.large-uncentered,
 	.columns.large-uncentered {
 		margin-left: 0;
 		margin-right: 0;
-		float: left !important; }
+		float: left ; }
 
 	.column.large-uncentered.opposite,
 	.columns.large-uncentered.opposite {
-		float: right !important; } }
+		float: right ; } }
