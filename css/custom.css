@@ -75,6 +75,9 @@ input[type="radio"] {
   width: 100%;
   position: relative;
 }
+.calculator-form_row:not(:last-child){
+  margin-bottom: 12px;
+}
 .calculator-form > div {
   display: flex;
 }
@@ -144,7 +147,7 @@ box-shadow: rgba(217, 217, 217, 0.782) 0px 0px 2px 1px;
 }
 
 .header-login{
-  padding: 16px 48px;
+  padding: 8px 35px;
 }
 
 .languages-dropdown {
@@ -240,6 +243,13 @@ footer h4{
   .calculator-section:first-child{
     margin-bottom: 50px;
   }
+    .section-logos>*:not(:last-child) {
+      margin-bottom: 60px;
+    }
+
+    .section.section-perks{
+      padding-top: 0;
+    }
 }
 
 @media screen and (min-width: 768px) {
