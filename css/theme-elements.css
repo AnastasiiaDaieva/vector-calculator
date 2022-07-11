@@ -14625,7 +14625,7 @@ section.section {
   background: #f7f7f7;
   border-top: 5px solid #f1f1f1;
   margin: 30px 0;
-  padding: 50px 0;
+  padding: 50px 0 0 0;
 }
 
 section.section > .container {
@@ -18655,7 +18655,7 @@ section.timeline .timeline-box .owl-carousel {
   color: #CCC;
   display: block;
   min-height: 20px;
-  padding: 12px 20px 12px 15px;
+  padding: 12px 30px 12px 15px;
   position: relative;
   cursor: pointer;
   font-weight: 600;

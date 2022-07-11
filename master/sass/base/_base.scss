@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background-color: $light-bg;
+  // background-color: $light-bg;
   color: $color-font-default;
   font-family: $font-primary;
   font-size: $body-font-size + 0px;
@@ -28,7 +28,7 @@ body {
 }
 
 .body {
-  background-color: $light-bg;
+  // background-color: $light-bg;
 }
 
 html.safari:not(.no-safari-overflow-x-fix) .body {

@@ -1,8 +1,9 @@
 import refs from "./refs.js";
 import { showDropdown, hideDropdown } from "./dropdown.js";
-import scrollToCalculator from "./scrollToCalculator.js";
+import scrollTo from "./scrollTo.js";
 import buildTable from "./buildTable.js";
 import fetchCountries from "./fetchCountries.js";
+import { weightConverter, measurementConverter } from "./converter.js";
 import { BASE_URL } from "./variables.js";
 
 const {
@@ -13,6 +14,9 @@ const {
   calculatorAnchor,
   resetForm,
   overlay,
+  howItWorksAnchor,
+  faqsAnchor,
+  calcMenuAnchor,
 } = refs;
 let deliveryOptions = [];
 export let tableOptions = [];
@@ -25,7 +29,7 @@ async function handleSubmit(e) {
 
   const request = Object.fromEntries(data.entries());
 
-  // console.log({ request });
+  console.log({ request });
   const {
     country,
     weight,
@@ -37,7 +41,14 @@ async function handleSubmit(e) {
   } = request;
   const getList = deliveryOptions.find((item) => item.countryTo === country);
   const rates = getList.deliveryTypes.map(({ rate }) => rate.id);
-  const arrangedData = { country, weight, height, length, width };
+  const arrangedData = {
+    country,
+    weight: weightConverter(weight, weightUnit),
+    height: measurementConverter(height, measurementUnit),
+    length: measurementConverter(length, measurementUnit),
+    width: measurementConverter(width, measurementUnit),
+  };
+  console.log("converted and passed", arrangedData.weight);
   const dataSets = rates.map((rate) => {
     const newData = { ...arrangedData, rate: rate };
     return newData;
@@ -52,7 +63,7 @@ async function handleSubmit(e) {
       .catch((error) => console.log("ERROR", error))
   );
   const resolve = await Promise.all(getPrices);
-  buildTable(deliveryOptions, resolve, country);
+  buildTable(deliveryOptions, resolve, country, arrangedData);
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
     behavior: "smooth",
@@ -74,10 +85,9 @@ async function sendData(data) {
     // const notification = `<div>Максимально допустимый вес - 30 кг</div>`;
     // console.log(notification);
 
-    // if (response.status === 500) {
-    //   controllers.insertAdjacentElement("beforestart", notification);
-    //   return;
-    // }
+    if (response.status === 500) {
+      console.log();
+    }
     const json = await response.json();
     // console.log("weight", data.weight);
 
@@ -117,4 +127,7 @@ resetForm.addEventListener("click", function () {
   tableOptions = [];
   form.reset();
 });
-calculatorAnchor.addEventListener("click", scrollToCalculator);
+calculatorAnchor.addEventListener("click", scrollTo);
+howItWorksAnchor.addEventListener("click", scrollTo);
+faqsAnchor.addEventListener("click", scrollTo);
+calcMenuAnchor.addEventListener("click", scrollTo);

@@ -240,7 +240,7 @@
 }
 
 .caption-primary {
-		background-color: #0d6efd;
+		background-color: var(--brand-color);
 }
 
 .caption-success {

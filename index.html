@@ -7,9 +7,9 @@
 
     <title>Vector</title>
 
-    <meta name="keywords" content="WebSite Template" />
-    <meta name="description" content="Porto - Multipurpose Website Template" />
-    <meta name="author" content="okler.net" />
+    <meta name="description" content="Доставка посылок из США" />
+    <meta property="og:image" content="img/icons/logo-dark.svg" />
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -157,7 +157,7 @@
                         </button>
                       </li> -->
                     </ul>
-                   <a href="#calculator" class="header-calculator"> <svg
+                   <a href="#shipment" class="header-calculator"> <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 490 490"
                       width="20"
@@ -202,17 +202,16 @@
                         <ul class="nav nav-pills" id="mainNav">
                           <li>
                             <a class="nav-link active" href="./index.html">
-                              Home
+                              Главная
                             </a>
                           </li>
                           <li class="dropdown">
                             <a
-                              class="dropdown-item dropdown-toggle"
-                              href="./index.html"
-                            >
-                              Services
+                              class="dropdown-item dropdown-toggle menu-works"
+href="#howitworks"                            >
+                              Как это работает
                             </a>
-                            <ul class="dropdown-menu">
+                            <!-- <ul class="dropdown-menu">
                               <li>
                                 <a
                                   class="nav-link"
@@ -255,20 +254,19 @@
                                   >Social Media Marketing</a
                                 >
                               </li>
-                            </ul>
+                            </ul> -->
                           </li>
                           <li>
-                            <a class="nav-link" href="./index.html">
-                              Blog
+                            <a class="nav-link menu-calc" href="#shipment">
+                              Калькулятор
                             </a>
                           </li>
                           <li>
                             <a
-                              class="nav-link"
-                              href="./index.html"
+                              class="nav-link menu-faqs"
+                             href="#faqs"
                             >
-                              Contact Us
-                            </a>
+FAQs                            </a>
                           </li>
                         </ul>
                       </nav>
@@ -281,7 +279,7 @@
                       <i class="fas fa-bars"></i>
                     </button>
                   </div>
-                  <div
+                  <!-- <div
                     class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2"
                   >
                     <div
@@ -318,7 +316,7 @@
                         </form>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div> 
             </div>
@@ -327,7 +325,7 @@
       </header>
 
       <div role="main" class="main">
-        <section class="section custom-bg-color-light-1 border-0 pt-5 m-0">
+        <section class="section custom-bg-color-light-1 border-0 pt-5 m-0 section-margin">
           <div class="container position-relative z-index-1 pt-5 mt-5">
             <div
               class="custom-circle custom-circle-wrapper custom-circle-big custom-circle-pos-1 appear-animation"
@@ -682,7 +680,7 @@
         </section>
 
         <section
-          class="section custom-bg-color-light-2 position-relative border-0 pt-4 m-0 section-padding"
+          class="section custom-bg-color-light-2 position-relative border-0 pt-4 m-0 how-it-works-section"
         >
           <svg
             class="custom-section-curved-top-2"
@@ -783,7 +781,7 @@
                 <hr />
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="howitworks">
               <div
                 class="col-lg-6 mb-5 mb-lg-0 appear-animation"
                 data-appear-animation="fadeInRightShorter"
@@ -1212,7 +1210,7 @@
         </section> -->
 
         <section
-          class="section section-height-4 bg-color-quaternary position-relative border-0 pt-5 m-0 shipment"
+          class="section section-height-4 bg-color-quaternary position-relative border-0 pt-5 m-0 shipment" id="shipment"
         >
           <svg
             class="custom-section-curved-top-4"
@@ -1228,7 +1226,7 @@
               d="m-16.68437,95.44889c0,0 5.33335,176.00075 660.00283,93.33373c327.33474,-41.33351 503.33549,15.3334 639.00274,35.66682c135.66725,20.33342 59.66691,9.66671 358.33487,28.33346c298.66795,18.66676 268.66829,-45.00088 382.66831,-112.00048c114.00002,-66.9996 718.31698,-59.48704 1221.66946,95.563c503.35248,155.05004 -221.83202,184.10564 -243.66935,197.60521c-21.83733,13.49958 -3008.67549,-19.83371 -3008.00467,-20.83335c-0.67082,0.99964 -30.00428,-232.33469 -10.00419,-317.66839z"
             />
           </svg>
-          <div class="container" id="calculator">
+          <div class="container" >
             <div class="row justify-content-center footer-heading">
               <div class="col-md-8 col-lg-6 text-center">
                 <div class="overflow-hidden mb-2">
@@ -1312,7 +1310,7 @@
                       id="lb-radio"
                       class="form-control mr-2 calculator-radio"
                       name="weightUnit"
-                      value="lb"
+                      value="фт"
                       checked/>                      <label class="calculator-label" for="lb-radio">LB</label>
 
                   
@@ -1323,7 +1321,7 @@
                       id="kg-radio"
                       class="form-control calculator-radio"
                       name="weightUnit"
-                      value="kg"/>                      <label class="calculator-label" for="kg-radio">KG</label>
+                      value="кг"/>                      <label class="calculator-label" for="kg-radio">KG</label>
 
                     
                     </div>
@@ -1367,7 +1365,7 @@
                       checked
                       class="form-control mr-2 calculator-radio"
                       name="measurementUnit"
-                      value="in"/> <label class="calculator-label" for="in-radio">IN</label>
+                      value="дюйм"/> <label class="calculator-label" for="in-radio">IN</label>
                     
                   </div>
                     <div class="radio-container"> 
@@ -1377,7 +1375,7 @@
                       id="cm-radio"
                       class="form-control calculator-radio"
                       name="measurementUnit"
-                      value="cm"/> <label class="calculator-label" for="cm-radio">CM</label>
+                      value="см"/> <label class="calculator-label" for="cm-radio">CM</label>
                     
                     </div>
                   </div>
@@ -1978,9 +1976,8 @@
             </div>
           </div>
         </section> -->
-
          <section
-          class="our-blog section bg-color-light position-relative border-0 m-0"
+          class="our-blog section bg-color-light position-relative border-0 m-0" id="faqs"
         >
           <svg
             class="custom-section-curved-top-6"
@@ -2014,7 +2011,7 @@
             />
           </svg>
           <div class="container position-relative z-index-1 pb-5 mb-lg-5">
-            <div class="row justify-content-center mb-4">
+            <div class="row justify-content-center mb-4 faq-container">
               <div class="col-8 text-center">
                 
                 <h2 class="font-weight-normal text-7 mb-5">Часто задаваемые <strong class="font-weight-extra-bold">вопросы</strong></h2>
@@ -2022,7 +2019,7 @@
 
 							<div class="toggle toggle-primary m-0" data-plugin-toggle="">
 								<section class="toggle active">
-									<a class="toggle-title">Где я могу найти американский адрес для заказа в магазине?
+									<a class="toggle-title faq-paddings">Где я могу найти американский адрес для заказа в магазине?
 </a>
 									<div class="toggle-content" style="display: block;">
 										<p>609 Carson Dr, Bear, DE, 19701, United States</p>
@@ -2030,7 +2027,7 @@
 								</section>
 
 								<section class="toggle">
-									<a class="toggle-title">Когда вы отправите мои посылки?
+									<a class="toggle-title faq-paddings">Когда вы отправите мои посылки?
 
 </a>
 									<div class="toggle-content">
@@ -2039,7 +2036,7 @@
 								</section>
 
 								<section class="toggle">
-									<a class="toggle-title">Мой товар попадает в список запрещенных к ввозу, что делать?
+									<a class="toggle-title faq-paddings">Мой товар попадает в список запрещенных к ввозу, что делать?
 
 </a>
 									<div class="toggle-content">
@@ -2048,7 +2045,7 @@
 								</section>
 
 								<section class="toggle">
-									<a class="toggle-title">У вас есть функция Возврат в магазин?
+									<a class="toggle-title faq-paddings">У вас есть функция Возврат в магазин?
 </a>
 									<div class="toggle-content">
 										<p>Да, мы можем вернуть ваш трек в магазин
@@ -2057,7 +2054,7 @@
 								</section>
 
 								<section class="toggle">
-									<a class="toggle-title">Включены таможенные сборы в тариф?
+									<a class="toggle-title faq-paddings">Включены таможенные сборы в тариф?
           
 </a>
 									<div class="toggle-content">
@@ -2066,7 +2063,7 @@
 								</section>
 
 								<section class="toggle">
-									<a class="toggle-title">Вы доставляете еду/напитки?
+									<a class="toggle-title faq-paddings">Вы доставляете еду/напитки?
           
 </a>
 									<div class="toggle-content">
@@ -2075,7 +2072,7 @@
 								</section>
 
 								<section class="toggle">
-									<a class="toggle-title">Как долго хранятся мои треки на вашем складе?
+									<a class="toggle-title faq-paddings">Как долго хранятся мои треки на вашем складе?
 
 </a>
 									<div class="toggle-content">
@@ -2084,7 +2081,7 @@
 								</section>
 
 								<section class="toggle">
-									<a class="toggle-title">Запрещенный к доставке из США товары
+									<a class="toggle-title faq-paddings">Запрещенный к доставке из США товары
 
 </a>
 									<div class="toggle-content">

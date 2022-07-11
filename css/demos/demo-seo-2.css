@@ -67,11 +67,11 @@ body {
 * Custom Background Colors
 */
 .custom-bg-color-light-1 {
-		background-color: #eff1f3 ;
+		background-color: #eff1f3 !important;
 }
 
 .custom-bg-color-light-2 {
-		background-color: #eff1f3 ;
+		background-color: #eff1f3 !important;
 }
 
 .custom-bg-color-grey-1 {
@@ -171,7 +171,7 @@ body {
 * Header
 */
 #header.header-transparent .header-body:not(.header-border-bottom) {
-		border-bottom: 1px solid #e1e3e5 ;
+		border-bottom: 1px solid #e1e3e5 !important;
 }
 
 #header .header-nav-features .header-nav-features-dropdown.show {
@@ -216,7 +216,7 @@ body {
 }
 
 html.sticky-header-active #header.header-transparent .header-body:not(.header-border-bottom) {
-		border-bottom-color: rgba(234, 234, 234, 0.5) ;
+		border-bottom-color: rgba(234, 234, 234, 0.5) !important;
 }
 
 /*

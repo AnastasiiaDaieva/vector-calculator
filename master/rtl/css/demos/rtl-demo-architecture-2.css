@@ -212,7 +212,7 @@ html.sticky-header-active #header .header-body {
 	}
 
 	#header .header-nav.header-nav-line nav > ul:not(:hover) li > a.active:before {
-		background: #FFF !important;
+		background: #FFF;
 	}
 
 	#header .header-nav.header-nav-line nav > ul li:hover > a {

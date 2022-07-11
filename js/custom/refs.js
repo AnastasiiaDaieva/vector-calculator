@@ -8,4 +8,7 @@ export default {
   calculatorAnchor: document.querySelector(".header-calculator"),
   controllers: document.querySelector(".calculator-form_controllers"),
   resetForm: document.querySelector(".calculator-reset"),
+  howItWorksAnchor: document.querySelector(".menu-works"),
+  faqsAnchor: document.querySelector(".menu-faqs"),
+  calcMenuAnchor: document.querySelector(".menu-calc"),
 };

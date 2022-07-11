@@ -14,6 +14,11 @@
   font-style: normal;
 }
 
+html{scroll-padding-top: 5rem;}
+.section.section-margin{
+  margin-top: 0;
+}
+
 :root {
   --brand-color: #250625;
 }
@@ -33,7 +38,7 @@ h1,
 h2,
 h3,
 h4,
-p {
+p, .header-nav {
   font-family: "PT Sans Caption", sans-serif;
 }
 
@@ -85,7 +90,7 @@ input[type="radio"] {
   width: 100%;
   position: relative;
 }
-.calculator-form_row:not(:last-child) {
+.calculator-form_row {
   margin-bottom: 12px;
 }
 .calculator-form > div {
@@ -140,7 +145,7 @@ input[type="radio"] {
 }
 
 .calculator-last {
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 
 .header-right > *:not(:last-child) {
@@ -211,6 +216,10 @@ input[type="radio"] {
   width: 100%;
 }
 
+.dynamic-values-fontweight{
+  font-weight: 600;
+}
+
 .show-table {
   display: block;
 }
@@ -254,9 +263,7 @@ footer h4 {
 .result-option{
   display: flex;
 }
-.result-option:first-child{
-  margin-right: 30px;
-}
+
 .result-heading{
   text-align: center;
   margin-bottom: 40px;
@@ -286,6 +293,9 @@ footer h4 {
   border-radius: 50%;
   background-color: transparent;
 }
+.result-notification{
+  color: #da291c;
+}
 
 @media screen and (max-width: 500px) {
   body{
@@ -300,6 +310,14 @@ footer h4 {
     flex-direction: column;
     padding: 0 10px;
   }
+
+  .faq-paddings{
+    padding: 12px 25px 12px 15px;
+  }
+
+    .footer-container {
+     padding-bottom: 30px;
+    }
   .calculator-section:first-child {
     margin-bottom: 50px;
   }
@@ -311,7 +329,7 @@ footer h4 {
     padding-top: 0;
   }
   .calculator-result {
-    padding: 60px 10px 0 10px;
+    padding: 20px 10px 0 10px;
   }
   .our-blog {
     padding: 0 10px;
@@ -331,8 +349,15 @@ footer h4 {
     flex-direction: row;
     padding: 0 50px;
   }
+
+  section.section.how-it-works-section{
+  padding: 50px 0;
+  }
+    .result-option:first-child {
+      margin-right: 60px;
+    }
   .calculator-result {
-    padding: 100px 50px 0 50px;
+    padding: 40px 50px 0 50px;
   }
   .calculator-section:first-child {
     margin-right: 60px;
