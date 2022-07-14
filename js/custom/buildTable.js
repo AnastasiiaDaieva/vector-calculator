@@ -12,7 +12,6 @@ export default function buildTable(
   chosenCountry,
   dataForPassage
 ) {
-  // console.log(deliveryPrices);
   const heading = document.createElement("h2");
   heading.classList.add(
     "font-weight-bold",
@@ -25,7 +24,41 @@ export default function buildTable(
 
   const passage = document.createElement("p");
 
-  passage.textContent = `Направление: США - ${dataForPassage.country}. Вес ${dataForPassage.weight} кг.`;
+  const findResultWeight = deliveryPrices.find(
+    ({ price }) => price.resultWeight
+  );
+
+  const getWeightType = (type) => {
+    if (type === true) {
+      return "объёмный";
+    } else if (type === false || type === undefined) {
+      return "фактический";
+    } else {
+      console.log("type", type);
+    }
+  };
+
+  const weightForUser = (resultWeight, unit) => {
+    const getWeight = resultWeight
+      ? resultWeight.price.resultWeight
+      : dataForPassage.weight;
+
+    if (unit === "кг") {
+      return `${getWeight} кг`;
+    } else if (unit === "фт") {
+      const convert = Math.round(getWeight / 0.45359237);
+      return `${convert} фт`;
+    } else {
+      console.log(unit);
+    }
+  };
+
+  passage.textContent = `Направление: США - ${
+    dataForPassage.country
+  }. Вес ${weightForUser(
+    findResultWeight,
+    dataForPassage.weightUnit
+  )}. (${getWeightType(deliveryPrices[0].weightType)})`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
 
@@ -78,9 +111,7 @@ export default function buildTable(
     if (isNaN(price)) {
       const notificationEl = document.createElement("span");
       notificationEl.classList.add("result-notification");
-      notificationEl.textContent = `Максимально допустимый вес - ${getNotificationWeight(
-        price
-      )} кг`;
+      notificationEl.textContent = `Максимально допустимый вес - ${price.maxWeight} кг`;
       infoCont.appendChild(notificationEl);
     } else {
       const time = document.createElement("p");

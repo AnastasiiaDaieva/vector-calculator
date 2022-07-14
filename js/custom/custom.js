@@ -29,7 +29,7 @@ async function handleSubmit(e) {
 
   const request = Object.fromEntries(data.entries());
 
-  console.log({ request });
+  // console.log({ request });
   const {
     country,
     weight,
@@ -47,8 +47,9 @@ async function handleSubmit(e) {
     height: measurementConverter(height, measurementUnit),
     length: measurementConverter(length, measurementUnit),
     width: measurementConverter(width, measurementUnit),
+    weightUnit,
   };
-  console.log("converted and passed", arrangedData.weight);
+  // console.log("converted and passed", arrangedData.weight);
   const dataSets = rates.map((rate) => {
     const newData = { ...arrangedData, rate: rate };
     return newData;
@@ -57,7 +58,11 @@ async function handleSubmit(e) {
   const getPrices = dataSets.map((item) =>
     sendData(item)
       .then((response) => {
-        const result = response.price || response.message;
+        // console.log(response);
+        const result = {
+          price: response.price || response.data,
+          weightType: response.withDimensions,
+        };
         return result;
       })
       .catch((error) => console.log("ERROR", error))
@@ -82,16 +87,8 @@ async function sendData(data) {
       referrerPolicy: "no-referrer",
       body: JSON.stringify(data),
     });
-    // const notification = `<div>Максимально допустимый вес - 30 кг</div>`;
-    // console.log(notification);
 
-    if (response.status === 500) {
-      console.log();
-    }
     const json = await response.json();
-    // console.log("weight", data.weight);
-
-    // console.log(json);
 
     return json;
   } catch (error) {
