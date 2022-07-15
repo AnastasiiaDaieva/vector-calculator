@@ -316,6 +316,9 @@ footer li {
 .displayNone{
   display: none;
 }
+.language-select:hover .languages-dropdown{
+display: block;
+}
 
 .withDimensionsNotification:hover .weightPrompt{
   display: block;
