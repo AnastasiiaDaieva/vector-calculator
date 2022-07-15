@@ -4,7 +4,7 @@ export default {
   calcResult: document.querySelector(".calculator-result"),
   overlay: document.querySelector(".overlay"),
   dropdownList: document.querySelector(".languages-dropdown"),
-  currentLanguage: document.querySelector(".current-language"),
+  currentLanguage: document.querySelector(".lang-section"),
   calculatorAnchor: document.querySelector(".header-calculator"),
   controllers: document.querySelector(".calculator-form_controllers"),
   resetForm: document.querySelector(".calculator-reset"),

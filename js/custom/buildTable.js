@@ -12,6 +12,20 @@ export default function buildTable(
   chosenCountry,
   dataForPassage
 ) {
+  // console.log("deliveryOptions", deliveryOptions);
+  // console.log("deliveryPrices", deliveryPrices);
+  // console.log("chosenCountry", chosenCountry);
+  // console.log("dataForPassage", dataForPassage);
+
+  const getList = deliveryOptions.find(
+    (item) => item.countryTo === chosenCountry
+  );
+  getList.deliveryTypes.map(({ title, deliveryTime }) =>
+    tableOptions.push({ title, deliveryTime })
+  );
+  const tableOptionsWithPrices = addPrices(tableOptions, deliveryPrices);
+  // console.log("tableOptionsWithPrices", tableOptionsWithPrices);
+
   const heading = document.createElement("h2");
   heading.classList.add(
     "font-weight-bold",
@@ -24,24 +38,8 @@ export default function buildTable(
 
   const passage = document.createElement("p");
 
-  const findResultWeight = deliveryPrices.find(
-    ({ price }) => price.resultWeight
-  );
-
-  const getWeightType = (type) => {
-    if (type === true) {
-      return "объёмный";
-    } else if (type === false || type === undefined) {
-      return "фактический";
-    } else {
-      console.log("type", type);
-    }
-  };
-
   const weightForUser = (resultWeight, unit) => {
-    const getWeight = resultWeight
-      ? resultWeight.price.resultWeight
-      : dataForPassage.weight;
+    const getWeight = resultWeight ? resultWeight : dataForPassage.weight;
 
     if (unit === "кг") {
       return `${getWeight} кг`;
@@ -53,28 +51,37 @@ export default function buildTable(
     }
   };
 
+  passage.classList.add("passageOptions");
+
   passage.textContent = `Направление: США - ${
     dataForPassage.country
-  }. Вес ${weightForUser(
-    findResultWeight,
-    dataForPassage.weightUnit
-  )}. (${getWeightType(deliveryPrices[0].weightType)})`;
+  }. Вес ${weightForUser(dataForPassage.weight, dataForPassage.weightUnit)}.`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
 
-  const getList = deliveryOptions.find(
-    (item) => item.countryTo === chosenCountry
-  );
-  getList.deliveryTypes.map(({ title, deliveryTime }) =>
-    tableOptions.push({ title, deliveryTime })
-  );
+  const weightType = tableOptionsWithPrices.some((item) => item.weightType);
+  // console.log(weightType);
+  if (weightType === true) {
+    const iconWeightType = document.createElement("img");
+    iconWeightType.classList.add("withDimensionsNotification");
 
-  const tableOptionsWithPrices = addPrices(tableOptions, deliveryPrices);
+    iconWeightType.setAttribute("src", "img/icons/question-mark.svg");
+    iconWeightType.setAttribute("alt", "prompt");
+    iconWeightType.setAttribute("height", "10px");
+    iconWeightType.setAttribute("width", "10px");
 
-  // console.log("with prices", tableOptionsWithPrices);
+    const prompt = document.createElement("span");
+    prompt.classList.add("weightPrompt", "displayNone");
+    prompt.textContent = "Вес посчитан на основе габаритов посылки.";
+
+    passage.append(iconWeightType, prompt);
+  } else {
+    console.log(weightType);
+  }
 
   const items = tableOptionsWithPrices.map((option) => {
-    const { title, deliveryTime, price } = option;
+    const { title, deliveryTime, price, maxWeight } = option;
+    // console.log("opt", option);
 
     const tableOption = document.createElement("div");
     const imgCont = document.createElement("div");
@@ -107,11 +114,11 @@ export default function buildTable(
     method.textContent = titleText;
     imgCont.appendChild(img);
     infoCont.appendChild(method);
-
-    if (isNaN(price)) {
+    // console.log("price", price);
+    if (!price) {
       const notificationEl = document.createElement("span");
       notificationEl.classList.add("result-notification");
-      notificationEl.textContent = `Максимально допустимый вес - ${price.maxWeight} кг`;
+      notificationEl.textContent = `Максимально допустимый вес - ${maxWeight} кг`;
       infoCont.appendChild(notificationEl);
     } else {
       const time = document.createElement("p");
@@ -136,8 +143,7 @@ export default function buildTable(
       time.append(timeStatic, timeDynamic);
       priceEl.append(priceStatic, priceDynamic);
 
-      infoCont.appendChild(time);
-      infoCont.appendChild(priceEl);
+      infoCont.append(time, priceEl);
     }
 
     tableOption.append(imgCont, infoCont);

@@ -59,16 +59,36 @@ async function handleSubmit(e) {
     sendData(item)
       .then((response) => {
         // console.log(response);
-        const result = {
-          price: response.price || response.data,
-          weightType: response.withDimensions,
-        };
+        let result;
+        if (!response.message) {
+          result = {
+            price: response.price,
+            weightType: response.withDimensions,
+          };
+        } else {
+          result = {
+            maxWeight: response.data.maxWeight,
+            weightType: response.data.withDimensions,
+          };
+        }
         return result;
       })
-      .catch((error) => console.log("ERROR", error))
+      .catch((error) => {
+        console.log("ERROR", error);
+      })
   );
   const resolve = await Promise.all(getPrices);
   buildTable(deliveryOptions, resolve, country, arrangedData);
+  document
+    .querySelector(".withDimensionsNotification")
+    .addEventListener("mouseover", function () {
+      document.querySelector(".weightPrompt").classList.remove("displayNone");
+    });
+  document
+    .querySelector(".withDimensionsNotification")
+    .addEventListener("mouseout", function () {
+      document.querySelector(".weightPrompt").classList.add("displayNone");
+    });
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
     behavior: "smooth",
@@ -117,7 +137,9 @@ select.addEventListener("change", function () {
 form.addEventListener("submit", handleSubmit);
 currentLanguage.addEventListener("mouseover", showDropdown);
 currentLanguage.addEventListener("blur", hideDropdown);
-overlay.addEventListener("mouseover", hideDropdown);
+document
+  .querySelector(".languages-dropdown")
+  .addEventListener("mouseout", hideDropdown);
 overlay.addEventListener("click", hideDropdown);
 resetForm.addEventListener("click", function () {
   calcResult.innerHTML = "";
