@@ -79,16 +79,20 @@ async function handleSubmit(e) {
   );
   const resolve = await Promise.all(getPrices);
   buildTable(deliveryOptions, resolve, country, arrangedData);
-  document
-    .querySelector(".withDimensionsNotification")
-    .addEventListener("mouseover", function () {
-      document.querySelector(".weightPrompt").classList.remove("displayNone");
-    });
-  document
-    .querySelector(".withDimensionsNotification")
-    .addEventListener("mouseout", function () {
-      document.querySelector(".weightPrompt").classList.add("displayNone");
-    });
+  const findTrueWeightType = resolve.some((item) => item.weightType === true);
+  if (findTrueWeightType) {
+    document
+      .querySelector(".withDimensionsNotification")
+      .addEventListener("mouseover", function () {
+        document.querySelector(".weightPrompt").classList.remove("displayNone");
+      });
+    document
+      .querySelector(".withDimensionsNotification")
+      .addEventListener("mouseout", function () {
+        document.querySelector(".weightPrompt").classList.add("displayNone");
+      });
+  }
+
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
     behavior: "smooth",
