@@ -52,10 +52,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-input[type="radio"] {
-  min-width: 55px;
-  max-width: 55px;
-}
+
 
 .languages .dropdown-toggle::before {
   all: unset;
@@ -117,6 +114,7 @@ input[type="radio"] {
 
 .radio-container {
   position: relative;
+  margin-bottom: 15px;
 }
 .calculator-label {
   position: absolute;
@@ -329,6 +327,10 @@ display: block;
 
   font-size: 12px;
 }
+
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;}
 
 
 @media screen and (max-width: 500px) {

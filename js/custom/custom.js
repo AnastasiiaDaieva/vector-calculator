@@ -48,6 +48,7 @@ async function handleSubmit(e) {
     length: measurementConverter(length, measurementUnit),
     width: measurementConverter(width, measurementUnit),
     weightUnit,
+    measurementUnit,
   };
   // console.log("converted and passed", arrangedData.weight);
   const dataSets = rates.map((rate) => {

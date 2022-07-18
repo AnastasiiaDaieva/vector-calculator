@@ -15,7 +15,7 @@ export default function buildTable(
   // console.log("deliveryOptions", deliveryOptions);
   // console.log("deliveryPrices", deliveryPrices);
   // console.log("chosenCountry", chosenCountry);
-  // console.log("dataForPassage", dataForPassage);
+  console.log("dataForPassage", dataForPassage);
 
   const getList = deliveryOptions.find(
     (item) => item.countryTo === chosenCountry
@@ -110,7 +110,13 @@ export default function buildTable(
       "custom-font-size-1",
       "mb-1"
     );
-
+    const convertMaxWeight = (maxWeight, unit) => {
+      if (unit === "фт") {
+        return Math.round(maxWeight * 2.2);
+      } else {
+        return maxWeight;
+      }
+    };
     method.textContent = titleText;
     imgCont.appendChild(img);
     infoCont.appendChild(method);
@@ -118,7 +124,10 @@ export default function buildTable(
     if (!price) {
       const notificationEl = document.createElement("span");
       notificationEl.classList.add("result-notification");
-      notificationEl.textContent = `Максимально допустимый вес - ${maxWeight} кг`;
+      notificationEl.textContent = `Максимально допустимый вес - ${convertMaxWeight(
+        maxWeight,
+        dataForPassage.weightUnit
+      )} ${dataForPassage.weightUnit}`;
       infoCont.appendChild(notificationEl);
     } else {
       const time = document.createElement("p");
