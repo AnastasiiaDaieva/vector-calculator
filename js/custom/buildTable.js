@@ -15,7 +15,7 @@ export default function buildTable(
   // console.log("deliveryOptions", deliveryOptions);
   // console.log("deliveryPrices", deliveryPrices);
   // console.log("chosenCountry", chosenCountry);
-  console.log("dataForPassage", dataForPassage);
+  // console.log("dataForPassage", dataForPassage);
 
   const getList = deliveryOptions.find(
     (item) => item.countryTo === chosenCountry
@@ -53,12 +53,18 @@ export default function buildTable(
 
   passage.classList.add("passageOptions");
 
+  const findResultWeight = deliveryPrices.find((item) => item.resultWeight);
+  // console.log(findResultWeight);
+
   passage.textContent = `Направление: США - ${
     dataForPassage.country
-  }. Вес ${weightForUser(dataForPassage.weight, dataForPassage.weightUnit)}.`;
+  }. Вес ${weightForUser(
+    findResultWeight?.resultWeight,
+    dataForPassage.weightUnit
+  )}.`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
-
+  // console.log("tableOptionsWithPrices", tableOptionsWithPrices);
   const weightType = tableOptionsWithPrices.some((item) => item.weightType);
   // console.log(weightType);
   if (weightType === true) {
@@ -81,7 +87,7 @@ export default function buildTable(
 
   const items = tableOptionsWithPrices.map((option) => {
     const { title, deliveryTime, price, maxWeight } = option;
-    // console.log("opt", option);
+    console.log("opt", option);
 
     const tableOption = document.createElement("div");
     const imgCont = document.createElement("div");
@@ -112,7 +118,7 @@ export default function buildTable(
     );
     const convertMaxWeight = (maxWeight, unit) => {
       if (unit === "фт") {
-        return Math.round(maxWeight * 2.2);
+        return Math.floor(maxWeight * 2.2);
       } else {
         return maxWeight;
       }

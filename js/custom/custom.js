@@ -59,7 +59,7 @@ async function handleSubmit(e) {
   const getPrices = dataSets.map((item) =>
     sendData(item)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         let result;
         if (!response.message) {
           result = {
@@ -70,6 +70,7 @@ async function handleSubmit(e) {
           result = {
             maxWeight: response.data.maxWeight,
             weightType: response.data.withDimensions,
+            resultWeight: response.data.resultWeight,
           };
         }
         return result;
