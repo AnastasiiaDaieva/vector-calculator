@@ -351,6 +351,8 @@ background: grey;
     flex-direction: column;
     padding: 0 10px;
   }
+    .passageOptions {
+text-align: center;    }
     .faq-list {
   
       padding-top: 10px;
@@ -414,8 +416,8 @@ background: grey;
     }
 
         .weightPrompt {
-          top: -20px;
-          right: -105%;
+          top: -25px;
+          right: -72%;
         }
   .calculator {
     flex-direction: row;

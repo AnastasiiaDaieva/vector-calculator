@@ -68,6 +68,8 @@ export default function buildTable(
   const weightType = tableOptionsWithPrices.some((item) => item.weightType);
   // console.log(weightType);
   if (weightType === true) {
+    const brackets = document.createElement("span");
+    brackets.textContent = " (объёмный)";
     const iconWeightType = document.createElement("img");
     iconWeightType.classList.add("withDimensionsNotification");
 
@@ -80,7 +82,7 @@ export default function buildTable(
     prompt.classList.add("weightPrompt", "displayNone");
     prompt.textContent = "Вес посчитан на основе габаритов посылки.";
 
-    passage.append(iconWeightType, prompt);
+    passage.append(brackets, iconWeightType, prompt);
   } else {
     console.log(weightType);
   }
