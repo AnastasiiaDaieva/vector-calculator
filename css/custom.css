@@ -14,8 +14,10 @@
   font-style: normal;
 }
 
-html{scroll-padding-top: 5rem;}
-.section.section-margin{
+html {
+  scroll-padding-top: 5rem;
+}
+.section.section-margin {
   margin-top: 0;
 }
 
@@ -23,22 +25,24 @@ html{scroll-padding-top: 5rem;}
   --brand-color: #250625;
 }
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;z-index: 1000;
-      background-color: transparent;
-      /* background-color: #777; */
-      display: none;
-    }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: transparent;
+  /* background-color: #777; */
+  display: none;
+}
 
 h1,
 h2,
 h3,
 h4,
-p, .header-nav {
+p,
+.header-nav {
   font-family: "PT Sans Caption", sans-serif;
 }
 
@@ -52,7 +56,10 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-
+a {
+  color: inherit;
+  text-decoration: underline;
+}
 
 .languages .dropdown-toggle::before {
   all: unset;
@@ -138,7 +145,8 @@ input[type="number"] {
 
 .calculator-form_button.calculator-reset {
   background: none;
-  background-color: grey;margin-right: 10px;
+  background-color: grey;
+  margin-right: 10px;
 }
 .calculator-reset:hover {
   box-shadow: rgba(217, 217, 217, 0.782) 0px 0px 2px 1px;
@@ -158,13 +166,13 @@ input[type="number"] {
   margin-left: auto;
   margin-right: auto;
   display: none;
- align-items: center;
+  align-items: center;
 }
-.result-container{
+.result-container {
   display: flex;
 }
 
-.show-flex{
+.show-flex {
   display: flex;
 }
 
@@ -181,10 +189,10 @@ input[type="number"] {
 
 .languages-dropdown {
   text-align: center;
-  left: 50% ;
-  transform: translateX(-50%) ;
-  top: 100% ;
-  margin-top: 0.5rem ;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  margin-top: 0.5rem;
   padding: 0.65rem 0;
   position: absolute;
   min-width: 4rem;
@@ -216,7 +224,7 @@ input[type="number"] {
   width: 100%;
 }
 
-.dynamic-values-fontweight{
+.dynamic-values-fontweight {
   font-weight: 600;
 }
 
@@ -241,7 +249,8 @@ input[type="number"] {
   position: relative;
   z-index: 10;
 }
-#footer, .footer-copyright{
+#footer,
+.footer-copyright {
   background-color: var(--brand-color);
 }
 .footer-copyright {
@@ -260,15 +269,15 @@ footer h4 {
   font-weight: 600;
 }
 
-.result-option{
+.result-option {
   display: flex;
 }
 
-.result-heading{
+.result-heading {
   text-align: center;
   margin-bottom: 40px;
 }
-.start-button{
+.start-button {
   padding: 16px 48px;
 }
 
@@ -287,13 +296,13 @@ footer h4 {
   transform: rotate(135deg);
 }
 
-.info-img{
+.info-img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background-color: transparent;
 }
-.result-notification{
+.result-notification {
   color: #da291c;
 }
 
@@ -303,25 +312,24 @@ footer li {
   font-size: 14px;
 }
 
-
-.withDimensionsNotification{
+.withDimensionsNotification {
   position: relative;
   top: -10px;
   height: 15px;
   width: 15px;
 }
-.passageOptions{
+.passageOptions {
   position: relative;
 }
 
-.displayNone{
+.displayNone {
   display: none;
 }
-.language-select:hover .languages-dropdown{
-display: block;
+.language-select:hover .languages-dropdown {
+  display: block;
 }
 
-.withDimensionsNotification:hover .weightPrompt{
+.withDimensionsNotification:hover .weightPrompt {
   display: block;
 }
 
@@ -334,58 +342,68 @@ display: block;
 .form-check-input:checked {
   background-color: #0d6efd;
   border-color: white;
-background: grey;
+  background: grey;
 }
-
+    section.section.prohibited-section {
+      padding-top: 200px;
+    }
+  
+    .prohibited-items-list {
+      text-align: left;
+    }
 
 @media screen and (max-width: 500px) {
-  body{
+  body {
     font-size: 1rem;
   }
 
- .calculator-form_button{
+  .calculator-form_button {
     padding: 0 20px;
-}}
+  }
+}
 @media screen and (max-width: 768px) {
   .calculator {
     flex-direction: column;
     padding: 0 10px;
   }
-    .passageOptions {
-text-align: center;    }
-    .faq-list {
-  
-      padding-top: 10px;
-    }
-
-        .weightPrompt {
-          position: absolute;
-          top: -30px;
-          width: 100%;
-          right: -5%;
-        }
-
-    .partner-logo {
-      width: 200px;
-    }
-
-    section.section.how-it-works-section {
-      padding: 0;
-    }
-
-  .faq-paddings{
-    padding: 12px 25px 12px 15px;
+  .passageOptions {
+    text-align: center;
+  }
+  .faq-list {
+    padding-top: 10px;
   }
 
-    .footer-container {
-     padding-bottom: 24px;
-    }
+  .weightPrompt {
+    position: absolute;
+    top: -30px;
+    width: 100%;
+    right: -5%;
+  }
+
+  .partner-logo {
+    width: 200px;
+  }
+
+  section.section.how-it-works-section {
+    padding: 0;
+  }
+
+  .faq-paddings {
+    padding: 12px 25px 12px 15px;
+  }
+ 
+
+  .footer-container {
+    padding-bottom: 24px;
+  }
   .calculator-section:first-child {
     margin-bottom: 50px;
   }
   .section-logos > *:not(:last-child) {
     margin-bottom: 60px;
   }
+
+
 
   .section.section-perks {
     padding-top: 0;
@@ -399,40 +417,38 @@ text-align: center;    }
   section.toggle {
     width: 100%;
   }
-    .result-container {
-      display: flex;
-      flex-direction: column;
-    }
+  .result-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
-
 
 @media screen and (min-width: 768px) {
   .faq-list {
-     
-      padding-top: 20px;
-    }
+    padding-top: 20px;
+  }
   .partner-logo {
-      width: 110px;
-    }
+    width: 110px;
+  }
 
-        .weightPrompt {
-          top: -25px;
-          right: -72%;
-        }
+  .weightPrompt {
+    top: -25px;
+    right: -72%;
+  }
   .calculator {
     flex-direction: row;
     padding: 0 50px;
   }
-    .footer-container {
-      padding-bottom: 10px;
-    }
-
-  section.section.how-it-works-section{
-  padding: 50px 0;
+  .footer-container {
+    padding-bottom: 10px;
   }
-    .result-option:first-child {
-      margin-right: 60px;
-    }
+
+  section.section.how-it-works-section {
+    padding: 50px 0;
+  }
+  .result-option:first-child {
+    margin-right: 60px;
+  }
   .calculator-result {
     padding: 40px 50px 0 50px;
   }
