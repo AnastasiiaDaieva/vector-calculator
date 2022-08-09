@@ -21,6 +21,10 @@ html {
   margin-top: 0;
 }
 
+a.nav-link.menu-calc{
+  text-transform: none !important;
+}
+
 :root {
   --brand-color: #250625;
 }
