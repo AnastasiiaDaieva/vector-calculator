@@ -3,10 +3,12 @@ import { tableOptions } from "./custom.js";
 import { getNotificationWeight } from "./getNotificationWeight.js";
 import addPrices from "./addPrices.js";
 import getDaysEnding from "./getDaysEnding.js";
+import { BASE_URL } from "./variables.js";
+import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 
 const { calcResult } = refs;
 
-export default function buildTable(
+export default async function buildTable(
   deliveryOptions,
   deliveryPrices,
   chosenCountry,
@@ -55,9 +57,13 @@ export default function buildTable(
 
   const findResultWeight = deliveryPrices.find((item) => item.resultWeight);
   // console.log(findResultWeight);
+  const getCountryName = await getNameFromAbbreviation(
+    BASE_URL,
+    dataForPassage.country
+  );
 
   passage.textContent = `Направление: США - ${
-    dataForPassage.country
+    getCountryName[Object.keys(getCountryName)[0]]
   }. Вес ${weightForUser(
     findResultWeight?.resultWeight,
     dataForPassage.weightUnit
@@ -89,7 +95,7 @@ export default function buildTable(
 
   const items = tableOptionsWithPrices.map((option) => {
     const { title, deliveryTime, price, maxWeight } = option;
-    console.log("opt", option);
+    // console.log("opt", option);
 
     const tableOption = document.createElement("div");
     const imgCont = document.createElement("div");

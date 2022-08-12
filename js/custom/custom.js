@@ -5,6 +5,7 @@ import buildTable from "./buildTable.js";
 import fetchCountries from "./fetchCountries.js";
 import { weightConverter, measurementConverter } from "./converter.js";
 import { BASE_URL } from "./variables.js";
+import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 
 const {
   form,
@@ -29,7 +30,7 @@ async function handleSubmit(e) {
 
   const request = Object.fromEntries(data.entries());
 
-  // console.log({ request });
+  console.log({ request });
   const {
     country,
     weight,
@@ -125,12 +126,18 @@ async function sendData(data) {
 async function createList() {
   const countries = await fetchCountries(BASE_URL);
   // console.log(countries);
+
   deliveryOptions = countries;
   // console.log("options", deliveryOptions);
   for (const country of countries) {
+    const getCountry = await getNameFromAbbreviation(
+      BASE_URL,
+      country.countryTo
+    );
+    // console.log(getCountry);
     const option = document.createElement("option");
     option.value = country.countryTo;
-    option.innerText = country.countryTo;
+    option.innerText = getCountry[Object.keys(getCountry)[0]];
     select.appendChild(option);
   }
 }
