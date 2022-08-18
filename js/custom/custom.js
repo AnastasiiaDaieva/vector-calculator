@@ -125,7 +125,7 @@ async function sendData(data) {
 
 async function createList() {
   const countries = await fetchCountries(BASE_URL);
-  // console.log(countries);
+  console.log(countries);
 
   deliveryOptions = countries;
   // console.log("options", deliveryOptions);
