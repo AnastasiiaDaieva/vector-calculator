@@ -137,7 +137,7 @@ async function createList() {
     // console.log(getCountry);
     const option = document.createElement("option");
     option.value = country.countryTo;
-    option.innerText = getCountry[Object.keys(getCountry)[0]];
+    option.textContent = `США → ${getCountry[Object.keys(getCountry)[0]]}`;
     select.appendChild(option);
   }
 }
