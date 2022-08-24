@@ -12,7 +12,9 @@ export default async function buildTable(
   deliveryOptions,
   deliveryPrices,
   chosenCountry,
-  dataForPassage
+  dataForPassage,
+  weightUnit,
+  sizeUnit
 ) {
   // console.log("deliveryOptions", deliveryOptions);
   // console.log("deliveryPrices", deliveryPrices);
@@ -40,18 +42,18 @@ export default async function buildTable(
 
   const passage = document.createElement("p");
 
-  const weightForUser = (resultWeight, unit) => {
-    const getWeight = resultWeight ? resultWeight : dataForPassage.weight;
+  // const weightForUser = (resultWeight, unit) => {
+  //   const getWeight = resultWeight ? resultWeight : dataForPassage.weight;
 
-    if (unit === "кг") {
-      return `${getWeight} кг`;
-    } else if (unit === "фт") {
-      const convert = Math.round(getWeight / 0.45359237);
-      return `${convert} фт`;
-    } else {
-      console.log(unit);
-    }
-  };
+  //   if (unit === "кг") {
+  //     return `${getWeight} кг`;
+  //   } else if (unit === "фт") {
+  //     const convert = Math.round(getWeight / 0.45359237);
+  //     return `${convert} фт`;
+  //   } else {
+  //     console.log(unit);
+  //   }
+  // };
 
   passage.classList.add("passageOptions");
 
@@ -64,10 +66,9 @@ export default async function buildTable(
 
   passage.textContent = `Направление: США - ${
     getCountryName[Object.keys(getCountryName)[0]]
-  }. Вес ${weightForUser(
-    findResultWeight?.resultWeight,
-    dataForPassage.weightUnit
-  )}.`;
+  }. Вес ${
+    findResultWeight?.resultWeight || dataForPassage.weight
+  } ${weightUnit}.`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
   // console.log("tableOptionsWithPrices", tableOptionsWithPrices);
@@ -124,13 +125,13 @@ export default async function buildTable(
       "custom-font-size-1",
       "mb-1"
     );
-    const convertMaxWeight = (maxWeight, unit) => {
-      if (unit === "фт") {
-        return Math.floor(maxWeight * 2.2);
-      } else {
-        return maxWeight;
-      }
-    };
+    // const convertMaxWeight = (maxWeight, unit) => {
+    //   if (unit === "фт") {
+    //     return Math.floor(maxWeight * 2.2);
+    //   } else {
+    //     return maxWeight;
+    //   }
+    // };
     method.textContent = titleText;
     imgCont.appendChild(img);
     infoCont.appendChild(method);
@@ -138,10 +139,7 @@ export default async function buildTable(
     if (!price) {
       const notificationEl = document.createElement("span");
       notificationEl.classList.add("result-notification");
-      notificationEl.textContent = `Максимально допустимый вес - ${convertMaxWeight(
-        maxWeight,
-        dataForPassage.weightUnit
-      )} ${dataForPassage.weightUnit}`;
+      notificationEl.textContent = `Максимально допустимый вес - ${maxWeight} ${weightUnit}`;
       infoCont.appendChild(notificationEl);
     } else {
       const time = document.createElement("p");

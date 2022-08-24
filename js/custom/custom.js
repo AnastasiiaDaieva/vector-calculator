@@ -4,6 +4,7 @@ import scrollTo from "./scrollTo.js";
 import buildTable from "./buildTable.js";
 import fetchCountries from "./fetchCountries.js";
 import { weightConverter, measurementConverter } from "./converter.js";
+import { translateUnit } from "./translateUnit.js";
 import { BASE_URL } from "./variables.js";
 import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 
@@ -18,9 +19,14 @@ const {
   howItWorksAnchor,
   faqsAnchor,
   calcMenuAnchor,
+  calcWeight,
+  calcHeight,
+  calcWidth,
+  calcLength,
 } = refs;
 let deliveryOptions = [];
 export let tableOptions = [];
+let currentOption = {};
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -31,25 +37,15 @@ async function handleSubmit(e) {
   const request = Object.fromEntries(data.entries());
 
   console.log({ request });
-  const {
-    country,
-    weight,
-    weightUnit,
-    height,
-    length,
-    width,
-    measurementUnit,
-  } = request;
+  const { country, weight, height, length, width } = request;
   const getList = deliveryOptions.find((item) => item.countryTo === country);
   const rates = getList.deliveryTypes.map(({ rate }) => rate.id);
   const arrangedData = {
     country,
-    weight: weightConverter(weight, weightUnit),
-    height: measurementConverter(height, measurementUnit),
-    length: measurementConverter(length, measurementUnit),
-    width: measurementConverter(width, measurementUnit),
-    weightUnit,
-    measurementUnit,
+    weight,
+    height,
+    length,
+    width,
   };
   // console.log("converted and passed", arrangedData.weight);
   const dataSets = rates.map((rate) => {
@@ -81,7 +77,14 @@ async function handleSubmit(e) {
       })
   );
   const resolve = await Promise.all(getPrices);
-  buildTable(deliveryOptions, resolve, country, arrangedData);
+  buildTable(
+    deliveryOptions,
+    resolve,
+    country,
+    arrangedData,
+    currentOption.weightUnit,
+    currentOption.sizeUnit
+  );
   const findTrueWeightType = resolve.some((item) => item.weightType === true);
   if (findTrueWeightType) {
     document
@@ -146,6 +149,22 @@ createList();
 
 select.addEventListener("change", function () {
   select.value = this.value;
+  currentOption = deliveryOptions.find(
+    ({ countryTo }) => select.value === countryTo
+  );
+  currentOption.weightUnit = translateUnit(currentOption.weightUnit);
+  currentOption.sizeUnit = translateUnit(currentOption.sizeUnit);
+
+  calcWeight.placeholder =
+    select.value === ""
+      ? "Вес посылки"
+      : `Вес посылки (${currentOption.weightUnit})`;
+  calcHeight.placeholder =
+    select.value === "" ? "Высота" : `Высота (${currentOption.sizeUnit})`;
+  calcLength.placeholder =
+    select.value === "" ? "Длина" : `Длина (${currentOption.sizeUnit})`;
+  calcWidth.placeholder =
+    select.value === "" ? "Ширина" : `Ширина (${currentOption.sizeUnit})`;
 });
 form.addEventListener("submit", handleSubmit);
 // currentLanguage.addEventListener("mouseover", showDropdown);
