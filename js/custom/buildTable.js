@@ -105,7 +105,7 @@ export default async function buildTable(
 
     const method = document.createElement("h4");
 
-    const titleText = title === "Море" ? "Нова Пошта" : "УкрПошта";
+    const titleText = title;
     const imgSrc =
       title === "Море" ? "./img/icons/np-logo.svg" : "./img/logos/up-logo.png";
     img.setAttribute("src", imgSrc);

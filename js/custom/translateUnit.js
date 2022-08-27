@@ -8,5 +8,7 @@ export function translateUnit(unit) {
       return "фунт";
     case "in":
       return "дюйм";
+    default:
+      return unit;
   }
 }

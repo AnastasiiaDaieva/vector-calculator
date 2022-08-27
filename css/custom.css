@@ -97,10 +97,10 @@ a {
 .calculator-form_row {
   width: 100%;
   position: relative;
+    margin-bottom: 25px;
 }
-.calculator-form_row {
-  margin-bottom: 12px;
-}
+
+
 .calculator-form > div {
   display: flex;
 }

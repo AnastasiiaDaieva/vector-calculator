@@ -37,7 +37,7 @@ async function handleSubmit(e) {
   const request = Object.fromEntries(data.entries());
 
   console.log({ request });
-  const { country, weight, height, length, width } = request;
+  const { country, weight, height, length, width, contentValue } = request;
   const getList = deliveryOptions.find((item) => item.countryTo === country);
   const rates = getList.deliveryTypes.map(({ rate }) => rate.id);
   const arrangedData = {
@@ -156,9 +156,7 @@ select.addEventListener("change", function () {
   currentOption.sizeUnit = translateUnit(currentOption.sizeUnit);
 
   calcWeight.placeholder =
-    select.value === ""
-      ? "Вес посылки"
-      : `Вес посылки (${currentOption.weightUnit})`;
+    select.value === "" ? "Вес" : `Вес (${currentOption.weightUnit})`;
   calcHeight.placeholder =
     select.value === "" ? "Высота" : `Высота (${currentOption.sizeUnit})`;
   calcLength.placeholder =
