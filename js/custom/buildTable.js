@@ -19,7 +19,7 @@ export default async function buildTable(
   // console.log("deliveryOptions", deliveryOptions);
   // console.log("deliveryPrices", deliveryPrices);
   // console.log("chosenCountry", chosenCountry);
-  // console.log("dataForPassage", dataForPassage);
+  console.log("dataForPassage", dataForPassage);
 
   const getList = deliveryOptions.find(
     (item) => item.countryTo === chosenCountry
@@ -68,7 +68,11 @@ export default async function buildTable(
     getCountryName[Object.keys(getCountryName)[0]]
   }. Вес ${
     findResultWeight?.resultWeight || dataForPassage.weight
-  } ${weightUnit}.`;
+  } ${weightUnit}.${
+    dataForPassage.contentValue
+      ? ` Стоимость содержимого - $${dataForPassage.contentValue}`
+      : ""
+  }`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
   // console.log("tableOptionsWithPrices", tableOptionsWithPrices);
@@ -149,6 +153,7 @@ export default async function buildTable(
       const priceEl = document.createElement("div");
       const priceStatic = document.createElement("span");
       const priceDynamic = document.createElement("span");
+      const customFee = document.createElement("span");
 
       timeStatic.textContent = "Длительность доставки ";
       timeDynamic.textContent = `${deliveryTime} ${getDaysEnding(
@@ -156,6 +161,7 @@ export default async function buildTable(
       )}`;
       priceStatic.textContent = "Стоимость доставки ";
       priceDynamic.textContent = `$${price}`;
+      customFee.textContent = "Таможенный сбор $0";
       time.classList.add("custom-text-color-grey-1", "mb-1");
       priceEl.classList.add("custom-text-color-grey-1", "mb-1");
       timeDynamic.classList.add("dynamic-values-fontweight");

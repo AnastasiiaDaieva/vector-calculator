@@ -450,7 +450,7 @@ footer li {
   section.section.how-it-works-section {
     padding: 50px 0;
   }
-  .result-option:first-child {
+  .result-option:not(:last-child) {
     margin-right: 60px;
   }
   .calculator-result {
