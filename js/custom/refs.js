@@ -12,6 +12,7 @@ export default {
   calcHeight: document.querySelector(".calculator-height"),
   calcWidth: document.querySelector(".calculator-width"),
   calcLength: document.querySelector(".calculator-length"),
+  calcContentValue: document.querySelector(".calculator-content-value"),
   howItWorksAnchor: document.querySelector(".menu-works"),
   faqsAnchor: document.querySelector(".menu-faqs"),
   calcMenuAnchor: document.querySelector(".menu-calc"),

@@ -1,34 +1,14 @@
 import refs from "./refs.js";
-import { tableOptions } from "./custom.js";
-import { getNotificationWeight } from "./getNotificationWeight.js";
-import addPrices from "./addPrices.js";
 import getDaysEnding from "./getDaysEnding.js";
 import { BASE_URL } from "./variables.js";
 import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 
 const { calcResult } = refs;
 
-export default async function buildTable(
-  deliveryOptions,
-  deliveryPrices,
-  chosenCountry,
-  dataForPassage,
-  weightUnit,
-  sizeUnit
-) {
-  // console.log("deliveryOptions", deliveryOptions);
-  // console.log("deliveryPrices", deliveryPrices);
-  // console.log("chosenCountry", chosenCountry);
-  console.log("dataForPassage", dataForPassage);
-
-  const getList = deliveryOptions.find(
-    (item) => item.countryTo === chosenCountry
-  );
-  getList.deliveryTypes.map(({ title, deliveryTime }) =>
-    tableOptions.push({ title, deliveryTime })
-  );
-  const tableOptionsWithPrices = addPrices(tableOptions, deliveryPrices);
-  // console.log("tableOptionsWithPrices", tableOptionsWithPrices);
+export default async function buildTable(calcData, formData, currentDirection) {
+  // console.log("calcData", calcData);
+  // console.log("formData", formData);
+  // console.log("currentDirection", currentDirection);
 
   const heading = document.createElement("h2");
   heading.classList.add(
@@ -42,43 +22,24 @@ export default async function buildTable(
 
   const passage = document.createElement("p");
 
-  // const weightForUser = (resultWeight, unit) => {
-  //   const getWeight = resultWeight ? resultWeight : dataForPassage.weight;
-
-  //   if (unit === "кг") {
-  //     return `${getWeight} кг`;
-  //   } else if (unit === "фт") {
-  //     const convert = Math.round(getWeight / 0.45359237);
-  //     return `${convert} фт`;
-  //   } else {
-  //     console.log(unit);
-  //   }
-  // };
-
   passage.classList.add("passageOptions");
 
-  const findResultWeight = deliveryPrices.find((item) => item.resultWeight);
-  // console.log(findResultWeight);
   const getCountryName = await getNameFromAbbreviation(
     BASE_URL,
-    dataForPassage.country
+    currentDirection.countryTo
   );
 
   passage.textContent = `Направление: США - ${
     getCountryName[Object.keys(getCountryName)[0]]
-  }. Вес ${
-    findResultWeight?.resultWeight || dataForPassage.weight
-  } ${weightUnit}.${
-    dataForPassage.contentValue
-      ? ` Стоимость содержимого - $${dataForPassage.contentValue}`
-      : ""
+  }. Вес - ${calcData.resultWeight} ${
+    calcData.weightUnit
+  }. Стоимость содержимого - ${formData.contentValue} ${
+    currentDirection.taxFreeLimitCurrency
   }`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
-  // console.log("tableOptionsWithPrices", tableOptionsWithPrices);
-  const weightType = tableOptionsWithPrices.some((item) => item.weightType);
-  // console.log(weightType);
-  if (weightType === true) {
+
+  if (calcData.withDimensions === true) {
     const brackets = document.createElement("span");
     brackets.textContent = " (объёмный)";
     const iconWeightType = document.createElement("img");
@@ -95,11 +56,11 @@ export default async function buildTable(
 
     passage.append(brackets, iconWeightType, prompt);
   } else {
-    console.log(weightType);
+    console.log(calcData.withDimensions);
   }
 
-  const items = tableOptionsWithPrices.map((option) => {
-    const { title, deliveryTime, price, maxWeight } = option;
+  const items = calcData.rates.map((option) => {
+    const { title, deliveryTime, price, maxWeight, logoUrl } = option;
     // console.log("opt", option);
 
     const tableOption = document.createElement("div");
@@ -110,8 +71,9 @@ export default async function buildTable(
     const method = document.createElement("h4");
 
     const titleText = title;
-    const imgSrc =
-      title === "Море" ? "./img/icons/np-logo.svg" : "./img/logos/up-logo.png";
+    const imgSrc = logoUrl
+      ? `https://logistic.ndv.net.ua/${logoUrl}`
+      : "./img/logos/up-logo.png";
     img.setAttribute("src", imgSrc);
     img.setAttribute("alt", titleText);
 
@@ -129,21 +91,17 @@ export default async function buildTable(
       "custom-font-size-1",
       "mb-1"
     );
-    // const convertMaxWeight = (maxWeight, unit) => {
-    //   if (unit === "фт") {
-    //     return Math.floor(maxWeight * 2.2);
-    //   } else {
-    //     return maxWeight;
-    //   }
-    // };
+
     method.textContent = titleText;
     imgCont.appendChild(img);
     infoCont.appendChild(method);
-    // console.log("price", price);
+
     if (!price) {
       const notificationEl = document.createElement("span");
+
       notificationEl.classList.add("result-notification");
-      notificationEl.textContent = `Максимально допустимый вес - ${maxWeight} ${weightUnit}`;
+
+      notificationEl.textContent = `Максимально допустимый вес - ${maxWeight} ${calcData.weightUnit}.`;
       infoCont.appendChild(notificationEl);
     } else {
       const time = document.createElement("p");
@@ -153,24 +111,37 @@ export default async function buildTable(
       const priceEl = document.createElement("div");
       const priceStatic = document.createElement("span");
       const priceDynamic = document.createElement("span");
-      const customFee = document.createElement("span");
+
+      const customFee = document.createElement("p");
+      const customFeeStatic = document.createElement("span");
+      const customFeeDynamic = document.createElement("span");
 
       timeStatic.textContent = "Длительность доставки ";
       timeDynamic.textContent = `${deliveryTime} ${getDaysEnding(
         deliveryTime
       )}`;
+
       priceStatic.textContent = "Стоимость доставки ";
       priceDynamic.textContent = `$${price}`;
-      customFee.textContent = "Таможенный сбор $0";
+
+      customFeeStatic.textContent = `Таможенный сбор `;
+      customFeeDynamic.textContent = `${
+        calcData.brokerFeeValue ? calcData.brokerFeeValue : 0
+      } ${calcData.currencyService}`;
+
       time.classList.add("custom-text-color-grey-1", "mb-1");
       priceEl.classList.add("custom-text-color-grey-1", "mb-1");
+      customFee.classList.add("custom-text-color-grey-1", "mb-1");
+
       timeDynamic.classList.add("dynamic-values-fontweight");
       priceDynamic.classList.add("dynamic-values-fontweight");
+      customFeeDynamic.classList.add("dynamic-values-fontweight");
 
       time.append(timeStatic, timeDynamic);
       priceEl.append(priceStatic, priceDynamic);
+      customFee.append(customFeeStatic, customFeeDynamic);
 
-      infoCont.append(time, priceEl);
+      infoCont.append(time, priceEl, customFee);
     }
 
     tableOption.append(imgCont, infoCont);
