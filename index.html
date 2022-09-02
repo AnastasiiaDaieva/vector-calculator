@@ -993,8 +993,12 @@
                   data-appear-animation-delay="700">
                   <input type="number" class="form-control calculator-weight mr-2" name="weight" value="" placeholder="Вес"
                     data-msg-required="Укажите вес." required />
+                    <label class="calculator-label label-weight" for="weight">
+                    </label>
                       <input type="number" class="form-control calculator-content-value" name="contentValue" value="" placeholder="Стоимость"
                     data-msg-required="Укажите стоимость содержимого." required />
+                      <label class="calculator-label label-value" for="contentValue">
+                    </label>
 
                 </div>
                
@@ -1013,16 +1017,21 @@
                   </div>
 
                 </div> -->
-                <div class="calculator-form_row appear-animation"
+                <div class="calculator-form_row appear-animation d-md-flex flex-column"
                   data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700">
-                  <input type="number" class="form-control mr-2 calculator-length" name="length" value="" placeholder="Длина"
-                    data-msg-required="Укажите длину." />
+                 <div class="d-flex calculator-label-container">
+                   <input type="number" class="form-control calculator-size calculator-length" name="length" value="" placeholder="Длина"
+                    data-msg-required="Укажите длину." /><label class="calculator-label label-size" for="contentValue">
+                    </label>
+                 </div>
 
-                  <input type="number" class="form-control mr-2 calculator-width" name="width" value="" placeholder="Ширина"
-                    data-msg-required="Укажите ширину." />
-
-                  <input type="number" class="form-control calculator-height" name="height" value="" placeholder="Высота"
-                    data-msg-required="Укажите высоту." />
+                <div class="d-flex calculator-label-container">  <input type="number" class="form-control  calculator-size calculator-width" name="width" value="" placeholder="Ширина"
+                    data-msg-required="Укажите ширину." /><label class="calculator-label label-size" for="contentValue">
+                    </label>
+</div>
+                 <div class="d-flex calculator-label-container"> <input type="number" class="form-control calculator-size calculator-height" name="height" value="" placeholder="Высота"
+                    data-msg-required="Укажите высоту." /><label class="calculator-label label-size" for="contentValue">
+                    </label></div>
 
                 </div>
                 <!-- <div class="radio-container calculator-last appear-animation" data-appear-animation="fadeInUpShorter"

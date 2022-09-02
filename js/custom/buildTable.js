@@ -5,10 +5,15 @@ import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 
 const { calcResult } = refs;
 
-export default async function buildTable(calcData, formData, currentDirection) {
-  // console.log("calcData", calcData);
-  // console.log("formData", formData);
-  // console.log("currentDirection", currentDirection);
+export default function buildTable(
+  calcData,
+  formData,
+  currentDirection,
+  countryName
+) {
+  console.log("calcData", calcData);
+  console.log("formData", formData);
+  console.log("currentDirection", currentDirection);
 
   const heading = document.createElement("h2");
   heading.classList.add(
@@ -24,21 +29,12 @@ export default async function buildTable(calcData, formData, currentDirection) {
 
   passage.classList.add("passageOptions");
 
-  const getCountryName = await getNameFromAbbreviation(
-    BASE_URL,
-    currentDirection.countryTo
-  );
-
   passage.textContent = `Направление: США - ${
-    getCountryName[Object.keys(getCountryName)[0]]
-  }. Вес - ${calcData.resultWeight} ${
-    calcData.weightUnit
-  }. Стоимость содержимого - ${formData.contentValue} ${
-    currentDirection.taxFreeLimitCurrency
-  }`;
+    countryName[Object.keys(countryName)[0]]
+  }. Вес - ${calcData.resultWeight} ${calcData.weightUnit}.`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
-
+  console.log("wd", calcData.withDimensions);
   if (calcData.withDimensions === true) {
     const brackets = document.createElement("span");
     brackets.textContent = " (объёмный)";
@@ -58,6 +54,11 @@ export default async function buildTable(calcData, formData, currentDirection) {
   } else {
     console.log(calcData.withDimensions);
   }
+
+  const contentValueText = document.createElement("p");
+  contentValueText.textContent = `Стоимость содержимого - ${formData.contentValue} ${currentDirection.serviceCurrency}.`;
+
+  passage.append(contentValueText);
 
   const items = calcData.rates.map((option) => {
     const { title, deliveryTime, price, maxWeight, logoUrl } = option;
@@ -108,40 +109,45 @@ export default async function buildTable(calcData, formData, currentDirection) {
       const timeStatic = document.createElement("span");
       const timeDynamic = document.createElement("span");
 
-      const priceEl = document.createElement("div");
+      const priceEl = document.createElement("p");
       const priceStatic = document.createElement("span");
       const priceDynamic = document.createElement("span");
 
-      const customFee = document.createElement("p");
-      const customFeeStatic = document.createElement("span");
-      const customFeeDynamic = document.createElement("span");
-
-      timeStatic.textContent = "Длительность доставки ";
+      timeStatic.textContent = "длительность доставки";
       timeDynamic.textContent = `${deliveryTime} ${getDaysEnding(
         deliveryTime
-      )}`;
+      )} - `;
 
-      priceStatic.textContent = "Стоимость доставки ";
-      priceDynamic.textContent = `$${price}`;
+      priceStatic.textContent = "стоимость доставки";
+      priceDynamic.textContent = `${price} ${currentDirection.serviceCurrency} - `;
 
-      customFeeStatic.textContent = `Таможенный сбор `;
-      customFeeDynamic.textContent = `${
-        calcData.brokerFeeValue ? calcData.brokerFeeValue : 0
-      } ${calcData.currencyService}`;
+      const customFee = document.createElement("p");
+
+      if (calcData.brokerFeeValue) {
+        const customFeeStatic = document.createElement("span");
+        const customFeeDynamic = document.createElement("span");
+
+        customFeeStatic.textContent = `таможенный сбор`;
+        customFeeDynamic.textContent = `${calcData.brokerFeeValue} ${currentDirection.serviceCurrency} - `;
+
+        customFee.classList.add("custom-text-color-grey-1", "mb-1");
+        customFeeDynamic.classList.add("dynamic-values-fontweight");
+        customFee.append(customFeeDynamic, customFeeStatic);
+      }
 
       time.classList.add("custom-text-color-grey-1", "mb-1");
       priceEl.classList.add("custom-text-color-grey-1", "mb-1");
-      customFee.classList.add("custom-text-color-grey-1", "mb-1");
 
       timeDynamic.classList.add("dynamic-values-fontweight");
       priceDynamic.classList.add("dynamic-values-fontweight");
-      customFeeDynamic.classList.add("dynamic-values-fontweight");
 
-      time.append(timeStatic, timeDynamic);
-      priceEl.append(priceStatic, priceDynamic);
-      customFee.append(customFeeStatic, customFeeDynamic);
-
-      infoCont.append(time, priceEl, customFee);
+      time.append(timeDynamic, timeStatic);
+      priceEl.append(priceDynamic, priceStatic);
+      if (calcData.brokerFeeValue) {
+        infoCont.append(time, priceEl, customFee);
+      } else {
+        infoCont.append(time, priceEl);
+      }
     }
 
     tableOption.append(imgCont, infoCont);

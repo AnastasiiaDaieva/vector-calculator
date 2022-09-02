@@ -16,4 +16,6 @@ export default {
   howItWorksAnchor: document.querySelector(".menu-works"),
   faqsAnchor: document.querySelector(".menu-faqs"),
   calcMenuAnchor: document.querySelector(".menu-calc"),
+  labelWeight: document.querySelector(".label-weight"),
+  labelValue: document.querySelector(".label-value"),
 };
