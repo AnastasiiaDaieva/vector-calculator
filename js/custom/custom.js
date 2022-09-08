@@ -122,6 +122,11 @@ async function createList() {
   // console.log(countries);
 
   directions = countries;
+  if (directions.length > 1) {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "Страна получателя";
+  }
 
   for (const direction of directions) {
     const getCountry = await getNameFromAbbreviation(

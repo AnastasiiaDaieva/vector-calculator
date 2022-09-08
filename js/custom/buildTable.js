@@ -135,13 +135,10 @@ export default function buildTable(
         const pricePromptIcon = document.createElement("img");
         pricePromptIcon.classList.add("priceNotification");
 
-        pricePromptIcon.setAttribute(
-          "src",
-          "img/icons/chart-pie-bar-svgrepo-com.svg"
-        );
+        pricePromptIcon.setAttribute("src", "img/icons/gen005.svg");
         pricePromptIcon.setAttribute("alt", "prompt");
-        pricePromptIcon.setAttribute("height", "10px");
-        pricePromptIcon.setAttribute("width", "10px");
+        pricePromptIcon.setAttribute("height", "20px");
+        pricePromptIcon.setAttribute("width", "20px");
 
         const prompt = document.createElement("p");
         prompt.classList.add("pricePrompt", "displayNone");
