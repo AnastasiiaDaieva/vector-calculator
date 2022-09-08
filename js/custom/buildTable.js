@@ -118,12 +118,45 @@ export default function buildTable(
         deliveryTime
       )} - `;
 
-      priceStatic.textContent = "стоимость доставки";
-      priceDynamic.textContent = `${price} ${currentDirection.serviceCurrency} - `;
+      priceStatic.textContent = " стоимость доставки";
+      priceDynamic.textContent = `${price + calcData.brokerFeeValue} ${
+        currentDirection.serviceCurrency
+      } - `;
 
-      const customFee = document.createElement("p");
+      time.classList.add("custom-text-color-grey-1", "mb-1");
+      priceEl.classList.add("custom-text-color-grey-1", "mb-1", "priceElement");
 
+      timeDynamic.classList.add("dynamic-values-fontweight");
+      priceDynamic.classList.add("dynamic-values-fontweight");
+
+      time.append(timeDynamic, timeStatic);
+      priceEl.append(priceDynamic, priceStatic);
       if (calcData.brokerFeeValue) {
+        const pricePromptIcon = document.createElement("img");
+        pricePromptIcon.classList.add("priceNotification");
+
+        pricePromptIcon.setAttribute(
+          "src",
+          "img/icons/chart-pie-bar-svgrepo-com.svg"
+        );
+        pricePromptIcon.setAttribute("alt", "prompt");
+        pricePromptIcon.setAttribute("height", "10px");
+        pricePromptIcon.setAttribute("width", "10px");
+
+        const prompt = document.createElement("p");
+        prompt.classList.add("pricePrompt", "displayNone");
+
+        const basicFee = document.createElement("p");
+        const basicFeeStatic = document.createElement("span");
+        const basicFeeDynamic = document.createElement("span");
+        basicFeeStatic.textContent = " стоимость доставки";
+        basicFeeDynamic.textContent = `${price} ${currentDirection.serviceCurrency} - `;
+
+        basicFee.classList.add("custom-text-color-grey-1", "mb-1");
+
+        basicFee.append(basicFeeDynamic, basicFeeStatic);
+
+        const customFee = document.createElement("p");
         const customFeeStatic = document.createElement("span");
         const customFeeDynamic = document.createElement("span");
 
@@ -132,22 +165,15 @@ export default function buildTable(
 
         customFee.classList.add("custom-text-color-grey-1", "mb-1");
         customFeeDynamic.classList.add("dynamic-values-fontweight");
+
         customFee.append(customFeeDynamic, customFeeStatic);
+        prompt.append(basicFee, customFee);
+        const promptContainer = document.createElement("p");
+        promptContainer.classList.add("promptContainer");
+        promptContainer.append(pricePromptIcon, prompt);
+        priceEl.append(promptContainer);
       }
-
-      time.classList.add("custom-text-color-grey-1", "mb-1");
-      priceEl.classList.add("custom-text-color-grey-1", "mb-1");
-
-      timeDynamic.classList.add("dynamic-values-fontweight");
-      priceDynamic.classList.add("dynamic-values-fontweight");
-
-      time.append(timeDynamic, timeStatic);
-      priceEl.append(priceDynamic, priceStatic);
-      if (calcData.brokerFeeValue) {
-        infoCont.append(time, priceEl, customFee);
-      } else {
-        infoCont.append(time, priceEl);
-      }
+      infoCont.append(time, priceEl);
     }
 
     tableOption.append(imgCont, infoCont);

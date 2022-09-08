@@ -55,7 +55,7 @@
   <div class="body">
     <div class="overlay"></div>
     <header id="header" class="header-transparent header-effect-shrink"
-      data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 70, 'stickyHeaderContainerHeight': 70}">
+      data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 70, 'stickyHeaderContainerHeight': 70}">
       <div class="header-body border-top-0 appear-animation" data-appear-animation="fadeIn">
         <div class="header-top">
           <div class="container">
@@ -495,7 +495,7 @@
               data-plugin-options="{'startPos': 'top', 'speed': 1, 'horizontal': true, 'transition': true, 'transitionDuration': 1000}">
             </div>
           </div>
-          <div class="row text-center align-items-center pb-4 pt-lg-4 mb-3 mb-lg-0 appear-animation section-logos"
+          <div class="row text-center align-items-center pb-4 pt-lg-4 mb-3  appear-animation section-logos"
             data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="300">
             <div class="col-md-4 col-lg-2 mb-lg-0">
               <svg class="img-fluid partner-logo">
@@ -967,15 +967,21 @@
                 </div> -->
             </div>
           </div>
-          <div class="calculator">
+          <div class="calculator" id="calc-section">
             <div class="calculator-section">
               <form class="custom-form-style-1 custom-form-simple-validation form-errors-light calculator-form"
                 action="/" id="js-form">
                 <div class="calculator-form_row appear-animation" data-appear-animation="fadeInUpShorter"
                   data-appear-animation-delay="700">
+                       <select class="form-select form-control calculator-select mr-2" name="directionSender" id="sender-select"
+                    placeholder="Страна отправителя" value="" data-msg-required="Укажите страну отправителя." required>
+                    <option value="">Страна отправителя</option>
+                                        <option value="USA">США</option>
+
+                  </select>
                   <select class="form-select form-control calculator-select" name="formDirection" id="countries-select"
-                    placeholder="Страна" value="" data-msg-required="Укажите направление." required>
-                    <option value="">Укажите направление</option>
+                    placeholder="Страна" value="" data-msg-required="Укажите страну получателя." required>
+                    <option value="">Страна получателя</option>
                   </select>
                 </div>
                 <!-- <div class="calculator-form_row mb-3">
@@ -1017,7 +1023,7 @@
                   </div>
 
                 </div> -->
-                <div class="calculator-form_row appear-animation d-md-flex flex-column"
+                <div class="calculator-form_row calculator-size_row appear-animation d-md-flex"
                   data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700">
                  <div class="d-flex calculator-label-container">
                    <input type="number" class="form-control calculator-size calculator-length" name="length" value="" placeholder="Длина"

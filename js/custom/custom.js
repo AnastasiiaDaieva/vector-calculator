@@ -49,10 +49,6 @@ async function handleSubmit(e) {
   buildTable(calcData, request, currentDirection, getCountryName);
 
   if (calcData.withDimensions) {
-    console.log(
-      "adding event listener",
-      document.querySelector(".withDimensionsNotification")
-    );
     document
       .querySelector(".withDimensionsNotification")
       .addEventListener("mouseover", function () {
@@ -65,10 +61,38 @@ async function handleSubmit(e) {
       });
   }
 
+  if (calcData.brokerFeeValue) {
+    console.log(
+      "adding event listener",
+      document.querySelector(".priceNotification")
+    );
+    const containers = document.querySelectorAll(".promptContainer");
+
+    containers.forEach((container) => {
+      container.addEventListener("mouseover", function () {
+        container.querySelector(".pricePrompt").classList.remove("displayNone");
+      });
+      container.addEventListener("mouseout", function () {
+        container.querySelector(".pricePrompt").classList.add("displayNone");
+      });
+    });
+  }
+
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
     behavior: "smooth",
   });
+}
+
+async function getColor() {
+  try {
+    const data = await fetch(`${BASE_URL}/websites/6`);
+    const json = await data.json();
+
+    document.querySelector(".shipment").style.backgroundColor = json.mainColor;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function sendData(formData) {
@@ -107,7 +131,7 @@ async function createList() {
     // console.log(getCountry);
     const option = document.createElement("option");
     option.value = direction.id;
-    option.textContent = `США >> ${getCountry[Object.keys(getCountry)[0]]}`;
+    option.textContent = getCountry[Object.keys(getCountry)[0]];
     select.appendChild(option);
   }
 }
@@ -121,12 +145,12 @@ select.addEventListener("change", function () {
   currentDirection.weightUnit = translateUnit(currentDirection.weightUnit);
   currentDirection.sizeUnit = translateUnit(currentDirection.sizeUnit);
 
-  labelWeight.textContent = currentDirection.weightUnit.toUpperCase();
+  labelWeight.textContent = currentDirection.weightUnit.toLowerCase();
   labelValue.textContent = currentDirection.serviceCurrency;
   const sizeLabels = document.querySelectorAll(".label-size");
 
   sizeLabels.forEach(
-    (label) => (label.textContent = currentDirection.sizeUnit.toUpperCase())
+    (label) => (label.textContent = currentDirection.sizeUnit.toLowerCase())
   );
 
   // calcWeight.placeholder =
@@ -151,3 +175,4 @@ calculatorAnchor.addEventListener("click", scrollTo);
 howItWorksAnchor.addEventListener("click", scrollTo);
 faqsAnchor.addEventListener("click", scrollTo);
 calcMenuAnchor.addEventListener("click", scrollTo);
+getColor();

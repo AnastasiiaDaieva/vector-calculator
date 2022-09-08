@@ -81,7 +81,10 @@ a {
 .calculator > * {
   flex-basis: 100%;
 }
-
+.priceElement{
+  display: flex;
+  justify-content: space-around;
+}
 .calculator-form {
   display: flex;
   flex-direction: column;
@@ -135,12 +138,16 @@ position: relative;
 }
 .calculator-label {
   position: absolute;
-  left: 80%;
+  left: 87%;
 height: 100%;
 padding: 15px;color:black;}
 
+.calculator-label.label-size{
+  left: 60%;
+}
+
 .label-weight{
-  left: 30%;
+  left: 40%;
 }
 
 
@@ -285,7 +292,7 @@ footer h4 {
 
 .result-heading {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .start-button {
   padding: 16px 48px;
@@ -322,6 +329,11 @@ footer li {
   font-size: 14px;
 }
 
+.promptContainer{
+  position: relative;
+}
+
+.priceNotification,
 .withDimensionsNotification {
   position: relative;
   top: -10px;
@@ -340,14 +352,21 @@ footer li {
   display: block;
 }
 
+/* .priceNotification:hover .pricePrompt, */
 .withDimensionsNotification:hover .weightPrompt {
   display: block;
 }
-
+.pricePrompt,
 .weightPrompt {
   position: absolute;
-
+  padding: 10px;
+width: 200px;
   font-size: 12px;
+      border-radius: 0.475rem;
+      box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+      border: 0 ;
+      background: #ffffff;
+      color: grey;
 }
 
 .form-check-input:checked {
@@ -379,6 +398,19 @@ footer li {
     padding: 0 10px;
   }
 
+
+    .calculator-size_row {
+      flex-direction: column;
+    }
+ .calculator-label.label-weight {
+   left: 33%;
+ }
+ .calculator-label.label-value {
+   left: 77%;
+ }
+        .calculator-label.label-size {
+          left: 80%;
+        }
   .passageOptions {
     text-align: center;
   }
@@ -386,16 +418,17 @@ footer li {
     padding-top: 10px;
   }
 
+.pricePrompt,
   .weightPrompt {
     position: absolute;
-    top: -30px;
-    width: 100%;
-    right: -5%;
+    top: -55px;
+    right: 16%;
   }
 
-  .partner-logo {
-    width: 200px;
+  .pricePrompt{
+    top: 20px;
   }
+
 
   section.section.how-it-works-section {
     padding: 0;
@@ -412,6 +445,13 @@ footer li {
   .calculator-section:first-child {
     margin-bottom: 50px;
   }
+        .section-logos {
+          display: flex;
+          flex-wrap: wrap;
+justify-content: space-around;        }
+    .section-logos>*{
+      width: 50%;
+    }
   .section-logos > *:not(:last-child) {
     margin-bottom: 60px;
   }
@@ -443,15 +483,24 @@ footer li {
 
     .calculator-size {
       width: 100%;
+      
     }
+         .calculator-label-container:not(:last-child) {
+           margin-right: 10px;
+         }
+
+         .calculator-size_row{
+flex-direction: row;         }
+
   .partner-logo {
     width: 110px;
   }
-
   .weightPrompt {
-    top: -25px;
-    right: -32%;
+    top: 10px;
+    right: -45%;
   }
+
+   
   .calculator {
     flex-direction: row;
     padding: 0 50px;
