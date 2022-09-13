@@ -237,13 +237,18 @@ html.sticky-header-active #header.header-transparent .header-body:not(.header-bo
   font-size: 1.3rem;
 }
 
+
 /*
 * Form
 */
 .custom-form-style-1 .form-control {
   padding: 10px 20px;
 }
-
+@media screen and(max-width:500px) {
+  .custom-form-style-1 .form-control {
+      padding: 10px 25px 10px 15px;
+    }
+}
 .custom-form-style-1 .form-control:not(textarea) {
   height: 55px;
 }

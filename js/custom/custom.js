@@ -24,7 +24,7 @@ const {
   labelValue,
 } = refs;
 let directions = [];
-let currentDirection = {};
+let currentDirection;
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -119,14 +119,19 @@ async function sendData(formData) {
 
 async function createList() {
   const countries = await fetchCountries(BASE_URL);
-  // console.log(countries);
-
   directions = countries;
+
   if (directions.length > 1) {
+    console.log(countries);
+
     const option = document.createElement("option");
     option.value = "";
     option.textContent = "Страна получателя";
+    select.appendChild(option);
+  } else if (directions.length === 1) {
+    currentDirection = countries[0];
   }
+  console.log(select);
 
   for (const direction of directions) {
     const getCountry = await getNameFromAbbreviation(
@@ -146,38 +151,40 @@ createList();
 select.addEventListener("change", function () {
   select.value = this.value;
   currentDirection = directions.find(({ id }) => select.value == id);
-  // console.log(currentDirection);
+  console.log(currentDirection);
   currentDirection.weightUnit = translateUnit(currentDirection.weightUnit);
   currentDirection.sizeUnit = translateUnit(currentDirection.sizeUnit);
+});
 
-  labelWeight.textContent = currentDirection.weightUnit.toLowerCase();
-  labelValue.textContent = currentDirection.serviceCurrency;
+document.addEventListener("change", function () {
+  labelWeight.textContent = currentDirection
+    ? currentDirection.weightUnit.toLowerCase()
+    : "";
+  labelValue.textContent = currentDirection
+    ? currentDirection.serviceCurrency
+    : "";
   const sizeLabels = document.querySelectorAll(".label-size");
 
   sizeLabels.forEach(
-    (label) => (label.textContent = currentDirection.sizeUnit.toLowerCase())
+    (label) =>
+      (label.textContent = currentDirection
+        ? currentDirection.sizeUnit.toLowerCase()
+        : "")
   );
-
-  // calcWeight.placeholder =
-  //   select.value === "" ? "Вес" : `Вес (${currentDirection.weightUnit})`;
-  // calcHeight.placeholder =
-  //   select.value === "" ? "Высота" : `Высота (${currentDirection.sizeUnit})`;
-  // calcLength.placeholder =
-  //   select.value === "" ? "Длина" : `Длина (${currentDirection.sizeUnit})`;
-  // calcWidth.placeholder =
-  //   select.value === "" ? "Ширина" : `Ширина (${currentDirection.sizeUnit})`;
-  // calcContentValue.placeholder =
-  //   select.value === ""
-  //     ? "Стоимость"
-  //     : `Стоимость (${currentDirection.serviceCurrency})`;
 });
+
 form.addEventListener("submit", handleSubmit);
+
 resetForm.addEventListener("click", function () {
   calcResult.innerHTML = "";
   form.reset();
 });
+
 calculatorAnchor.addEventListener("click", scrollTo);
+
 howItWorksAnchor.addEventListener("click", scrollTo);
+
 faqsAnchor.addEventListener("click", scrollTo);
+
 calcMenuAnchor.addEventListener("click", scrollTo);
 getColor();

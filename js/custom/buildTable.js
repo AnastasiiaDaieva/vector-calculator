@@ -11,9 +11,9 @@ export default function buildTable(
   currentDirection,
   countryName
 ) {
-  console.log("calcData", calcData);
-  console.log("formData", formData);
-  console.log("currentDirection", currentDirection);
+  // console.log("calcData", calcData);
+  // console.log("formData", formData);
+  // console.log("currentDirection", currentDirection);
 
   const heading = document.createElement("h2");
   heading.classList.add(

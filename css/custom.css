@@ -461,8 +461,8 @@ justify-content: space-around;        }
     .partner-logo{
       width:120px;
     }
-  .section-logos > *:not(:last-child) {
-    margin-bottom: 60px;
+  .section-logos  {
+    margin-bottom: 30px;
   }
 
 
@@ -505,8 +505,8 @@ flex-direction: row;         }
     width: 110px;
   }
   .weightPrompt {
-    top: 10px;
-    right: -45%;
+    top: 17px;
+    right: -48%;
   }
 
    
