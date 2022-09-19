@@ -1,10 +1,19 @@
 import refs from "./refs.js";
 import scrollTo from "./scrollTo.js";
 import buildTable from "./buildTable.js";
+import buildTableNew from "./buildTableNew.js";
 import fetchCountries from "./fetchCountries.js";
 import { translateUnit } from "./translateUnit.js";
 import { BASE_URL } from "./variables.js";
+import { getColor } from "./getColor.js";
 import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
+import sendData from "./sendData.js";
+import {
+  fetchTranslationbyId,
+  setLocale,
+  translatePage,
+  translateByKey,
+} from "./translation.js";
 
 const {
   form,
@@ -12,16 +21,18 @@ const {
   calcResult,
   calculatorAnchor,
   resetForm,
+  sizeLabels,
   howItWorksAnchor,
   faqsAnchor,
   calcMenuAnchor,
-  calcWeight,
-  calcHeight,
-  calcWidth,
-  calcLength,
-  calcContentValue,
+  currentLanguage,
   labelWeight,
   labelValue,
+  languageSwitcherOptions,
+  html,
+  headerBody,
+  collapsableMenu,
+  menuLinks,
 } = refs;
 let directions = [];
 let currentDirection;
@@ -46,7 +57,7 @@ async function handleSubmit(e) {
     BASE_URL,
     currentDirection.countryTo
   );
-  buildTable(calcData, request, currentDirection, getCountryName);
+  buildTableNew(calcData, request, currentDirection, getCountryName);
 
   if (calcData.withDimensions) {
     document
@@ -78,58 +89,56 @@ async function handleSubmit(e) {
     });
   }
 
+  setLocale(6, currentLanguage.getAttribute("data-value"));
+
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
     behavior: "smooth",
   });
 }
 
-async function getColor() {
-  try {
-    const data = await fetch(`${BASE_URL}/websites/6`);
-    const json = await data.json();
+document.addEventListener("change", function () {
+  labelWeight.textContent = currentDirection
+    ? currentDirection.weightUnit.toLowerCase()
+    : "";
+  labelValue.textContent = currentDirection
+    ? currentDirection.serviceCurrency
+    : "";
 
-    document.querySelector(".shipment").style.backgroundColor = json.mainColor;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function sendData(formData) {
-  try {
-    const response = await fetch(`${BASE_URL}/public/delivery_rate/calc`, {
-      method: "POST",
-      cache: "no-cache",
-      headers: {
-        "content-Type": "application/json",
-        owner: "6",
-      },
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify({ ...formData, direction: formData.formDirection }),
-    });
-
-    const json = await response.json();
-    console.log(json);
-
-    return json;
-  } catch (error) {
-    console.log("ERROR", error);
-  }
-}
+  sizeLabels.forEach(
+    (label) =>
+      (label.textContent = currentDirection
+        ? currentDirection.sizeUnit.toLowerCase()
+        : "")
+  );
+});
 
 async function createList() {
   const countries = await fetchCountries(BASE_URL);
   directions = countries;
 
   if (directions.length > 1) {
-    console.log(countries);
-
     const option = document.createElement("option");
     option.value = "";
-    option.textContent = "Страна получателя";
+    option.setAttribute("localization-key", "calculator_receiver_placeholder");
+    option.textContent = translateByKey("calculator_receiver_placeholder");
     select.appendChild(option);
+    currentDirection = {};
   } else if (directions.length === 1) {
+    console.log(countries);
+
     currentDirection = countries[0];
+    labelWeight.textContent = translateUnit(
+      currentDirection.weightUnit
+    ).toLowerCase();
+    labelValue.textContent = currentDirection.serviceCurrency;
+
+    sizeLabels.forEach(
+      (label) =>
+        (label.textContent = translateUnit(
+          currentDirection.sizeUnit.toLowerCase()
+        ))
+    );
   }
   console.log(select);
 
@@ -151,26 +160,9 @@ createList();
 select.addEventListener("change", function () {
   select.value = this.value;
   currentDirection = directions.find(({ id }) => select.value == id);
-  console.log(currentDirection);
+  // console.log(currentDirection);
   currentDirection.weightUnit = translateUnit(currentDirection.weightUnit);
   currentDirection.sizeUnit = translateUnit(currentDirection.sizeUnit);
-});
-
-document.addEventListener("change", function () {
-  labelWeight.textContent = currentDirection
-    ? currentDirection.weightUnit.toLowerCase()
-    : "";
-  labelValue.textContent = currentDirection
-    ? currentDirection.serviceCurrency
-    : "";
-  const sizeLabels = document.querySelectorAll(".label-size");
-
-  sizeLabels.forEach(
-    (label) =>
-      (label.textContent = currentDirection
-        ? currentDirection.sizeUnit.toLowerCase()
-        : "")
-  );
 });
 
 form.addEventListener("submit", handleSubmit);
@@ -187,4 +179,39 @@ howItWorksAnchor.addEventListener("click", scrollTo);
 faqsAnchor.addEventListener("click", scrollTo);
 
 calcMenuAnchor.addEventListener("click", scrollTo);
-getColor();
+getColor(6, "shipment");
+
+menuLinks.forEach((link) =>
+  link.addEventListener("click", function () {
+    collapsableMenu.classList.remove("show");
+    headerBody.style.height = "70px";
+    html.classList.remove("mobile-menu-opened");
+  })
+);
+
+// language-switcher
+
+let defaultLocale = { value: "uk", label: "UA" };
+
+languageSwitcherOptions.forEach((option) =>
+  option.addEventListener("click", function () {
+    console.log(
+      "changed option",
+      option,
+      "option value",
+      option.getAttribute("data-value")
+    );
+    currentLanguage.textContent = option.textContent.toUpperCase();
+    currentLanguage.setAttribute(
+      "data-value",
+      option.getAttribute("data-value")
+    );
+    setLocale(6, option.getAttribute("data-value"));
+  })
+);
+currentLanguage.textContent = defaultLocale.label;
+currentLanguage.setAttribute("data-value", defaultLocale.value);
+
+document.addEventListener("DOMContentLoaded", () => {
+  setLocale(6, currentLanguage.getAttribute("data-value"));
+});

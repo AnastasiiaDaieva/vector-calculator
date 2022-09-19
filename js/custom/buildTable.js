@@ -1,7 +1,6 @@
 import refs from "./refs.js";
+import { translateByKey } from "./translation.js";
 import getDaysEnding from "./getDaysEnding.js";
-import { BASE_URL } from "./variables.js";
-import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 
 const { calcResult } = refs;
 
@@ -23,20 +22,28 @@ export default function buildTable(
     "text-color-dark",
     "result-heading"
   );
+  heading.setAttribute("localization-key", "calculator_result_heading");
   heading.textContent = "Варианты доставки";
 
   const passage = document.createElement("p");
 
   passage.classList.add("passageOptions");
 
-  passage.textContent = `Направление: США - ${
+  passage.textContent = `${translateByKey("calculator_direction")}: США - ${
     countryName[Object.keys(countryName)[0]]
-  }. Вес - ${calcData.resultWeight} ${calcData.weightUnit}.`;
+  }. ${translateByKey("calculator_result_weight")} - ${calcData.resultWeight} ${
+    calcData.weightUnit
+  }.`;
   const resultCont = document.createElement("div");
   resultCont.classList.add("result-container");
-  console.log("wd", calcData.withDimensions);
+
   if (calcData.withDimensions === true) {
     const brackets = document.createElement("span");
+    brackets.setAttribute(
+      "localization-key",
+      "calculator_result_weight_with_dimensions"
+    );
+
     brackets.textContent = " (объёмный)";
     const iconWeightType = document.createElement("img");
     iconWeightType.classList.add("withDimensionsNotification");
@@ -47,6 +54,7 @@ export default function buildTable(
     iconWeightType.setAttribute("width", "10px");
 
     const prompt = document.createElement("span");
+    prompt.setAttribute("localization-key", "calculator_result_weight_prompt");
     prompt.classList.add("weightPrompt", "displayNone");
     prompt.textContent = "Вес посчитан на основе габаритов посылки.";
 
@@ -56,7 +64,9 @@ export default function buildTable(
   }
 
   const contentValueText = document.createElement("p");
-  contentValueText.textContent = `Стоимость содержимого - ${formData.contentValue} ${currentDirection.serviceCurrency}.`;
+  contentValueText.textContent = `${translateByKey(
+    "calculator_content_value"
+  )} - ${formData.contentValue} ${currentDirection.serviceCurrency}.`;
 
   passage.append(contentValueText);
 
@@ -102,7 +112,9 @@ export default function buildTable(
 
       notificationEl.classList.add("result-notification");
 
-      notificationEl.textContent = `Максимально допустимый вес - ${maxWeight} ${calcData.weightUnit}.`;
+      notificationEl.textContent = `${translateByKey(
+        "calculator_result_max_weight"
+      )} - ${maxWeight} ${calcData.weightUnit}.`;
       infoCont.appendChild(notificationEl);
     } else {
       const time = document.createElement("p");
@@ -113,11 +125,19 @@ export default function buildTable(
       const priceStatic = document.createElement("span");
       const priceDynamic = document.createElement("span");
 
-      timeStatic.textContent = "длительность доставки";
+      timeStatic.setAttribute(
+        "localization-key",
+        "calculator_result_time_static"
+      );
+      timeStatic.textContent = " длительность доставки";
       timeDynamic.textContent = `${deliveryTime} ${getDaysEnding(
         deliveryTime
       )} - `;
 
+      priceStatic.setAttribute(
+        "localization-key",
+        "calculator_result_price_static"
+      );
       priceStatic.textContent = " стоимость доставки";
       priceDynamic.textContent = `${price + calcData.brokerFeeValue} ${
         currentDirection.serviceCurrency
@@ -146,6 +166,11 @@ export default function buildTable(
         const basicFee = document.createElement("p");
         const basicFeeStatic = document.createElement("span");
         const basicFeeDynamic = document.createElement("span");
+
+        basicFeeStatic.setAttribute(
+          "localization-key",
+          "calculator_result_price_static"
+        );
         basicFeeStatic.textContent = " стоимость доставки";
         basicFeeDynamic.textContent = `${price} ${currentDirection.serviceCurrency} - `;
 
@@ -157,6 +182,10 @@ export default function buildTable(
         const customFeeStatic = document.createElement("span");
         const customFeeDynamic = document.createElement("span");
 
+        customFeeStatic.setAttribute(
+          "localization-key",
+          "calculator_result_custom_fee_static"
+        );
         customFeeStatic.textContent = `таможенный сбор`;
         customFeeDynamic.textContent = `${calcData.brokerFeeValue} ${currentDirection.serviceCurrency} - `;
 

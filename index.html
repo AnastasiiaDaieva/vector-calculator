@@ -56,7 +56,7 @@
     <div class="overlay"></div>
     <header id="header" class="header-transparent header-effect-shrink"
       data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 70, 'stickyHeaderContainerHeight': 70}">
-      <div class="header-body border-top-0 appear-animation" data-appear-animation="fadeIn">
+      <div class="header-body border-top-0 appear-animation" id="header-body" data-appear-animation="fadeIn">
         <div class="header-top">
           <div class="container">
             <div class="header-row">
@@ -85,14 +85,16 @@
                   <ul class="navbar-nav flex-row align-items-center ms-auto lang-section">
                     <li class="nav-item dropdown language-select text-uppercase">
                       <a class="nav-link dropdown-item dropdown-toggle languages current-language" href="#"
-                        role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">En</a>
+                        role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></a>
 
+                    
                       <ul class="dropdown-menu languages-dropdown">
-                        <li class="nav-item">
-                          <a class="dropdown-item dropdown-option" href="#">En</a>
+                                               
+                        <li class="nav-item languages-item" data-value="uk">
+                          <a class="dropdown-item dropdown-option" href="#">Ua</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item languages-item" data-value="ru">
                           <a class="dropdown-item dropdown-option" href="#">Ru</a>
                         </li>
                       </ul>
@@ -141,15 +143,15 @@
                 <div class="header-nav header-nav-links order-2 order-lg-1">
                   <div
                     class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
-                    <nav class="collapse">
+                    <nav class="collapse" id="menu-collapse">
                       <ul class="nav nav-pills" id="mainNav">
-                        <li>
-                          <a class="nav-link active" href="/">
+                        <li class="menu-nav-item">
+                          <a class="nav-link  active text-transform-none" href="/">
                             Главная
                           </a>
                         </li>
-                        <li class="dropdown">
-                          <a class="dropdown-item dropdown-toggle menu-works" href="#howitworks">
+                        <li class="menu-nav-item">
+                          <a class="nav-link  menu-works text-transform-none" href="#howitworks">
                             Как это работает
                           </a>
                           <!-- <ul class="dropdown-menu">
@@ -197,18 +199,18 @@
                               </li>
                             </ul> -->
                         </li>
-                        <li>
-                          <a class="nav-link menu-calc" href="#shipment">
+                        <li class="menu-nav-item">
+                          <a class="nav-link  menu-calc" href="#shipment">
                             Калькулятор
                           </a>
                         </li>
-                         <li>
-                          <a class="nav-link menu-calc" href="./prohibited-items/">
+                         <li class="menu-nav-item">
+                          <a class="nav-link  menu-calc" href="./prohibited-items/">
                             Запрещённые предметы
                           </a>
                         </li>
                         
-                        <li>
+                        <li class="menu-nav-item">
                           <a class="nav-link menu-faqs" href="#faqs">
                             FAQs </a>
                         </li>
@@ -941,7 +943,7 @@
             <div class="col-md-8 col-lg-6 text-center">
               <div class="overflow-hidden mb-2">
                 <h2 class="font-weight-bold text-color-light text-7 line-height-2 mb-0 appear-animation"
-                  data-appear-animation="maskUp" data-appear-animation-delay="250">
+                  data-appear-animation="maskUp" data-appear-animation-delay="250" localization-key="calc_title">
                   Рассчитать стоимость доставки
                 </h2>
 
@@ -978,10 +980,22 @@
                                         <option value="USA">США</option>
 
                   </select>
-                  <select class="form-select form-control calculator-select" name="formDirection" id="countries-select"
-                    placeholder="Страна" value="" data-msg-required="Укажите страну получателя." required>
-                    <!-- <option value="">Страна получателя</option> -->
+                  <select class="form-select form-control calculator-select" name="formDirection" id="countries-select" value="" data-msg-required="Укажите страну получателя." required>
+                  
                   </select>
+
+<!-- <p class="promptContainer">
+  <img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/>
+  <p class="pricePrompt displayNone">
+    <p class="custom-text-color-grey-1 mb-1">
+      <span>${basicFee} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span>
+    </p>
+    <p class="custom-text-color-grey-1 mb-1">
+      <span class="dynamic-values-fontweight">${brokerFee} -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span>
+    </p>
+  </p>
+</p> -->
+
                 </div>
                 <!-- <div class="calculator-form_row mb-3">
                     <input
@@ -1026,16 +1040,16 @@
                   data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700">
                  <div class="d-flex calculator-label-container">
                    <input type="number" class="form-control calculator-size calculator-length" name="length" value="" placeholder="Длина"
-                    data-msg-required="Укажите длину." /><label class="calculator-label label-size" for="contentValue">
+                     /><label class="calculator-label label-size" for="contentValue">
                     </label>
                  </div>
 
                 <div class="d-flex calculator-label-container">  <input type="number" class="form-control  calculator-size calculator-width" name="width" value="" placeholder="Ширина"
-                    data-msg-required="Укажите ширину." /><label class="calculator-label label-size" for="contentValue">
+                   /><label class="calculator-label label-size" for="contentValue">
                     </label>
 </div>
                  <div class="d-flex calculator-label-container"> <input type="number" class="form-control calculator-size calculator-height" name="height" value="" placeholder="Высота"
-                    data-msg-required="Укажите высоту." /><label class="calculator-label label-size" for="contentValue">
+                    /><label class="calculator-label label-size" for="contentValue">
                     </label></div>
 
                 </div>
@@ -1061,31 +1075,31 @@
                 <div class="calculator-form_controllers appear-animation" data-appear-animation="fadeInUpShorter"
                   data-appear-animation-delay="700">
                   <button type="button"
-                    class="btn btn-gradient btn-rounded font-weight-bold px-5 py-3 text-3 calculator-form_button calculator-reset">
+                    class="btn btn-gradient btn-rounded font-weight-bold px-5 py-3 text-3 calculator-form_button calculator-reset" localization-key="reset_calculator">
                     Очистить
                   </button><button type="submit"
-                    class="btn btn-gradient btn-rounded font-weight-bold px-5 py-3 text-3 calculator-form_button calculator-submit">
+                    class="btn btn-gradient btn-rounded font-weight-bold px-5 py-3 text-3 calculator-form_button calculator-submit" localization-key="get_fee_button">
                     Узнать цену</button>
                 </div>
               </form>
             </div>
             <div class="calculator-section appear-animation" data-appear-animation="fadeInUpShorter"
-              data-appear-animation-delay="700">
-              В данном калькуляторе вы можете рассчитать стоимость доставки из
-              США в вашу страну и город. Здесь опубликовываются актуальные
-              тарифы и условия доставки из США:
+              data-appear-animation-delay="700" >
+             <span localization-key="calculator_description"> В данном калькуляторе Вы можете рассчитать стоимость доставки из
+              США в Вашу страну и город. Здесь опубликовываются актуальные
+              тарифы и условия доставки из США:</span>
 
               <ul>
-                <li>Введите свою страну</li>
-                <li>Введите вес вашей посылки</li>
-                <li>
+                <li  localization-key="calculator_description_country">Введите свою страну</li>
+                <li localization-key="calculator_description_weight">Введите вес Вашей посылки</li>
+                <li localization-key="calculator_description_dimensions">
                   Введите размеры коробки (по желанию клиента и для более
                   точного расчета доставки)
                 </li>
                 <li>
-                  <a href="https://my.vectorlogistic.net/auth" target="_blank" rel="noopener noreferrer"> Зарегистрируйте учетную запись</a>
-                  сейчас, чтобы начать
-                  экономить на доставке из США.
+                  <a href="https://my.vectorlogistic.net/auth" target="_blank" rel="noopener noreferrer" localization-key="calculator_description_register_link"> Зарегистрируйте учетную запись</a>
+                  <span localization-key="calculator_description_register">сейчас, чтобы начать
+                  экономить на доставке из США.</span>
                 </li>
               </ul>
             </div>

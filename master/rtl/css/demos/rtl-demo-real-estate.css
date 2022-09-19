@@ -21,7 +21,7 @@ h4, h5, h6 {
 
 @media (min-width: 992px) {
 	#header .header-nav-main nav > ul > li > a {
-		text-transform: capitalize;
+		text-transform: none;
 		font-size: 1.1em;
 	}
 

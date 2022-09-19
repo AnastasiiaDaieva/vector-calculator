@@ -202,7 +202,7 @@ body {
   #header .header-nav-main nav > ul > li > a {
     font-size: 14px;
     font-weight: 600;
-    text-transform: capitalize;
+    text-transform: none;
   }
   #header .header-nav-main nav > ul > li:first-child {
     margin-left: 0;
@@ -244,11 +244,7 @@ html.sticky-header-active #header.header-transparent .header-body:not(.header-bo
 .custom-form-style-1 .form-control {
   padding: 10px 20px;
 }
-@media screen and(max-width:500px) {
-  .custom-form-style-1 .form-control {
-      padding: 10px 25px 10px 15px;
-    }
-}
+
 .custom-form-style-1 .form-control:not(textarea) {
   height: 55px;
 }
