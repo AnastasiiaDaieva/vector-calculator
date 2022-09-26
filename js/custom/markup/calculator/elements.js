@@ -10,7 +10,7 @@ const descriptionPassage = (direction, weight, contentValue) => {
 };
 
 const passageDirection = (countryTo) => {
-  return `<span localization-key="calculator_direction">Напрямок</span><span>:</span> <span> США - ${countryTo}.</span>`;
+  return `<span localization-key="calculator_direction">Напрямок</span><span>:</span> <span > США </span> <span>-</span> <span localization-key="calculator_direction_countryTo"> ${countryTo}</span><span>.</span>`;
 };
 
 const passageContentValue = (contentValue) => {

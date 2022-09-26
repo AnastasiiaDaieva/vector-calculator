@@ -99,7 +99,7 @@ async function handleSubmit(e) {
 
 document.addEventListener("change", function () {
   labelWeight.textContent = currentDirection
-    ? currentDirection.weightUnit.toLowerCase()
+    ? translateUnit(currentDirection.weightUnit).toLowerCase()
     : "";
   labelValue.textContent = currentDirection
     ? currentDirection.serviceCurrency
@@ -108,7 +108,7 @@ document.addEventListener("change", function () {
   sizeLabels.forEach(
     (label) =>
       (label.textContent = currentDirection
-        ? currentDirection.sizeUnit.toLowerCase()
+        ? translateUnit(currentDirection.sizeUnit.toLowerCase())
         : "")
   );
 });
@@ -160,7 +160,7 @@ createList();
 select.addEventListener("change", function () {
   select.value = this.value;
   currentDirection = directions.find(({ id }) => select.value == id);
-  // console.log(currentDirection);
+  console.log(currentDirection);
   currentDirection.weightUnit = translateUnit(currentDirection.weightUnit);
   currentDirection.sizeUnit = translateUnit(currentDirection.sizeUnit);
 });
@@ -194,7 +194,7 @@ menuLinks.forEach((link) =>
 let defaultLocale = { value: "uk", label: "UA" };
 
 languageSwitcherOptions.forEach((option) =>
-  option.addEventListener("click", function () {
+  option.addEventListener("click", async function () {
     console.log(
       "changed option",
       option,
@@ -206,7 +206,17 @@ languageSwitcherOptions.forEach((option) =>
       "data-value",
       option.getAttribute("data-value")
     );
+    console.log("currentLanguage", currentLanguage);
+    select.innerHTML = "";
+    createList();
     setLocale(6, option.getAttribute("data-value"));
+    const getCountry = await getNameFromAbbreviation(
+      BASE_URL,
+      currentDirection.countryTo
+    );
+    document.querySelector(
+      '[localization-key="calculator_direction_countryTo"]'
+    ).textContent = getCountry[Object.keys(getCountry)[0]];
   })
 );
 currentLanguage.textContent = defaultLocale.label;

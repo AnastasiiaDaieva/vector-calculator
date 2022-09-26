@@ -9,6 +9,7 @@ export function translateUnit(unit) {
     case "in":
       return "дюйм";
     default:
+      console.log("uncl unit");
       return unit;
   }
 }

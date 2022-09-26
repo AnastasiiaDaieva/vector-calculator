@@ -83,7 +83,6 @@ a {
 }
 .priceElement{
   display: flex;
-  justify-content: space-around;
 }
 .calculator-form {
   display: flex;
