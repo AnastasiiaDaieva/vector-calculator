@@ -8,23 +8,14 @@ import { BASE_URL } from "./variables.js";
 import { getColor } from "./getColor.js";
 import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 import sendData from "./sendData.js";
-import {
-  fetchTranslationbyId,
-  setLocale,
-  translatePage,
-  translateByKey,
-} from "./translation.js";
+import { setLocale, translateByKey } from "./translation.js";
 
 const {
   form,
   select,
   calcResult,
-  calculatorAnchor,
   resetForm,
   sizeLabels,
-  howItWorksAnchor,
-  faqsAnchor,
-  calcMenuAnchor,
   currentLanguage,
   labelWeight,
   labelValue,
@@ -171,15 +162,6 @@ resetForm.addEventListener("click", function () {
   calcResult.innerHTML = "";
   form.reset();
 });
-
-calculatorAnchor.addEventListener("click", scrollTo);
-
-howItWorksAnchor.addEventListener("click", scrollTo);
-
-faqsAnchor.addEventListener("click", scrollTo);
-
-calcMenuAnchor.addEventListener("click", scrollTo);
-getColor(6, "shipment");
 
 menuLinks.forEach((link) =>
   link.addEventListener("click", function () {

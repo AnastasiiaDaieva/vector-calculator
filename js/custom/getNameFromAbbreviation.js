@@ -4,9 +4,15 @@ export function getNameFromAbbreviation(base, abbreviation) {
   // const options = {
   //   headers: new Headers({ "content-type": "application/json", owner: "5" }),
   // };
-  return fetch(`${base}/public/directions/countries?code=${abbreviation}`, {
+
+  const abbr = abbreviation ? abbreviation : "ua";
+  const currLanguage = refs.currentLanguage
+    ? refs.currentLanguage.getAttribute("data-value")
+    : "uk";
+
+  return fetch(`${base}/public/directions/countries?code=${abbr}`, {
     headers: {
-      "Accept-Language": refs.currentLanguage.getAttribute("data-value"),
+      "Accept-Language": currLanguage,
     },
   })
     .then((response) => {
