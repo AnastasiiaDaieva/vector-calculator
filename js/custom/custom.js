@@ -19,7 +19,6 @@ const {
   currentLanguage,
   labelWeight,
   labelValue,
-  languageSwitcherOptions,
   html,
   headerBody,
   collapsableMenu,
@@ -80,7 +79,7 @@ async function handleSubmit(e) {
     });
   }
 
-  setLocale(6, currentLanguage.getAttribute("data-value"));
+  // setLocale(6, currentLanguage.getAttribute("data-value"));
 
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
@@ -175,35 +174,37 @@ menuLinks.forEach((link) =>
 
 let defaultLocale = { value: "uk", label: "UA" };
 
-languageSwitcherOptions.forEach((option) =>
-  option.addEventListener("click", async function () {
-    console.log(
-      "changed option",
-      option,
-      "option value",
-      option.getAttribute("data-value")
-    );
-    currentLanguage.textContent = option.textContent.toUpperCase();
-    currentLanguage.setAttribute(
-      "data-value",
-      option.getAttribute("data-value")
-    );
-    console.log("currentLanguage", currentLanguage);
-    select.innerHTML = "";
-    createList();
-    setLocale(6, option.getAttribute("data-value"));
-    const getCountry = await getNameFromAbbreviation(
-      BASE_URL,
-      currentDirection.countryTo
-    );
-    document.querySelector(
-      '[localization-key="calculator_direction_countryTo"]'
-    ).textContent = getCountry[Object.keys(getCountry)[0]];
-  })
-);
-currentLanguage.textContent = defaultLocale.label;
-currentLanguage.setAttribute("data-value", defaultLocale.value);
+const languageSwitcherOptions = ["uk", "ru"];
 
-document.addEventListener("DOMContentLoaded", () => {
-  setLocale(6, currentLanguage.getAttribute("data-value"));
-});
+// languageSwitcherOptions.forEach((option) =>
+//   option.addEventListener("click", async function () {
+//     console.log(
+//       "changed option",
+//       option,
+//       "option value",
+//       option.getAttribute("data-value")
+//     );
+//     currentLanguage.textContent = option.textContent.toUpperCase();
+//     currentLanguage.setAttribute(
+//       "data-value",
+//       option.getAttribute("data-value")
+//     );
+//     console.log("currentLanguage", currentLanguage);
+//     select.innerHTML = "";
+//     createList();
+//     setLocale(6, option.getAttribute("data-value"));
+//     const getCountry = await getNameFromAbbreviation(
+//       BASE_URL,
+//       currentDirection.countryTo
+//     );
+//     document.querySelector(
+//       '[localization-key="calculator_direction_countryTo"]'
+//     ).textContent = getCountry[Object.keys(getCountry)[0]];
+//   })
+// );
+// currentLanguage.textContent = defaultLocale.label;
+// currentLanguage.setAttribute("data-value", defaultLocale.value);
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   setLocale(6, currentLanguage.getAttribute("data-value"));
+// });
