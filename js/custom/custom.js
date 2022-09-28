@@ -27,6 +27,8 @@ const {
 let directions = [];
 let currentDirection;
 
+console.log("parent", window.parent);
+
 async function handleSubmit(e) {
   e.preventDefault();
   calcResult.innerHTML = "";
