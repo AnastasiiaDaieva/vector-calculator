@@ -27,7 +27,7 @@ const {
 let directions = [];
 let currentDirection;
 
-console.log("parent", window.parent);
+console.log("parent", window.parent.location);
 
 async function handleSubmit(e) {
   e.preventDefault();
