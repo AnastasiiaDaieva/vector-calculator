@@ -27,7 +27,7 @@ async function fetchTranslationbyId(websiteId, language) {
     console.log(`Could not fetch translations for locale ${language}`);
   }
   const json = await data.json();
-  console.log(json);
+  // console.log(json);
   return json;
 }
 

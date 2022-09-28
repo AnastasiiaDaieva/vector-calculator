@@ -1,10 +1,5 @@
-import refs from "./refs.js";
-
 export function getNameFromAbbreviation(base, abbreviation, locale) {
-  console.log(locale);
-  const abbr = abbreviation ? abbreviation : "ua";
-
-  return fetch(`${base}/public/directions/countries?code=${abbr}`, {
+  return fetch(`${base}/public/directions/countries?code=${abbreviation}`, {
     headers: {
       "Accept-Language": locale,
     },

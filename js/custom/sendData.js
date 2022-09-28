@@ -14,7 +14,7 @@ export default async function sendData(formData) {
     });
 
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
 
     return json;
   } catch (error) {
