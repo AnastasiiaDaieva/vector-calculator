@@ -170,7 +170,7 @@ resetForm.addEventListener("click", function () {
   form.reset();
 });
 
-getColor(4, "shipment");
+getColor(ownerParam, "shipment");
 
 document.addEventListener("DOMContentLoaded", () => {
   setLocale(ownerParam, languageParam);
