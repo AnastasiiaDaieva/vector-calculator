@@ -28,6 +28,12 @@ let directions = [];
 let currentDirection;
 
 console.log("parent", window.parent.location);
+console.log("window location", window.location);
+const params = new URLSearchParams(window.location.search);
+const languageParam = params.get("lang");
+const colorParam = params.get("color");
+
+const ownerParam = params.get("owner");
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -81,7 +87,7 @@ async function handleSubmit(e) {
     });
   }
 
-  // setLocale(6, currentLanguage.getAttribute("data-value"));
+  setLocale(ownerParam, languageParam);
 
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
@@ -164,19 +170,13 @@ resetForm.addEventListener("click", function () {
   form.reset();
 });
 
-menuLinks.forEach((link) =>
-  link.addEventListener("click", function () {
-    collapsableMenu.classList.remove("show");
-    headerBody.style.height = "70px";
-    html.classList.remove("mobile-menu-opened");
-  })
-);
+getColor(ownerParam, "shipment");
 
 // language-switcher
 
 let defaultLocale = { value: "uk", label: "UA" };
 
-const languageSwitcherOptions = ["uk", "ru"];
+// const languageSwitcherOptions = ["uk", "ru"];
 
 // languageSwitcherOptions.forEach((option) =>
 //   option.addEventListener("click", async function () {
@@ -207,6 +207,6 @@ const languageSwitcherOptions = ["uk", "ru"];
 // currentLanguage.textContent = defaultLocale.label;
 // currentLanguage.setAttribute("data-value", defaultLocale.value);
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   setLocale(6, currentLanguage.getAttribute("data-value"));
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  setLocale(ownerParam, languageParam);
+});
