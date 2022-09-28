@@ -18,14 +18,14 @@ html {
   scroll-padding-top: 5rem;
 }
 
-body {
+html {
   -ms-overflow-style: none;
   /* Internet Explorer 10+ */
   scrollbar-width: none;
   /* Firefox */
 }
 
-body::-webkit-scrollbar {
+html::-webkit-scrollbar {
   display: none;
   /* Safari and Chrome */
 }
