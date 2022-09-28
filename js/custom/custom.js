@@ -30,10 +30,8 @@ let currentDirection;
 console.log("parent", window.parent.location);
 console.log("window location", window.location);
 const params = new URLSearchParams(window.location.search);
-const languageParam = params.get("lang");
-const colorParam = params.get("color");
-
-const ownerParam = params.get("owner");
+const languageParam = params.get("lang") || "uk";
+const ownerParam = params.get("owner") || "6";
 
 async function handleSubmit(e) {
   e.preventDefault();
