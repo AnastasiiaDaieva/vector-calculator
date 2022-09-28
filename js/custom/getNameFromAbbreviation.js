@@ -1,18 +1,15 @@
 import refs from "./refs.js";
 
-export function getNameFromAbbreviation(base, abbreviation) {
+export function getNameFromAbbreviation(base, abbreviation, locale) {
   // const options = {
   //   headers: new Headers({ "content-type": "application/json", owner: "5" }),
   // };
 
   const abbr = abbreviation ? abbreviation : "ua";
-  const currLanguage = refs.currentLanguage
-    ? refs.currentLanguage.getAttribute("data-value")
-    : "uk";
 
   return fetch(`${base}/public/directions/countries?code=${abbr}`, {
     headers: {
-      "Accept-Language": currLanguage,
+      "Accept-Language": locale,
     },
   })
     .then((response) => {

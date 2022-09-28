@@ -53,7 +53,8 @@ async function handleSubmit(e) {
   // console.log(calcData);
   const getCountryName = await getNameFromAbbreviation(
     BASE_URL,
-    currentDirection.countryTo
+    currentDirection.countryTo,
+    languageParam
   );
   buildTableNew(calcData, request, currentDirection, getCountryName);
 
@@ -143,7 +144,8 @@ async function createList() {
   for (const direction of directions) {
     const getCountry = await getNameFromAbbreviation(
       BASE_URL,
-      direction.countryTo
+      direction.countryTo,
+      languageParam
     );
     // console.log(getCountry);
     const option = document.createElement("option");
@@ -171,41 +173,6 @@ resetForm.addEventListener("click", function () {
 });
 
 getColor(ownerParam, "shipment");
-
-// language-switcher
-
-let defaultLocale = { value: "uk", label: "UA" };
-
-// const languageSwitcherOptions = ["uk", "ru"];
-
-// languageSwitcherOptions.forEach((option) =>
-//   option.addEventListener("click", async function () {
-//     console.log(
-//       "changed option",
-//       option,
-//       "option value",
-//       option.getAttribute("data-value")
-//     );
-//     currentLanguage.textContent = option.textContent.toUpperCase();
-//     currentLanguage.setAttribute(
-//       "data-value",
-//       option.getAttribute("data-value")
-//     );
-//     console.log("currentLanguage", currentLanguage);
-//     select.innerHTML = "";
-//     createList();
-//     setLocale(6, option.getAttribute("data-value"));
-//     const getCountry = await getNameFromAbbreviation(
-//       BASE_URL,
-//       currentDirection.countryTo
-//     );
-//     document.querySelector(
-//       '[localization-key="calculator_direction_countryTo"]'
-//     ).textContent = getCountry[Object.keys(getCountry)[0]];
-//   })
-// );
-// currentLanguage.textContent = defaultLocale.label;
-// currentLanguage.setAttribute("data-value", defaultLocale.value);
 
 document.addEventListener("DOMContentLoaded", () => {
   setLocale(ownerParam, languageParam);
