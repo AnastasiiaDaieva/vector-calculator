@@ -555,7 +555,8 @@ justify-content: space-around;        }
          }
 
          .calculator-size_row{
-flex-direction: row;         }
+flex-direction: row;       
+justify-content: space-between;  }
 
   .partner-logo {
     width: 110px;
