@@ -43,7 +43,7 @@ async function handleSubmit(e) {
   const getChosenDirection = directions.find(({ id }) => id == formDirection);
   // console.log(getChosenDirection);
 
-  const getPrices = sendData(request);
+  const getPrices = sendData(request, ownerParam);
 
   const calcData = await Promise.resolve(getPrices);
   // console.log(calcData);

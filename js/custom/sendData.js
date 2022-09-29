@@ -1,13 +1,13 @@
 import { BASE_URL } from "./variables.js";
 
-export default async function sendData(formData) {
+export default async function sendData(formData, owner) {
   try {
     const response = await fetch(`${BASE_URL}/public/delivery_rate/calc`, {
       method: "POST",
       cache: "no-cache",
       headers: {
         "content-Type": "application/json",
-        owner: "6",
+        owner: owner,
       },
       referrerPolicy: "no-referrer",
       body: JSON.stringify({ ...formData, direction: formData.formDirection }),
