@@ -1,9 +1,7 @@
 import { BASE_URL } from "./variables.js";
 import refs from "./refs.js";
 const {
-  currentLanguage,
   select,
-
   senderSelect,
   calcWeight,
   calcHeight,

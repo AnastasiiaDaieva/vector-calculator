@@ -6,8 +6,8 @@ const deliveryTypeLogo = (src, alt) => {
   return `<div class="feature-box-icon custom-feature-box-icon-size-1 top-0"><img src="https://logistic.ndv.net.ua/${src}" alt=${alt} class="icon-globe icons position-relative info-img"/></div>`;
 };
 
-const deliveryTypeInfo = (title, price, time, brokerFeePromptHtml) => {
-  return `<div class="feature-box-info mb-5"><h4 class="font-weight-bold line-height-1 custom-font-size-1 mb-1">${title}</h4><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${time} -</span><span localization-key="calculator_result_time_static"> длительность доставки</span></p><div class="custom-text-color-grey-1 mb-1 priceElement"><span class="dynamic-values-fontweight">${price} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span> ${brokerFeePromptHtml} </div></div>`;
+const deliveryTypeInfo = (title, price, time, days, brokerFeePromptHtml) => {
+  return `<div class="feature-box-info mb-5"><h4 class="font-weight-bold line-height-1 custom-font-size-1 mb-1">${title}</h4><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${time}</span><span localization-key="calculator_result_deliveryDays">${days}</span> -</span><span localization-key="calculator_result_time_static"> длительность доставки</span></p><div class="custom-text-color-grey-1 mb-1 priceElement"><span class="dynamic-values-fontweight">${price} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span> ${brokerFeePromptHtml} </div></div>`;
 };
 
 const brokerFeePrompt = (basicFee, brokerFee) => {

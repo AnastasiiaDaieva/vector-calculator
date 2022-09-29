@@ -47,7 +47,13 @@ async function handleSubmit(e) {
     currentDirection.countryTo,
     languageParam
   );
-  buildTableNew(calcData, request, currentDirection, getCountryName);
+  buildTableNew(
+    calcData,
+    request,
+    currentDirection,
+    getCountryName,
+    languageParam
+  );
 
   if (calcData.withDimensions) {
     document

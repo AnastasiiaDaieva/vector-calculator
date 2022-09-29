@@ -28,7 +28,5 @@
   "calculator_result_weight": "Вага",
   "calculator_result_max_weight": "Максимально допустима вага",
   "calculator_sender_warning": "Вкажіть країну відправника.",
-  "calculator_sender_placeholder": "Країна відправника.",
-  "test": "Країна відправника.",
-  "test2": "Країна відправника."
+  "calculator_sender_placeholder": "Країна відправника."
 }

@@ -24,7 +24,8 @@ export default function buildTableNew(
   calcData,
   formData,
   currentDirection,
-  countryName
+  countryName,
+  languageParam
 ) {
   // console.log("calcData", calcData);
   // console.log("formData", formData);
@@ -88,7 +89,6 @@ export default function buildTableNew(
       };
 
       // option
-      const timeLine = `${deliveryTime} ${getDaysEnding(deliveryTime)}`;
 
       const priceLine = `${price + calcData.brokerFeeValue} ${
         currentDirection.serviceCurrency
@@ -97,7 +97,8 @@ export default function buildTableNew(
       option = deliveryTypeInfo(
         title,
         priceLine,
-        timeLine,
+        deliveryTime,
+        getDaysEnding(deliveryTime, languageParam),
         brokerFeePromptHtml(calcData.brokerFeeValue)
       );
 
