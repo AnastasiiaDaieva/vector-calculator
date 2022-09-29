@@ -23,7 +23,7 @@ let directions = [];
 let currentDirection;
 
 if (window.parent.document.getElementById("calc_frame")) {
-  window.parent.document.getElementById("calc_frame").style.height = "100%";
+  window.parent.document.getElementById("calc_frame").style.height = "500px";
 }
 
 const params = new URLSearchParams(window.location.search);
