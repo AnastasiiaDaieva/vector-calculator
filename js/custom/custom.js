@@ -22,13 +22,14 @@ const {
 let directions = [];
 let currentDirection;
 
-if (window.parent.document.getElementById("calc_frame")) {
-  window.parent.document.getElementById("calc_frame").style.height = "500px";
-}
-
 const params = new URLSearchParams(window.location.search);
 const languageParam = params.get("lang") || "uk";
 const ownerParam = params.get("owner") || "6";
+
+const parent = window.parent;
+function sendHeight() {
+  parent.postMessage(window.document.body.clientHeight, "*");
+}
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -177,3 +178,5 @@ calcInputs.forEach((input) =>
     });
   })
 );
+
+sendHeight();
