@@ -22,7 +22,13 @@ const {
 let directions = [];
 let currentDirection;
 
-window.parent.document.getElementById("iframe").height = "500px";
+const iframe = window.parent.document.getElementById("iframe");
+if (iframe) {
+  iframe.addEventListener("change", function () {
+    iframe.height =
+      window.parent.contentWindow.document.body.scrollHeight + "px";
+  });
+}
 
 const params = new URLSearchParams(window.location.search);
 const languageParam = params.get("lang") || "uk";
