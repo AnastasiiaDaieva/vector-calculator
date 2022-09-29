@@ -22,7 +22,7 @@ const {
 let directions = [];
 let currentDirection;
 
-const iframe = window.parent.document.getElementById("myframe");
+const iframe = window.parent.document.getElementById("calc_frame");
 if (iframe) {
   iframe.style.height = "1000px";
 }
