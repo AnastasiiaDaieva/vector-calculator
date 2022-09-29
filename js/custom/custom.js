@@ -22,6 +22,8 @@ const {
 let directions = [];
 let currentDirection;
 
+window.parent.document.getElementById("iframe").height = "500px";
+
 const params = new URLSearchParams(window.location.search);
 const languageParam = params.get("lang") || "uk";
 const ownerParam = params.get("owner") || "6";
