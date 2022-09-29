@@ -24,7 +24,7 @@ let currentDirection;
 
 const iframe = window.parent.document.getElementById("myframe");
 if (iframe) {
-  iframe.height = "1000px";
+  iframe.style.height = "1000px";
 }
 
 const params = new URLSearchParams(window.location.search);
