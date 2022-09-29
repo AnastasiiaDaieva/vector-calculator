@@ -87,6 +87,7 @@ async function handleSubmit(e) {
   }
 
   setLocale(ownerParam, languageParam);
+  sendHeight();
 
   calcResult.classList.add("show-flex");
   calcResult.scrollIntoView({
