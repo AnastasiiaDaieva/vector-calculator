@@ -22,11 +22,13 @@ const {
 let directions = [];
 let currentDirection;
 
-// const iframe = window.parent.document.getElementById("calc_frame");
-// console.log("iframe", iframe);
-// if (iframe) {
-//   iframe.style.height = "100%";
-// }
+{
+  const iframe = window.parent.document.getElementById("calc_frame");
+  console.log("iframe", iframe);
+  if (iframe) {
+    iframe.style.height = "100%";
+  }
+}
 
 const params = new URLSearchParams(window.location.search);
 const languageParam = params.get("lang") || "uk";
