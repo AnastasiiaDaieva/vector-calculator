@@ -13,11 +13,14 @@ const {
 let translations = {};
 
 async function fetchTranslationbyId(websiteId, language) {
-  const data = await fetch(`${BASE_URL}/public/websites/${6}/translations`, {
-    headers: {
-      "Accept-Language": language,
-    },
-  });
+  const data = await fetch(
+    `${BASE_URL}/public/websites/${websiteId}/translations`,
+    {
+      headers: {
+        "Accept-Language": language,
+      },
+    }
+  );
   if (!data.ok) {
     console.log(`Could not fetch translations for locale ${language}`);
   }
@@ -27,7 +30,7 @@ async function fetchTranslationbyId(websiteId, language) {
 }
 
 async function setLocale(websiteId, language) {
-  translations = await fetchTranslationbyId(6, language);
+  translations = await fetchTranslationbyId(websiteId, language);
 
   translatePage();
 }
