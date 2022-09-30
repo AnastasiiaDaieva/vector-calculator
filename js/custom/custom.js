@@ -25,6 +25,7 @@ let currentDirection;
 const params = new URLSearchParams(window.location.search);
 const languageParam = params.get("lang") || "uk";
 const ownerParam = params.get("owner") || "6";
+// const signUpLink = params.get("");
 
 const parent = window.parent;
 function sendHeight() {
