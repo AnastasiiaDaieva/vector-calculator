@@ -23,8 +23,8 @@ let directions = [];
 let currentDirection;
 
 const params = new URLSearchParams(window.location.search);
-const languageParam = params.get("lang");
-const ownerParam = params.get("owner");
+const languageParam = params.get("lang") || "uk";
+const ownerParam = params.get("owner") || 7;
 // const signUpLink = params.get("");
 
 const parent = window.parent;
