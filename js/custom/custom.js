@@ -173,13 +173,5 @@ getColor(ownerParam, "shipment");
 document.addEventListener("DOMContentLoaded", () => {
   setLocale(ownerParam, languageParam);
 });
-const calcInputs = document.querySelectorAll(".calc-input ");
-calcInputs.forEach((input) =>
-  input.addEventListener("click", function () {
-    document.querySelector(".shipment").scrollIntoView({
-      behavior: "smooth",
-    });
-  })
-);
 
 sendHeight();
