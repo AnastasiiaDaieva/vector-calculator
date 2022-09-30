@@ -17,6 +17,7 @@ import {
   deliveryTypeLogo,
   deliveryTypeMaxWeight,
 } from "./markup/calculator/resultOption.js";
+import { numberWithSeparator } from "./numberWithSeparator.js";
 
 const { calcResult } = refs;
 
@@ -51,7 +52,9 @@ export default function buildTableNew(
   );
 
   const contentValue = passageContentValue(
-    `${formData.contentValue} ${currentDirection.serviceCurrency}`
+    `${numberWithSeparator(formData.contentValue)} ${
+      currentDirection.serviceCurrency
+    }`
   );
 
   calcResult.insertAdjacentHTML(
@@ -96,7 +99,7 @@ export default function buildTableNew(
 
       option = deliveryTypeInfo(
         title,
-        priceLine,
+        numberWithSeparator(priceLine),
         deliveryTime,
         getDaysEnding(deliveryTime, languageParam),
         brokerFeePromptHtml(calcData.brokerFeeValue)

@@ -1,3 +1,5 @@
+import { numberWithSeparator } from "../../numberWithSeparator.js";
+
 const resultOption = (logo, option) => {
   return `<div class="result-option">${logo} ${option}</div>`;
 };
@@ -11,7 +13,11 @@ const deliveryTypeInfo = (title, price, time, days, brokerFeePromptHtml) => {
 };
 
 const brokerFeePrompt = (basicFee, brokerFee) => {
-  return `<div class="promptContainer"><img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/><div class="pricePrompt displayNone"><p class="custom-text-color-grey-1 mb-1"><span>${basicFee} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${brokerFee} -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span></p></div></div>`;
+  return `<div class="promptContainer"><img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/><div class="pricePrompt displayNone"><p class="custom-text-color-grey-1 mb-1"><span>${numberWithSeparator(
+    basicFee
+  )} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${numberWithSeparator(
+    brokerFee
+  )} -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span></p></div></div>`;
 };
 
 const deliveryTypeMaxWeight = (title, maxWeight) => {

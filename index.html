@@ -123,9 +123,10 @@
                 data-appear-animation="fadeInUpShorter"
                 data-appear-animation-delay="700"
               >
-                <input
+                <div class="d-flex requiredFieldsContainer mr-2">
+                  <input
                   type="number"
-                  class="form-control calc-input calculator-weight mr-2"
+                  class="form-control calc-input calculator-weight"
                   name="weight"
                   value=""
                   placeholder="Вес"
@@ -134,7 +135,8 @@
                 />
                 <label class="calculator-label label-weight" for="weight">
                 </label>
-                <input
+                </div>
+              <div class="d-flex requiredFieldsContainer">  <input
                   type="number"
                   class="form-control calc-input calculator-content-value"
                   name="contentValue"
@@ -144,7 +146,7 @@
                   required
                 />
                 <label class="calculator-label label-value" for="contentValue">
-                </label>
+                </label></div>
               </div>
 
               <div
@@ -159,11 +161,7 @@
                     name="length"
                     value=""
                     placeholder="Длина"
-                  /><label
-                    class="calculator-label label-size"
-                    for="contentValue"
-                  >
-                  </label>
+                  />
                 </div>
 
                 <div class="d-flex calculator-label-container">
@@ -173,10 +171,7 @@
                     name="width"
                     value=""
                     placeholder="Ширина"
-                  /><label
-                    class="calculator-label label-size"
-                    for="contentValue"
-                  >
+                  />
                   </label>
                 </div>
                 <div class="d-flex calculator-label-container">
@@ -186,10 +181,7 @@
                     name="height"
                     value=""
                     placeholder="Высота"
-                  /><label
-                    class="calculator-label label-size"
-                    for="contentValue"
-                  >
+                  />
                   </label>
                 </div>
               </div>
