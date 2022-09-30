@@ -1,1 +1,1 @@
-export const BASE_URL = "https://next.crauzer.com/api";
+export const BASE_URL = "https://logistic.ndv.net.ua/api";
