@@ -114,7 +114,7 @@ document.addEventListener("change", function () {
 });
 
 async function createList() {
-  const countries = await fetchCountries(BASE_URL);
+  const countries = await fetchCountries(BASE_URL, ownerParam);
   directions = countries;
 
   if (directions.length > 1) {
