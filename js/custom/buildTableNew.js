@@ -17,6 +17,7 @@ import {
   deliveryTypeLogo,
   deliveryTypeMaxWeight,
 } from "./markup/calculator/resultOption.js";
+import { translateUnit } from "./translateUnit.js";
 import { numberWithSeparator } from "./numberWithSeparator.js";
 
 const { calcResult } = refs;
@@ -47,7 +48,7 @@ export default function buildTableNew(
   };
 
   const weight = passageWeight(
-    `${calcData.resultWeight} ${calcData.weightUnit}`,
+    `${calcData.resultWeight} ${translateUnit(calcData.weightUnit)}`,
     weightPromptHtml(calcData.withDimensions)
   );
 

@@ -504,6 +504,7 @@ section.section.prohibited-section {
 
   .pricePrompt {
     top: 20px;
+    font-size: 16px;
   }
 
   section.section.how-it-works-section {
@@ -584,6 +585,10 @@ section.section.prohibited-section {
   }
   .footer-container {
     padding-bottom: 10px;
+  }
+
+  .pricePrompt {
+    font-size: 14px;
   }
 
   section.section.how-it-works-section {
