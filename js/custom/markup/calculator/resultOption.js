@@ -12,12 +12,12 @@ const deliveryTypeInfo = (title, price, time, days, brokerFeePromptHtml) => {
   return `<div class="feature-box-info mb-5"><h4 class="font-weight-bold line-height-1 custom-font-size-1 mb-1">${title}</h4><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${time}</span><span class="dynamic-values-fontweight" localization-key="calculator_result_deliveryDays"> ${days}</span> -</span><span localization-key="calculator_result_time_static"> длительность доставки</span></p><div class="custom-text-color-grey-1 mb-1 priceElement"><span class="dynamic-values-fontweight">${price} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span> ${brokerFeePromptHtml} </div></div>`;
 };
 
-const brokerFeePrompt = (basicFee, brokerFee) => {
-  return `<div class="promptContainer"><img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/><div class="pricePrompt displayNone"><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight" >${numberWithSeparator(
-    basicFee
-  )} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${numberWithSeparator(
-    brokerFee
-  )} -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span></p></div></div>`;
+const brokerFeePrompt = (basicFee, brokerFee, currency) => {
+  return `<div class="promptContainer"><img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/><div class="pricePrompt displayNone"><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight" >${
+    numberWithSeparator(basicFee) + currency
+  } -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${
+    numberWithSeparator(brokerFee) + currency
+  } -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span></p></div></div>`;
 };
 
 const deliveryTypeMaxWeight = (title, maxWeight) => {

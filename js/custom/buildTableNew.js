@@ -19,13 +19,15 @@ import {
 } from "./markup/calculator/resultOption.js";
 import { translateUnit } from "./translateUnit.js";
 import { numberWithSeparator } from "./numberWithSeparator.js";
+import { BASE_URL } from "./variables.js";
+import { getCurrencySymbol } from "./getCurrencySymbol.js";
 
 const { calcResult } = refs;
 
-export default function buildTableNew(
+export default async function buildTableNew(
   calcData,
   formData,
-  currentDirection,
+  currencySymbol,
   countryName,
   languageParam
 ) {
@@ -53,9 +55,7 @@ export default function buildTableNew(
   );
 
   const contentValue = passageContentValue(
-    `${numberWithSeparator(formData.contentValue)} ${
-      currentDirection.serviceCurrency
-    }`
+    `${numberWithSeparator(formData.contentValue)}${currencySymbol}`
   );
 
   calcResult.insertAdjacentHTML(
@@ -84,9 +84,9 @@ export default function buildTableNew(
       //deliveryTypeInfo
 
       // brokerFeePromptHtml
-      const brokerFeePromptHtml = (brokerFeeValue) => {
+      const brokerFeePromptHtml = (brokerFeeValue, currency) => {
         if (brokerFeeValue) {
-          return brokerFeePrompt(price, brokerFeeValue);
+          return brokerFeePrompt(price, brokerFeeValue, currency);
         } else {
           return "";
         }
@@ -94,16 +94,14 @@ export default function buildTableNew(
 
       // option
 
-      const priceLine = `${price + calcData.brokerFeeValue} ${
-        currentDirection.serviceCurrency
-      }`;
+      const priceLine = `${price + calcData.brokerFeeValue}${currencySymbol}`;
 
       option = deliveryTypeInfo(
         title,
         numberWithSeparator(priceLine),
         deliveryTime,
         getDaysEnding(deliveryTime, languageParam),
-        brokerFeePromptHtml(calcData.brokerFeeValue)
+        brokerFeePromptHtml(calcData.brokerFeeValue, currencySymbol)
       );
 
       return `<div class="result-option">${logo} ${option}</div>`;

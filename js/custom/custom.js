@@ -8,6 +8,7 @@ import { getColor } from "./getColor.js";
 import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 import sendData from "./sendData.js";
 import { setLocale, translateByKey } from "./translation.js";
+import { getCurrencySymbol } from "./getCurrencySymbol.js";
 
 const {
   form,
@@ -53,10 +54,17 @@ async function handleSubmit(e) {
     currentDirection.countryTo,
     languageParam
   );
+
+  const currencySymbol = await getCurrencySymbol(
+    BASE_URL,
+    currentDirection.serviceCurrency
+  );
+  console.log(currencySymbol);
+
   buildTableNew(
     calcData,
     request,
-    currentDirection,
+    currencySymbol[Object.keys(currencySymbol)[0]],
     getCountryName,
     languageParam
   );
