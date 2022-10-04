@@ -1,4 +1,4 @@
-import { BASE_URL } from "./variables.js";
+import { BASE_WITH_API } from "./variables.js";
 import refs from "./refs.js";
 const {
   select,
@@ -14,7 +14,7 @@ let translations = {};
 
 async function fetchTranslationbyId(websiteId, language) {
   const data = await fetch(
-    `${BASE_URL}/public/websites/${websiteId}/translations`,
+    `${BASE_WITH_API}/public/websites/${websiteId}/translations`,
     {
       headers: {
         "Accept-Language": language,

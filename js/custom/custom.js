@@ -3,7 +3,7 @@ import scrollTo from "./scrollTo.js";
 import buildTableNew from "./buildTableNew.js";
 import fetchCountries from "./fetchCountries.js";
 import { translateUnit } from "./translateUnit.js";
-import { BASE_URL } from "./variables.js";
+import { BASE_WITH_API } from "./variables.js";
 import { getColor } from "./getColor.js";
 import { getNameFromAbbreviation } from "./getNameFromAbbreviation.js";
 import sendData from "./sendData.js";
@@ -22,10 +22,11 @@ const {
 
 let directions = [];
 let currentDirection;
+console.log("curr", currentDirection);
 
 const params = new URLSearchParams(window.location.search);
 const languageParam = params.get("lang") || "uk";
-const ownerParam = params.get("owner") || 7;
+const ownerParam = params.get("owner") || 6;
 // const signUpLink = params.get("");
 
 const parent = window.parent;
@@ -48,15 +49,15 @@ async function handleSubmit(e) {
   const getPrices = sendData(request, ownerParam);
 
   const calcData = await Promise.resolve(getPrices);
-  // console.log(calcData);
+  console.log("custom calcData", calcData);
   const getCountryName = await getNameFromAbbreviation(
-    BASE_URL,
+    BASE_WITH_API,
     currentDirection.countryTo,
     languageParam
   );
 
   const currencySymbol = await getCurrencySymbol(
-    BASE_URL,
+    BASE_WITH_API,
     currentDirection.serviceCurrency
   );
   console.log(currencySymbol);
@@ -69,7 +70,7 @@ async function handleSubmit(e) {
     languageParam
   );
 
-  if (calcData.withDimensions) {
+  if (calcData.rates[0].withDimensions) {
     document
       .querySelector(".withDimensionsNotification")
       .addEventListener("mouseover", function () {
@@ -107,7 +108,7 @@ async function handleSubmit(e) {
 
 document.addEventListener("change", function () {
   labelWeight.textContent = currentDirection
-    ? translateUnit(currentDirection.weightUnit).toLowerCase()
+    ? translateUnit(currentDirection.rates[0].weightUnit).toLowerCase()
     : "";
   labelValue.textContent = currentDirection
     ? currentDirection.serviceCurrency
@@ -122,7 +123,7 @@ document.addEventListener("change", function () {
 });
 
 async function createList() {
-  const countries = await fetchCountries(BASE_URL, ownerParam);
+  const countries = await fetchCountries(BASE_WITH_API, ownerParam);
   directions = countries;
 
   if (directions.length > 1) {
@@ -149,7 +150,7 @@ async function createList() {
 
   for (const direction of directions) {
     const getCountry = await getNameFromAbbreviation(
-      BASE_URL,
+      BASE_WITH_API,
       direction.countryTo,
       languageParam
     );

@@ -1,11 +1,12 @@
 import { numberWithSeparator } from "../../numberWithSeparator.js";
+import { BASE_URL } from "../../variables.js";
 
 const resultOption = (logo, option) => {
   return `<div class="result-option">${logo} ${option}</div>`;
 };
 
 const deliveryTypeLogo = (src, alt) => {
-  return `<div class="feature-box-icon custom-feature-box-icon-size-1 top-0"><img src="https://next.crauzer.com${src}" alt=${alt} class="icon-globe icons position-relative info-img"/></div>`;
+  return `<div class="feature-box-icon custom-feature-box-icon-size-1 top-0"><img src="${BASE_URL}${src}" alt=${alt} class="icon-globe icons position-relative info-img"/></div>`;
 };
 
 const deliveryTypeInfo = (title, price, time, days, brokerFeePromptHtml) => {

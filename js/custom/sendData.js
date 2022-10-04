@@ -1,8 +1,8 @@
-import { BASE_URL } from "./variables.js";
+import { BASE_WITH_API } from "./variables.js";
 
 export default async function sendData(formData, owner) {
   try {
-    const response = await fetch(`${BASE_URL}/public/delivery_rate/calc`, {
+    const response = await fetch(`${BASE_WITH_API}/public/delivery_rate/calc`, {
       method: "POST",
       cache: "no-cache",
       headers: {
@@ -14,7 +14,7 @@ export default async function sendData(formData, owner) {
     });
 
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
 
     return json;
   } catch (error) {

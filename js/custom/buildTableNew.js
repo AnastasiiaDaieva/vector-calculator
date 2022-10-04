@@ -19,8 +19,6 @@ import {
 } from "./markup/calculator/resultOption.js";
 import { translateUnit } from "./translateUnit.js";
 import { numberWithSeparator } from "./numberWithSeparator.js";
-import { BASE_URL } from "./variables.js";
-import { getCurrencySymbol } from "./getCurrencySymbol.js";
 
 const { calcResult } = refs;
 
@@ -31,7 +29,7 @@ export default async function buildTableNew(
   countryName,
   languageParam
 ) {
-  // console.log("calcData", calcData);
+  console.log("calcData", calcData);
   // console.log("formData", formData);
   // console.log("currentDirection", currentDirection);
 
@@ -50,8 +48,10 @@ export default async function buildTableNew(
   };
 
   const weight = passageWeight(
-    `${calcData.resultWeight} ${translateUnit(calcData.weightUnit)}`,
-    weightPromptHtml(calcData.withDimensions)
+    `${calcData.rates[0].resultWeight} ${translateUnit(
+      calcData.rates[0].weightUnit
+    )}`,
+    weightPromptHtml(calcData.rates[0].withDimensions)
   );
 
   const contentValue = passageContentValue(
@@ -76,7 +76,7 @@ export default async function buildTableNew(
     if (!price) {
       option = deliveryTypeMaxWeight(
         title,
-        `${maxWeight} ${calcData.weightUnit}`
+        `${maxWeight} ${translateUnit(calcData.rates[0].weightUnit)}`
       );
 
       return `<div class="result-option">${logo}${option}</div>`;
