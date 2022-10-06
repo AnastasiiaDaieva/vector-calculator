@@ -30,7 +30,7 @@ export default async function buildTableNew(
   countryName,
   languageParam
 ) {
-  console.log("calcData", calcData);
+  // console.log("calcData", calcData);
   // console.log("formData", formData);
   // console.log("currentDirection", currentDirection);
 
@@ -64,7 +64,7 @@ export default async function buildTableNew(
       deliveryPrice,
       minPriceFee,
     } = arrayItem;
-    console.log(arrayItem);
+    // console.log(arrayItem);
 
     // deliveryTypeLogo
     const imgSrc = logoUrl ? logoUrl : "./img/logos/up-logo.png";

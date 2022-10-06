@@ -22,7 +22,6 @@ const {
 
 let directions = [];
 let currentDirection;
-console.log("curr", currentDirection);
 
 const params = new URLSearchParams(window.location.search);
 const languageParam = params.get("lang") || "uk";
@@ -49,64 +48,71 @@ async function handleSubmit(e) {
   const getPrices = sendData(request, ownerParam);
 
   const { rates: calcData } = await Promise.resolve(getPrices);
-  console.log("custom calcData", calcData);
-  const getCountryName = await getNameFromAbbreviation(
-    BASE_WITH_API,
-    currentDirection.countryTo,
-    languageParam
-  );
+  // console.log("custom calcData", calcData);
+  if (calcData) {
+    const getCountryName = await getNameFromAbbreviation(
+      BASE_WITH_API,
+      currentDirection.countryTo,
+      languageParam
+    );
 
-  const currencySymbol = await getCurrencySymbol(
-    BASE_WITH_API,
-    currentDirection.serviceCurrency
-  );
-  console.log(currencySymbol);
+    const currencySymbol = await getCurrencySymbol(
+      BASE_WITH_API,
+      currentDirection.serviceCurrency
+    );
+    // console.log(currencySymbol);
 
-  buildTableNew(
-    calcData,
-    request,
-    currencySymbol[Object.keys(currencySymbol)[0]],
-    getCountryName,
-    languageParam
-  );
+    buildTableNew(
+      calcData,
+      request,
+      currencySymbol[Object.keys(currencySymbol)[0]],
+      getCountryName,
+      languageParam
+    );
 
-  const weightPromptContainers = document.querySelectorAll(
-    ".weightPromptContainer"
-  );
-  weightPromptContainers.forEach((container) => {
-    container.addEventListener("mouseover", function () {
-      container.querySelector(".weightPrompt").classList.remove("displayNone");
-    });
-    container.addEventListener("mouseout", function () {
-      container.querySelector(".weightPrompt").classList.add("displayNone");
-    });
-  });
-
-  const pricePromptCcontainers = document.querySelectorAll(".promptContainer");
-  if (pricePromptCcontainers)
-    pricePromptCcontainers.forEach((container) => {
+    const weightPromptContainers = document.querySelectorAll(
+      ".weightPromptContainer"
+    );
+    weightPromptContainers.forEach((container) => {
       container.addEventListener("mouseover", function () {
-        container.querySelector(".pricePrompt").classList.remove("displayNone");
-        sendHeight();
+        container
+          .querySelector(".weightPrompt")
+          .classList.remove("displayNone");
       });
       container.addEventListener("mouseout", function () {
-        container.querySelector(".pricePrompt").classList.add("displayNone");
-        sendHeight();
+        container.querySelector(".weightPrompt").classList.add("displayNone");
       });
     });
 
-  setLocale(ownerParam, languageParam);
+    const pricePromptCcontainers =
+      document.querySelectorAll(".promptContainer");
+    if (pricePromptCcontainers)
+      pricePromptCcontainers.forEach((container) => {
+        container.addEventListener("mouseover", function () {
+          container
+            .querySelector(".pricePrompt")
+            .classList.remove("displayNone");
+          sendHeight();
+        });
+        container.addEventListener("mouseout", function () {
+          container.querySelector(".pricePrompt").classList.add("displayNone");
+          sendHeight();
+        });
+      });
 
-  calcResult.classList.add("show-flex");
-  sendHeight();
+    setLocale(ownerParam, languageParam);
 
-  calcResult.scrollIntoView({
-    behavior: "smooth",
-  });
+    calcResult.classList.add("show-flex");
+    sendHeight();
+
+    calcResult.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
 }
 
 document.addEventListener("change", function () {
-  console.log(currentDirection);
+  // console.log(currentDirection);
   labelWeight.textContent = currentDirection
     ? translateUnit(currentDirection.weightUnit).toLowerCase()
     : "";
@@ -135,7 +141,7 @@ async function createList() {
     currentDirection = {};
   } else if (directions.length === 1) {
     currentDirection = countries[0];
-    console.log(labelValue);
+    // console.log(labelValue);
     labelWeight.textContent = translateUnit(
       currentDirection.weightUnit
     ).toLowerCase();
