@@ -87,7 +87,7 @@ async function handleSubmit(e) {
   }
 
   const additionalFeeFields = calcData.some(
-    ({ price }) => price.brokerFeeValue > 0 || price.minPriceFee > 0
+    ({ price }) => price?.brokerFeeValue > 0 || price?.minPriceFee > 0
   );
 
   if (additionalFeeFields) {
