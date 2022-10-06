@@ -69,31 +69,22 @@ async function handleSubmit(e) {
     getCountryName,
     languageParam
   );
-  const withDimensionsFields = calcData.some(
-    (rate) => rate.withDimensions === true
+
+  const weightPromptContainers = document.querySelectorAll(
+    ".weightPromptContainer"
   );
-  if (withDimensionsFields) {
-    const containers = document.querySelectorAll(".weightPromptContainer");
-    containers.forEach((container) => {
-      container.addEventListener("mouseover", function () {
-        container
-          .querySelector(".weightPrompt")
-          .classList.remove("displayNone");
-      });
-      container.addEventListener("mouseout", function () {
-        container.querySelector(".weightPrompt").classList.add("displayNone");
-      });
+  weightPromptContainers.forEach((container) => {
+    container.addEventListener("mouseover", function () {
+      container.querySelector(".weightPrompt").classList.remove("displayNone");
     });
-  }
+    container.addEventListener("mouseout", function () {
+      container.querySelector(".weightPrompt").classList.add("displayNone");
+    });
+  });
 
-  const additionalFeeFields = calcData.some(
-    ({ price }) => price?.brokerFeeValue > 0 || price?.minPriceFee > 0
-  );
-
-  if (additionalFeeFields) {
-    const containers = document.querySelectorAll(".promptContainer");
-
-    containers.forEach((container) => {
+  const pricePromptCcontainers = document.querySelectorAll(".promptContainer");
+  if (pricePromptCcontainers)
+    pricePromptCcontainers.forEach((container) => {
       container.addEventListener("mouseover", function () {
         container.querySelector(".pricePrompt").classList.remove("displayNone");
         sendHeight();
@@ -103,7 +94,6 @@ async function handleSubmit(e) {
         sendHeight();
       });
     });
-  }
 
   setLocale(ownerParam, languageParam);
 
