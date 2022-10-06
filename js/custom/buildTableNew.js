@@ -10,6 +10,7 @@ import {
 import {
   passageWeight,
   weightPrompt,
+  weightType,
 } from "./markup/calculator/passageWeight.js";
 import {
   brokerFeePrompt,
@@ -39,34 +40,29 @@ export default async function buildTableNew(
   // description passage
   const direction = passageDirection(countryName[Object.keys(countryName)[0]]);
 
-  const weightPromptHtml = (withDimensions) => {
-    if (withDimensions) {
-      return weightPrompt();
-    } else {
-      return "";
-    }
-  };
-
-  const weight = passageWeight(
-    `${calcData.rates[0].resultWeight} ${translateUnit(
-      calcData.rates[0].weightUnit
-    )}`,
-    weightPromptHtml(calcData.rates[0].withDimensions)
-  );
-
   const contentValue = passageContentValue(
     `${numberWithSeparator(formData.contentValue)}${currencySymbol}`
   );
 
   calcResult.insertAdjacentHTML(
     "beforeend",
-    descriptionPassage(direction, weight, contentValue)
+    descriptionPassage(direction, contentValue)
   );
 
   // result options
 
   const resultOption = (arrayItem) => {
-    const { title, deliveryTime, price, maxWeight, logoUrl } = arrayItem;
+    const {
+      title,
+      deliveryTime,
+      price,
+      maxWeight,
+      logoUrl,
+      withDimensions,
+      weightUnit,
+      resultWeight,
+    } = arrayItem;
+    console.log(arrayItem);
 
     // deliveryTypeLogo
     const imgSrc = logoUrl ? logoUrl : "./img/logos/up-logo.png";
@@ -76,7 +72,7 @@ export default async function buildTableNew(
     if (!price) {
       option = deliveryTypeMaxWeight(
         title,
-        `${maxWeight} ${translateUnit(calcData.rates[0].weightUnit)}`
+        `${maxWeight} ${translateUnit(weightUnit)}`
       );
 
       return `<div class="result-option">${logo}${option}</div>`;
@@ -94,10 +90,25 @@ export default async function buildTableNew(
 
       // option
 
+      const weightPromptHtml = (withDimensions) => {
+        if (withDimensions) {
+          return weightPrompt();
+        } else {
+          return "";
+        }
+      };
+
+      const weight = passageWeight(
+        `${resultWeight} ${translateUnit(weightUnit)}`,
+        weightType(withDimensions),
+        weightPromptHtml(withDimensions)
+      );
+
       const priceLine = `${price + calcData.brokerFeeValue}${currencySymbol}`;
 
       option = deliveryTypeInfo(
         title,
+        weight,
         numberWithSeparator(priceLine),
         deliveryTime,
         getDaysEnding(deliveryTime, languageParam),

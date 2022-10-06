@@ -89,9 +89,11 @@ async function handleSubmit(e) {
     containers.forEach((container) => {
       container.addEventListener("mouseover", function () {
         container.querySelector(".pricePrompt").classList.remove("displayNone");
+        sendHeight();
       });
       container.addEventListener("mouseout", function () {
         container.querySelector(".pricePrompt").classList.add("displayNone");
+        sendHeight();
       });
     });
   }
@@ -107,8 +109,9 @@ async function handleSubmit(e) {
 }
 
 document.addEventListener("change", function () {
+  console.log(currentDirection);
   labelWeight.textContent = currentDirection
-    ? translateUnit(currentDirection.rates[0].weightUnit).toLowerCase()
+    ? translateUnit(currentDirection.weightUnit).toLowerCase()
     : "";
   labelValue.textContent = currentDirection
     ? currentDirection.serviceCurrency
@@ -135,6 +138,7 @@ async function createList() {
     currentDirection = {};
   } else if (directions.length === 1) {
     currentDirection = countries[0];
+    console.log(labelValue);
     labelWeight.textContent = translateUnit(
       currentDirection.weightUnit
     ).toLowerCase();

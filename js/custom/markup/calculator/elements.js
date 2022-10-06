@@ -5,12 +5,12 @@ const resultContainer = (options) => {
   return `<div class="result-container">${options}</div>`;
 };
 
-const descriptionPassage = (direction, weight, contentValue) => {
-  return `<div class="passageOptions"><p class="mb-0">${direction} ${weight}</p> ${contentValue}</div>`;
+const descriptionPassage = (direction, contentValue) => {
+  return `<div class="passageOptions"><p class="mb-0">${direction} </p> ${contentValue}</div>`;
 };
 
 const passageDirection = (countryTo) => {
-  return `<span localization-key="calculator_direction">Напрямок</span><span>:</span> <span > США </span> <span>-</span> <span localization-key="calculator_direction_countryTo"> ${countryTo}</span><span>.</span>`;
+  return `<span localization-key="calculator_direction">Направление</span><span>:</span> <span > США </span> <span>-</span> <span localization-key="calculator_direction_countryTo"> ${countryTo}</span><span>.</span>`;
 };
 
 const passageContentValue = (contentValue) => {

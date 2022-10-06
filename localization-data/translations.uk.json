@@ -19,13 +19,15 @@
   "calculator_receiver_placeholder": "Країна отримувача",
   "calculator_result_weight_prompt": "Вага вирахувана на основі габаритів пакунка.",
   "calculator_result_weight_with_dimensions": " (об'ємна)",
+  "calculator_result_factual_weight": "фактична вага",
+  "calculator_result_volumetric_weight": "об'ємна вага",
+
   "calculator_result_heading": "Варіанти доставки",
   "calculator_result_time_static": " тривалість доставки",
   "calculator_result_price_static": " вартість доставки",
   "calculator_result_custom_fee_static": "митний збір",
   "calculator_direction": "Напрямок",
   "calculator_content_value": "Вартість вмісту",
-  "calculator_result_weight": "Вага",
   "calculator_result_max_weight": "Максимально допустима вага",
   "calculator_sender_warning": "Вкажіть країну відправника.",
   "calculator_sender_placeholder": "Країна відправника."
