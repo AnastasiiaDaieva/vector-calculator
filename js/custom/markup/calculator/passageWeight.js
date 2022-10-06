@@ -11,7 +11,7 @@ const weightType = (withDimensions) => {
 };
 
 const weightPrompt = () => {
-  return `<p class="weightPrompt__container mb-1"><img class="withDimensionsNotification" src="img/icons/question-mark.svg" alt="prompt" height="10px" width="10px"/><span localization-key="calculator_result_weight_prompt" class="weightPrompt displayNone">Вес посчитан на основе габаритов посылки.</span></p>`;
+  return `<p class="weightPromptContainer mb-1"><img class="withDimensionsNotification" src="img/icons/question-mark.svg" alt="prompt" height="10px" width="10px"/><span localization-key="calculator_result_weight_prompt" class="weightPrompt displayNone">Вес посчитан на основе габаритов посылки.</span></p>`;
 };
 
 export { passageWeight, weightPrompt, weightType };

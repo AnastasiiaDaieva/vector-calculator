@@ -31,6 +31,5 @@
   "calculator_result_max_weight": "Максимально допустимый вес",
   "calculator_sender_warning": "Укажите страну отправителя.",
   "calculator_sender_placeholder": "Cтрана отправителя.",
-  "test": "Cтрана отправителя.",
-  "test2": "Cтрана отправителя."
+  "calculator_result_min_value_fee_static": "доплата до минимальной стоимости"
 }

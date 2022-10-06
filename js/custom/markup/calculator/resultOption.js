@@ -15,17 +15,43 @@ const deliveryTypeInfo = (
   price,
   time,
   days,
-  brokerFeePromptHtml
+  feeDetailsPromptHtml
 ) => {
-  return `<div class="feature-box-info mb-5"><h4 class="font-weight-bold line-height-1 custom-font-size-1 mb-1">${title}</h4>${weight}<p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${time}</span><span class="dynamic-values-fontweight" localization-key="calculator_result_deliveryDays"> ${days}</span> -</span><span localization-key="calculator_result_time_static"> длительность доставки</span></p><div class="custom-text-color-grey-1 mb-1 priceElement"><span class="dynamic-values-fontweight">${price} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span> ${brokerFeePromptHtml} </div></div>`;
+  return `<div class="feature-box-info mb-5"><h4 class="font-weight-bold line-height-1 custom-font-size-1 mb-1">${title}</h4>${weight}<p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${time}</span><span class="dynamic-values-fontweight" localization-key="calculator_result_deliveryDays"> ${days}</span> -</span><span localization-key="calculator_result_time_static"> длительность доставки</span></p><div class="custom-text-color-grey-1 mb-1 priceElement"><span class="dynamic-values-fontweight">${price} -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span> ${feeDetailsPromptHtml} </div></div>`;
 };
 
-const brokerFeePrompt = (basicFee, brokerFee, currency) => {
-  return `<div class="promptContainer"><img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/><div class="pricePrompt displayNone"><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight" >${
-    numberWithSeparator(basicFee) + currency
-  } -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${
-    numberWithSeparator(brokerFee) + currency
-  } -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span></p></div></div>`;
+const feeDetailsPrompt = (price, currency) => {
+  const { minPriceFee, brokerFee, deliveryPrice } = price;
+  const brokerFeeHtml = brokerFeeForDetailsPrompt(brokerFee, currency);
+  const minPriceFeeHtml = minPriceFeeForDetailsPrompt(minPriceFee, currency);
+
+  if (brokerFee || minPriceFee) {
+    return `<div class="promptContainer"><img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/><div class="pricePrompt displayNone"><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight" >${
+      numberWithSeparator(deliveryPrice) + currency
+    } -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p>${brokerFeeHtml}${minPriceFeeHtml}</div></div>`;
+  } else {
+    return "";
+  }
+};
+
+const brokerFeeForDetailsPrompt = (brokerFee, currency) => {
+  if (brokerFee) {
+    return `<p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${
+      numberWithSeparator(brokerFee) + currency
+    } -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span></p>`;
+  } else {
+    return "";
+  }
+};
+
+const minPriceFeeForDetailsPrompt = (minPriceFee, currency) => {
+  if (minPriceFee) {
+    return `<p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${
+      numberWithSeparator(minPriceFee) + currency
+    } -</span><span localization-key="calculator_result_min_value_fee_static"> доплата до минимальной стоимости</span></p>`;
+  } else {
+    return "";
+  }
 };
 
 const deliveryTypeMaxWeight = (title, maxWeight) => {
@@ -35,6 +61,6 @@ export {
   deliveryTypeLogo,
   resultOption,
   deliveryTypeInfo,
-  brokerFeePrompt,
+  feeDetailsPrompt,
   deliveryTypeMaxWeight,
 };

@@ -13,7 +13,7 @@ import {
   weightType,
 } from "./markup/calculator/passageWeight.js";
 import {
-  brokerFeePrompt,
+  feeDetailsPrompt,
   deliveryTypeInfo,
   deliveryTypeLogo,
   deliveryTypeMaxWeight,
@@ -61,6 +61,8 @@ export default async function buildTableNew(
       withDimensions,
       weightUnit,
       resultWeight,
+      deliveryPrice,
+      minPriceFee,
     } = arrayItem;
     console.log(arrayItem);
 
@@ -79,15 +81,6 @@ export default async function buildTableNew(
     } else {
       //deliveryTypeInfo
 
-      // brokerFeePromptHtml
-      const brokerFeePromptHtml = (brokerFeeValue, currency) => {
-        if (brokerFeeValue) {
-          return brokerFeePrompt(price, brokerFeeValue, currency);
-        } else {
-          return "";
-        }
-      };
-
       // option
 
       const weightPromptHtml = (withDimensions) => {
@@ -104,7 +97,7 @@ export default async function buildTableNew(
         weightPromptHtml(withDimensions)
       );
 
-      const priceLine = `${price + calcData.brokerFeeValue}${currencySymbol}`;
+      const priceLine = `${price.totalPrice}${currencySymbol}`;
 
       option = deliveryTypeInfo(
         title,
@@ -112,14 +105,18 @@ export default async function buildTableNew(
         numberWithSeparator(priceLine),
         deliveryTime,
         getDaysEnding(deliveryTime, languageParam),
-        brokerFeePromptHtml(calcData.brokerFeeValue, currencySymbol)
+        feeDetailsPrompt(
+          price,
+
+          currencySymbol
+        )
       );
 
       return `<div class="result-option">${logo} ${option}</div>`;
     }
   };
 
-  const options = calcData.rates.map(resultOption).join("");
+  const options = calcData.map(resultOption).join("");
 
   calcResult.insertAdjacentHTML("beforeend", resultContainer(options));
 }

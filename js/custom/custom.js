@@ -48,7 +48,7 @@ async function handleSubmit(e) {
 
   const getPrices = sendData(request, ownerParam);
 
-  const calcData = await Promise.resolve(getPrices);
+  const { rates: calcData } = await Promise.resolve(getPrices);
   console.log("custom calcData", calcData);
   const getCountryName = await getNameFromAbbreviation(
     BASE_WITH_API,
@@ -69,21 +69,28 @@ async function handleSubmit(e) {
     getCountryName,
     languageParam
   );
-
-  if (calcData.rates[0].withDimensions) {
-    document
-      .querySelector(".withDimensionsNotification")
-      .addEventListener("mouseover", function () {
-        document.querySelector(".weightPrompt").classList.remove("displayNone");
+  const withDimensionsFields = calcData.some(
+    (rate) => rate.withDimensions === true
+  );
+  if (withDimensionsFields) {
+    const containers = document.querySelectorAll(".weightPromptContainer");
+    containers.forEach((container) => {
+      container.addEventListener("mouseover", function () {
+        container
+          .querySelector(".weightPrompt")
+          .classList.remove("displayNone");
       });
-    document
-      .querySelector(".withDimensionsNotification")
-      .addEventListener("mouseout", function () {
-        document.querySelector(".weightPrompt").classList.add("displayNone");
+      container.addEventListener("mouseout", function () {
+        container.querySelector(".weightPrompt").classList.add("displayNone");
       });
+    });
   }
 
-  if (calcData.brokerFeeValue) {
+  const additionalFeeFields = calcData.some(
+    ({ price }) => price.brokerFeeValue > 0 || price.minPriceFee > 0
+  );
+
+  if (additionalFeeFields) {
     const containers = document.querySelectorAll(".promptContainer");
 
     containers.forEach((container) => {
