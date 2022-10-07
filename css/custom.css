@@ -515,6 +515,7 @@ section.section.prohibited-section {
     right: 16%;
     top: 20px;
     font-size: 16px;
+    max-width: 300px;
   }
 
   section.section.how-it-works-section {
@@ -599,6 +600,7 @@ section.section.prohibited-section {
 
   .pricePrompt {
     font-size: 14px;
+    max-width: 300px;
   }
 
   section.section.how-it-works-section {

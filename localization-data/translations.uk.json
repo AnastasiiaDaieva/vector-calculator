@@ -31,5 +31,6 @@
   "calculator_result_max_weight": "Максимально допустима вага",
   "calculator_sender_warning": "Вкажіть країну відправника.",
   "calculator_sender_placeholder": "Країна відправника.",
-  "calculator_result_min_value_fee_static": "доплата до мінімальної вартості"
+  "calculator_result_min_value_fee_static": "доплата до мінімальної вартості",
+  "calculator_result_pallet_oversize_fee_static": "надбавка за перевищення розміру палети"
 }

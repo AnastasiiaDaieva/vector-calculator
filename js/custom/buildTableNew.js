@@ -61,8 +61,6 @@ export default async function buildTableNew(
       withDimensions,
       weightUnit,
       resultWeight,
-      deliveryPrice,
-      minPriceFee,
     } = arrayItem;
     // console.log(arrayItem);
 

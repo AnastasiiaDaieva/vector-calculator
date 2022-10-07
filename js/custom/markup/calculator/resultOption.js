@@ -1,5 +1,10 @@
 import { numberWithSeparator } from "../../numberWithSeparator.js";
-import { BASE_URL } from "../../variables.js";
+import {
+  palletOversizeText,
+  brokerFeeText,
+  minPriceText,
+  BASE_URL,
+} from "../../variables.js";
 
 const resultOption = (logo, option) => {
   return `<div class="result-option">${logo} ${option}</div>`;
@@ -21,14 +26,30 @@ const deliveryTypeInfo = (
 };
 
 const feeDetailsPrompt = (price, currency) => {
-  const { minPriceFee, brokerFee, deliveryPrice } = price;
-  const brokerFeeHtml = brokerFeeForDetailsPrompt(brokerFee, currency);
-  const minPriceFeeHtml = minPriceFeeForDetailsPrompt(minPriceFee, currency);
+  const { minPriceFee, brokerFee, deliveryPrice, palletOversizeFee } = price;
+  const brokerFeeHtml = feePromptLine(brokerFee, currency, brokerFeeText);
+  const minPriceFeeHtml = feePromptLine(minPriceFee, currency, minPriceText);
 
-  if (brokerFee || minPriceFee) {
+  const palletOversizeFeeHtml = feePromptLine(
+    palletOversizeFee,
+    currency,
+    palletOversizeText
+  );
+
+  if (brokerFee || minPriceFee || palletOversizeFee) {
     return `<div class="promptContainer"><img class="priceNotification" src="img/icons/gen005.svg" alt="prompt" height="20px" width="20px"/><div class="pricePrompt displayNone"><p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight" >${
       numberWithSeparator(deliveryPrice) + currency
-    } -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p>${brokerFeeHtml}${minPriceFeeHtml}</div></div>`;
+    } -</span><span localization-key="calculator_result_price_static"> стоимость доставки</span></p>${brokerFeeHtml}${minPriceFeeHtml}${palletOversizeFeeHtml}</div></div>`;
+  } else {
+    return "";
+  }
+};
+
+const feePromptLine = (addFee, currency, text) => {
+  if (addFee) {
+    return `<p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${
+      numberWithSeparator(addFee) + currency
+    } -</span><span localization-key=${text.key}> ${text.text}</span></p>`;
   } else {
     return "";
   }

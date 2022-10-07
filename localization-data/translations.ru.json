@@ -31,5 +31,6 @@
   "calculator_result_max_weight": "Максимально допустимый вес",
   "calculator_sender_warning": "Укажите страну отправителя.",
   "calculator_sender_placeholder": "Cтрана отправителя.",
-  "calculator_result_min_value_fee_static": "доплата до минимальной стоимости"
+  "calculator_result_min_value_fee_static": "доплата до минимальной стоимости",
+  "calculator_result_pallet_oversize_fee_static": "надбавка за превышение размера паллеты"
 }
