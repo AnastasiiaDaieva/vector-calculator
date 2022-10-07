@@ -29,8 +29,17 @@ const ownerParam = params.get("owner") || 6;
 // const signUpLink = params.get("");
 
 const parent = window.parent;
-function sendHeight() {
-  parent.postMessage(window.document.body.clientHeight, "*");
+function sendHeight(promptHeight) {
+  let totalHeight;
+  if (promptHeight) {
+    totalHeight = window.document.body.clientHeight + promptHeight;
+    parent.postMessage(totalHeight, "*");
+    console.log("th", totalHeight);
+  } else {
+    parent.postMessage(window.document.body.clientHeight, "*");
+  }
+
+  console.log(window.document.body.clientHeight);
 }
 
 async function handleSubmit(e) {
@@ -92,7 +101,8 @@ async function handleSubmit(e) {
           container
             .querySelector(".pricePrompt")
             .classList.remove("displayNone");
-          sendHeight();
+
+          sendHeight(container.querySelector(".pricePrompt").offsetHeight);
         });
         container.addEventListener("mouseout", function () {
           container.querySelector(".pricePrompt").classList.add("displayNone");
