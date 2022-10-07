@@ -55,26 +55,6 @@ const feePromptLine = (addFee, currency, text) => {
   }
 };
 
-const brokerFeeForDetailsPrompt = (brokerFee, currency) => {
-  if (brokerFee) {
-    return `<p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${
-      numberWithSeparator(brokerFee) + currency
-    } -</span><span localization-key="calculator_result_custom_fee_static"> таможенный сбор</span></p>`;
-  } else {
-    return "";
-  }
-};
-
-const minPriceFeeForDetailsPrompt = (minPriceFee, currency) => {
-  if (minPriceFee) {
-    return `<p class="custom-text-color-grey-1 mb-1"><span class="dynamic-values-fontweight">${
-      numberWithSeparator(minPriceFee) + currency
-    } -</span><span localization-key="calculator_result_min_value_fee_static"> доплата до минимальной стоимости</span></p>`;
-  } else {
-    return "";
-  }
-};
-
 const deliveryTypeMaxWeight = (title, maxWeight) => {
   return `<div class="feature-box-info mb-5"><h4 class="font-weight-bold line-height-1 custom-font-size-1 mb-1">${title}</h4><span class="result-notification"><span localization-key="calculator_result_max_weight">Максимально допустимый вес</span> - ${maxWeight}.</span></div>`;
 };

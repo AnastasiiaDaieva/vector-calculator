@@ -48,7 +48,7 @@ async function handleSubmit(e) {
   const getPrices = sendData(request, ownerParam);
 
   const { rates: calcData } = await Promise.resolve(getPrices);
-  console.log("custom calcData", calcData);
+  // console.log("custom calcData", calcData);
   if (calcData) {
     const getCountryName = await getNameFromAbbreviation(
       BASE_WITH_API,
